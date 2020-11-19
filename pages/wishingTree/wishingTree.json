@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "许愿树",
+  "disableScroll": true,
+  "usingComponents": {
+    "dialog": "/components/dialog/dialog",
+    "w-top": "../../components/top/top",
+    "w-authorize": "../../components/authorize/index"
+  }
+  
+}

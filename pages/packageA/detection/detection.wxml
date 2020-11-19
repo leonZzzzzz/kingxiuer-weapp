@@ -1,0 +1,96 @@
+<w-top></w-top>
+<view style='text-align: center;'>
+  <image class='avtor' src='{{content.memberHeadImage}}'></image>
+  <view class='nickname'>{{content.memberAppellation}}</view>
+  <!-- <view class='title' wx:if="{{content.main.title!='无匹配结果'}}">{{content.main.title}}</view> -->
+</view>
+<!-- <view class='content'>
+  <rich-text nodes="{{content.main.content}}"></rich-text>
+</view> -->
+<view class='recommon'>
+  <view class='profix'><text>您的检测结果</text></view>
+  <view wx:if='{{jieguo&&jieguo.length>0}}' style='padding:30rpx 0'>
+    <view wx:for='{{jieguo}}'>{{index+1}}.{{item}}</view>
+  </view>
+  <div style='margin-top:20rpx;'>
+    本测试仅给出简单建议，对性激素六项报告的解读以医生建议为准。如果您对于测评提示还有疑问，或想获得更详细备孕指导及检测结果解读，可以添加备孕顾问微信（jinxiuer004），预约爱源堂专科门诊部医生，进行视频备孕咨询或图文咨询。
+  </div>
+  <!-- <view style='overflow: hidden;'  wx:if="{{content.main.title!='无匹配结果'}}">
+    <rich-text nodes="{{content.main.content}}"></rich-text>
+  </view> -->
+</view>
+<view class='content'>
+  <view class='anal'>答案解析</view>
+  <view wx:for='{{analysis}}'>
+    <view style='font-size:28rpx;'>
+      <text>{{item.sortNumber}}.{{item.title}}</text>
+      <image wx:if="{{item.image}}" style='width:670rpx' mode='widthFix' src='{{imageurl+item.image}}'></image>
+    </view>
+    <!-- <view class='anal-box' style='color:rgb(86, 184, 6)'>
+      <text>答案：</text> -->
+      <view class='anal-box' style='color:rgb(86, 184, 6)'>
+        <block wx:for='{{item.options}}' wx:for-item='val'>
+          <view wx:if='{{item.type=="single_choice"||item.type=="multi_choice"||item.type=="gender"}}'>
+            <block wx:if='{{val.checked}}'>{{val.title}}
+              <!-- <text wx:if='{{item.num&&item.num>1}}'>，</text> -->
+            </block>
+            <image wx:if='{{val.checked&&val.image}}' style='width:620rpx' mode='widthFix' src='{{imageurl+val.image}}'></image>
+          </view>
+          <view wx:else>{{val.answer}}</view>
+
+          <view wx:if='{{val.analysis}}' style='margin:15rpx 0rpx;color:rgb(113,39,38)'>
+            <view wx:if='{{item.type=="single_choice"||item.type=="multi_choice"||item.type=="gender"}}'>
+              <block wx:if='{{val.checked}}'>解析：{{val.analysis}}</block>
+              <!-- <image wx:if='{{val.checked&&val.image}}' style='width:620rpx' mode='widthFix' src='{{imageurl+val.image}}'></image> -->
+            </view>
+            <view wx:else>{{val.analysis}}
+              <!-- <image wx:if='{{val.checked&&val.image}}' style='width:620rpx' mode='widthFix' src='{{imageurl+val.image}}'></image> -->
+            </view>
+          </view>
+        </block>
+      </view>
+    <!-- </view> -->
+    
+    <!-- <view wx:for='{{item.options}}' wx:for-item='val' class='anal-box'>
+      <block wx:if='{{val.analysis}}'>
+        <view wx:if='{{item.type=="single_choice"||item.type=="multi_choice"||item.type=="gender"}}'>
+          <block wx:if='{{val.checked}}'>{{val.title}}：{{val.analysis}}</block>
+          <image wx:if='{{val.checked&&val.image}}' style='width:620rpx' mode='widthFix' src='{{imageurl+val.image}}'></image>
+        </view>
+        <view wx:else>{{val.analysis}}
+          <image wx:if='{{val.checked&&val.image}}' style='width:620rpx' mode='widthFix' src='{{imageurl+val.image}}'></image>
+        </view>
+      </block>
+    </view> -->
+  </view>
+</view>
+<view class='recommon' style='display:none'>
+  <view class='profix'><text>推荐商品</text></view>
+  <view class='product'>
+    <view class='procontent'>
+      <image src='../../assets/img/bandingliang.jpg'></image>
+      <test>商品名称商品名称</test>
+      <view>￥88.00</view>
+    </view>
+  </view>
+  <view class='product'>
+    <view class='procontent'>
+      <image src='../../assets/img/bandingliang.jpg'></image>
+      <test>商品名称商品名称</test>
+      <view>￥88.00</view>
+    </view>
+  </view>
+  <view class='product'>
+    <view class='procontent'>
+      <image src='../../assets/img/bandingliang.jpg'></image>
+      <test>商品名称商品名称</test>
+      <view>￥88.00</view>
+    </view>
+  </view>
+</view>
+<view class='share'>
+  <text bindtap='testagain'>再测一次</text>
+  <button class='btn' open-type="share">
+    <text style='margin-left:10rpx'>分享给朋友测试</text>
+  </button>
+</view>

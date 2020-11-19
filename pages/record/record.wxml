@@ -1,0 +1,76 @@
+<w-top></w-top>
+<view id="record">
+  <image class='bg-img' src="http://kingsuer-1255600302.file.myqcloud.com/attachments/assets/img/bg-record.png"></image>
+  <view class='header'>
+    <view class='title'>经期{{step==3?'设置':'管理'}}</view>
+    <view class='wrap'>
+      <view class='item'>
+        <view class='list'>
+          <view class='step' style="background:{{step >= 1?'#fff':'#fee0ec'}}">1</view>
+          <view>出生年月</view>
+        </view>
+        <view class='list'>
+          <view class='step' style="background:{{step >= 2?'#fff':'#fee0ec'}}">2</view>
+          <view>最近一次经期</view>
+        </view>
+        <view class='list'>
+          <view class='step' style="background:{{step >= 3?'#fff':'#fee0ec'}}">3</view>
+          <view>间隔时间</view>
+        </view>
+      </view>
+      <view class='line'></view>
+    </view>
+  </view>
+  <picker mode="date" fields="month" value="{{birth}}" data-type="birth" start="1900-01" end="{{theMonth}}" bindchange="onChangeData" wx:if="{{step == 1}}">
+    <view class="input-wrap">
+      <text class='label'>出生年月</text>
+      <text class='value'>{{birth}}</text>
+    </view>
+  </picker>
+  <picker mode="date" value="{{recentMenstrual}}" data-type="recentMenstrual" start="2000-01" end="{{toDay}}" bindchange="onChangeData" wx:elif="{{step == 2}}">
+    <view class="input-wrap">
+      <text class='label'>末次月经第一天</text>
+      <text class='value'>{{recentMenstrual}}</text>
+    </view>
+  </picker>
+  <block wx:else>
+    <view class="input-wrap">
+      <text class='label'>每次月经天数</text>
+      <input class='value' type="number" value='{{intervalDay}}' data-type="intervalDay" bindinput="onChangeData" maxlength="3"></input>
+    </view>
+    <view class="input-wrap">
+      <text class='label'>最短间隔天数</text>
+      <input class='value' type="number" value='{{shortPeriod}}' data-type="shortPeriod" bindinput="onChangeData" maxlength="3"></input>
+    </view>
+    <view class="input-wrap">
+      <text class='label'>最长间隔天数</text>
+      <input class='value' type="number" value='{{longPeriod}}' data-type="longPeriod" bindinput="onChangeData" maxlength="3"></input>
+    </view>
+  </block>
+  <view class='btn-wrap' wx:if="{{step == 1}}">
+    <button class='btn-next' bindtap='next'>下一步</button>
+  </view>
+  <view class='btn-wrap' wx:elif="{{step == 2}}">
+    <button class='btn-next' style="background:#e5c986" bindtap='perv'>上一步</button>
+    <button class='btn-next' bindtap='next'>下一步</button>
+  </view>
+  <view class='btn-wrap' wx:else>
+    <button class='btn-next' style="background:#e5c986" bindtap='perv'>上一步</button>
+    <!-- <button class='btn-next' bindtap='success'>确定</button> -->
+    <button class='btn-next' open-type='getUserInfo' bindgetuserinfo='success'>确定</button>
+  </view>
+</view>
+<view class='footer' wx:if="{{step != 1}}">
+  <text>如果记不清楚，那就先选择一个近似值，或按照默认日期，以待下次修改吧~</text>
+</view>
+
+<view class="authorize-wrap" wx:if="{{showModel && (userType == '1' || mobile === '1')}}">
+    <view class="authorize-box">
+      <view class="title" style='text-align:center;padding:15px 0;'>申请授权</view>
+      <view class="msg">为了更好的体验，我们需要获取你的昵称，头像！</view>
+      <view class="btns">
+        <view class="btn cancel-btn" bindtap="onCancel">取消</view>
+        <button class="btn confirm-btn" open-type='getUserInfo' bindgetuserinfo='getUserInfo'>授权</button>
+      </view>
+    </view>
+  </view>

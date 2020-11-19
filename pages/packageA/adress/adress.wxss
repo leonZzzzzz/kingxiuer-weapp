@@ -1,0 +1,36 @@
+page{
+  background:rgb(245, 243, 243);
+}
+.choose-item{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  /* width: 100%; */
+  padding: 25rpx;
+  padding-bottom: 25rpx;
+  background:#fff;
+}
+.label-txt{
+  width: 30%;
+  color: #666666;
+  font-size: 32rpx;
+}
+.picker-text{
+  width: 66%;
+  color: #999999;
+  font-size: 32rpx;
+  text-align: right;
+}
+.arrow-down{
+  width: 30rpx;
+}
+.btn{
+  margin: 20rpx;
+  background: #faa4a3;
+  text-align: center;
+  padding: 20rpx 0;
+  border-radius: 10rpx;
+  margin-top: 50rpx;
+  color:#fff;
+}

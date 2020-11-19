@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "接受邀请",
+  "usingComponents": {
+    "w-top": "../../../components/top/top"
+  }
+}

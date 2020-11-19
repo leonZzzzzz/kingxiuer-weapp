@@ -1,0 +1,406 @@
+.header {
+  position: absolute;
+  /* top: 78rpx; */
+  top: 155rpx;
+  width: 100%;
+}
+.header>.date{
+  display:flex;
+  align-items: center;
+  padding: 15rpx 170rpx;
+justify-content: space-between;
+}
+.clickicon{
+  width:100rpx;
+  text-align: center;
+  height:100rpx;
+  line-height: 100rpx;
+}
+.changedata{
+  display: flex;
+margin: 20rpx;
+font-size: 34rpx;
+justify-content: center;
+align-items: center;
+}
+.changedata>view{
+  padding:0 10rpx;
+}
+page{
+  position: relative;
+  height:100%;
+}
+.cont{
+  text-align: center;
+  margin:20rpx;
+}
+.cont>.title{
+  font-size:34rpx;
+}
+.cont>.explain{
+  font-size:26rpx;
+  margin-top:2rpx;
+}
+
+/*提示*/
+
+.tip {
+  margin: 100px auto;
+  text-align: center;
+  font-size: 32rpx;
+  color: #555;
+}
+
+/*图表 */
+
+.graph {
+  position: relative;
+}
+
+.graph-head{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.chart-wrap {
+  width: 100%;
+  /* margin-top: 20rpx */
+}
+
+.table-wrap {
+  margin-top: 100rpx;
+  padding: 0 20rpx;
+}
+
+.table-wrap:after {
+  content: '';
+  height: 0;
+  clear: both;
+}
+
+/*年份*/
+
+.year {
+  padding: 2rpx 0;
+  padding-right: 12rpx;
+  font-size: 24rpx;
+  color: #fff;
+  line-height: 1;
+  background: #e0cb99;
+  border-radius: 0 8px 8px 0;
+}
+
+/*说明*/
+
+.intro {
+  padding: 6rpx 40rpx;
+  background: transparent;
+  border-radius: 20px;
+  font-size: 28rpx;
+  line-height:1;
+  color: #ff8b8b;
+  border: 1px solid #FF8B8B;
+  z-index:8;
+}
+
+.explainBtn{
+  display: flex;
+  /* justify-content: space-around; */
+  justify-content: center;
+  font-size:28rpx;
+}
+.explainBtn .yuejing,
+.explainBtn .pailuan,
+.explainBtn .pailuanDay{
+  /* font-size: 12pt; */
+  display: flex;
+  line-height: 11pt;
+  
+}
+.explainBtn .yuejing .yuejingIcon,
+.explainBtn .pailuan .pailuanIcon,
+.explainBtn .pailuanDay .pailuanDayIcon{
+  /* font-size: 12pt; */
+  height: 11pt;
+  width: 11pt;
+  border-radius: 50%;
+  margin:0pt 5pt 0pt 5pt
+  
+}
+
+.explainBtn .yuejing .yuejingIcon{
+  background-color: rgb(253, 180, 207);
+}
+.explainBtn .pailuan{
+  margin: 0pt 15pt 0pt 15pt;
+}
+.explainBtn .pailuan .pailuanIcon{
+  background-color:#AEDB88;
+}
+.explainBtn .pailuanDay .pailuanDayIcon{
+  background-color: #5BAC17;
+} 
+
+
+.ul {
+  display: flex;
+  /* justify-content: center; */
+  width: 100%;
+  font-size: 24rpx;
+  margin-top: 6px;
+  /* padding:0 40rpx; */
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.ul .li {
+  width: 50px;
+  vertical-align: top;
+}
+
+.ul .li:last-child {
+  margin-right: 42px;
+}
+
+.ul .li .li-item {
+  height: 50rpx;
+  line-height: 50rpx;
+  text-align: center;
+  font-size:24rpx;
+  color: #555;
+  border-bottom: 1px solid #e0cb99;
+  border-right:1px solid #e0cb99;
+}
+
+.ul .li .li-item-num {
+  width: 40px;
+  color: #e0cb99;
+}
+
+.ul .li .li-item:first-child {
+  border-top: 1px solid #e0cb99;
+  color: #e0cb99;
+}
+
+/*单位*/
+
+.unit {
+  float: right;
+  margin-top:5px;
+  font-size: 24rpx;
+  color: #e0cb99;
+}
+
+.unit::after {
+  content: '';
+  height: 0;
+  clear: both;
+}
+.viewbtn{
+  color:#FAA4A3;
+}
+.viewbtn>text{
+  border:1px solid #FAA4A3;
+  border-radius: 50rpx;
+  padding:2rpx 30rpx;
+  font-size:28rpx;
+  margin-left:10rpx;
+}
+.container{
+  z-index:-22
+}
+ec-canvas {
+  width: 100%;
+  height: 100%;
+  z-index:-22;
+}
+
+
+.tooltipContainer {
+  z-index: 1000 !important;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  top: 30rpx;
+  color: white;
+  border-radius: 6rpx;
+  /* padding: 20rpx; */
+font-size: 28rpx;
+}
+.tooltip {
+  display: flex;
+  padding: 6rpx 16rpx;
+  justify-content: flex-start;
+ 
+}
+.tooltipdata{
+  background: #faa4a3;
+padding: 10rpx 20rpx;
+text-align: center;
+}
+.tooltipbtn{
+  display:flex;
+  margin-top:20rpx;
+  padding: 0 20rpx 20rpx 20rpx;
+}
+.tooltipwat{
+  color:#9A7475;
+  text-align: center;
+  padding:20rpx 30rpx;
+}
+.toolbtn1{
+  color:#FAA4A3;
+  padding: 5rpx 15rpx;
+  border: 1px solid #FAA4A3;
+  border-radius: 40rpx;
+}
+.toolbtn2{
+  padding: 5rpx 15rpx;
+  border: 1px solid #FAA4A3;
+  border-radius: 40rpx;
+  background:#FAA4A3;
+  color:#fff;
+  margin-left:10rpx;
+
+}
+
+
+.toolTop{
+  background:#eee;
+  width:710rpx;
+  margin-left:20rpx;
+  position:fixed;
+  bottom:20rpx;
+  z-index:99999;
+}
+.tipdate{
+  background: #FAA4A3;
+display: flex;
+border-top-left-radius: 10rpx;
+border-top-right-radius: 10rpx;
+padding:10rpx 20rpx;
+position:relative;
+}
+
+.tipdate>.shanchu{
+  position: absolute;
+right: 2rpx;
+top: 2rpx;
+font-size: 40rpx;
+color:#fff;
+}
+.tiptemp{
+  flex-direction: column;
+  color:#fff;
+  display:flex;
+  margin-left: 20rpx;
+margin-top: 7rpx;
+}
+.tipbtn{
+  background:#FDEEEE;
+  padding: 20rpx;
+text-align: center;
+}
+.tipbtn>text:first-child{
+  color:#fff;
+  background:#FAA4A3;
+  border-radius: 40rpx;
+  padding:3rpx 20rpx;
+  border:1rpx solid #FAA4A3;
+  margin-right:20rpx;
+}
+.tipbtn>text:last-child{
+  color:#FAA4A3;
+  border-radius: 40rpx;
+  padding:3rpx 20rpx;
+  border:1rpx solid #FAA4A3;
+}
+.dalday{
+  flex: 108rpx 0;
+  height: 108rpx;
+  line-height: 108rpx;
+  text-align: center;
+  position: relative;
+}
+.dalday>.rili{
+  font-size:87rpx;
+  color:#fff;
+}
+.tipday{
+  position: absolute;
+  width: 108rpx;
+  top: 6rpx;
+  font-size: 36rpx;
+  font-weight: bold;
+  
+}
+
+/* components/service/service.wxss */
+@import "../../iconfont.wxss";
+.serviceIcon{
+  width: 35pt;
+  height: 35pt;
+  border-radius: 50%;
+  color: #ffffff;
+  background-color: #FC9CC0;
+  position: fixed;
+  bottom: 150rpx;
+  right: 15rpx;
+  font-size: 20rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 13rpx;
+  line-height: normal;
+}
+
+.model{
+  width:100%;
+  height:100%;
+  position:fixed;
+  top:0;
+}
+.mengceng{
+width: 100%;
+height: 100%;
+background: #000;
+opacity: 0.6;
+}
+.ucode{
+  position: absolute;
+top: 260rpx;
+width: 550rpx;
+height: 650rpx;
+background: #fff;
+border-radius: 10rpx;
+left: 100rpx;
+}
+.ucode>image{
+  width:510rpx;
+  margin:20rpx;
+}
+.ucode>view{
+  background:#faa4a3;
+  color:#fff;
+  padding:20rpx 0;
+  width:480rpx;
+  text-align: center;
+  border-radius: 50rpx;
+  margin-left:35rpx;
+}
+
+
+.cartIcon {
+  height: 100rpx;
+  width:100rpx;
+  border-radius: 50%;
+  color: #ffffff;
+  background-color:#FF9E9E;
+  align-items: center;
+  padding: 13rpx;
+  line-height: 80rpx;
+}
+.cartIcon>text{
+  font-size: 50rpx;
+}
+    

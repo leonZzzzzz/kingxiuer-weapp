@@ -1,0 +1,33 @@
+/* components/buy/buy.wxss *//* components/service/service.wxss */
+@import "../../iconfont.wxss";
+/* .cartIcon{
+  width: 35pt;
+  height: 35pt;
+  border-radius: 50%;
+  color: #ffffff;
+  background-color: #FC9CC0;
+  position: fixed;
+  bottom: 50rpx;
+  right: 15rpx;
+  font-size: 20rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 13rpx;
+  line-height: normal;
+} */
+
+
+.cartIcon {
+  height: 100rpx;
+  width:100rpx;
+  border-radius: 50%;
+  color: #ffffff;
+  background-color:#FF9E9E;
+  align-items: center;
+  padding: 13rpx;
+  line-height: 80rpx;
+}
+.cartIcon>text{
+  font-size: 50rpx;
+}

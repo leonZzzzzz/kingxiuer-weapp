@@ -1,0 +1,371 @@
+<w-top></w-top>
+<view class="nav-wrap">
+  <view class='nav-item'>
+    <view class='nav-list' bindtap='toggleTab' data-index="1">普通</view>
+    <view class='nav-list' bindtap='toggleTab' data-index="2">半定量</view>
+    <view class='nav-list' bindtap='toggleTab' data-index="3">验孕</view>
+  </view>
+  <view class='nav-bar' style="left:{{left}}"></view>
+</view>
+<w-split height="20" color="#f2f2f2" />
+<view class="main" hidden="{{pageIndex != 1}}">
+
+
+  <!-- 普通部分 -->
+  <!-- 排卵情况部分 --> 
+  <view class="swiper-wrap">
+    <!-- 左右滑动 -->
+    <!-- <view class='swiper-wrap_btn swiper-wrap_btn--left icon i-zuocehua' data-current='0' bindtap='chuangeShowPage'></view> -->
+    <!-- <view class='swiper-wrap_btn swiper-wrap_btn--right icon i-zuocehua-copy' data-current='1' bindtap='chuangeShowPage'></view> -->
+    <!-- 排卵轮播图 -->
+    <swiper class="wx-swiper" bindchange="chuangeShowPage" current="{{normalPageCurrent}}" indicator-active-color="#e1738f" indicator-color="#fddee5">
+      <swiper-item class="wx-swiper--item">
+        <view class="title">排卵表格</view>
+        <view class="explain">试纸强阳建议用半定量锁定排卵日哦！</view>
+      </swiper-item>
+    </swiper>
+  </view>
+  <!-- 验孕结果 普通排卵表格 -->
+  <!-- <scroll-photo id="scroll-photo" wx:if="{{pageIndex == 1 && normalPageCurrent == 0}}" url="/ovulate/getList.do?type=1" bind:toFatherPage='isShowDelModal'></scroll-photo> -->
+  <view class="scroll-photo">
+    <view class="scroll-photo_header">
+      <text class="scroll-photo_year">{{year}}</text>
+      <navigator class="scroll-photo_intro" url="../packageA/question/question?type=2">说明</navigator>
+    </view>
+    <!-- 验孕结果 -->
+    <scroll-view class="scroll-photo_content " scroll-y="true" style="height:40vh" wx:if="{{rows.length !== 0}}" bindscroll="scrollChange">
+      <view class="scroll-photo_list {{item.isTouchMove ? 'touch-move-active' : ''}}" wx:for="{{rows}}" wx:key="{{index}}" bindtouchmove="touchmove" data-index="{{index}}" bindtouchstart="touchstart">
+        <view class="content" bindlongpress='longPress' data-id="{{item.id}}" data-date="{{item.monthDay}}" data-time="{{item.time}}">
+          <view class="scroll-photo_date">{{item.monthDay}}</view>
+          <view class="scroll-photo_img-wrap">
+            <!-- 按规范拍出的图片 得出C线的大概位置 53% -->
+            <image class="image" src="{{item.fullImg}}" wx:if="{{ item.valueClocation }}" style="margin-left: {{item.valueClocation_2}}%;"></image>
+            <image class="image" src="{{item.fullImg}}" wx:else></image>
+          </view>
+          <!-- style="background:{{item.lhValue == 1?styleBgColor.negative:item.lhValue == 0?styleBgColor.invalid:item.lhValue == 3?styleBgColor.qiangyang:styleBgColor.positive}}" -->
+          <view class="scroll-photo_time">{{item.time}}</view>
+          <view wx:if="{{item.lhValue == 0 }}" class="scroll-photo_state" style="background:{{styleBgColor.invalid}}">
+            <text>无效</text>
+          </view>
+          <view wx:if="{{item.lhValue == 1 }}" class="scroll-photo_state" style="background:{{styleBgColor.negative}}">
+            <text>阴性</text>
+          </view>
+          <view wx:if="{{item.lhValue == 2 }}" class="scroll-photo_state" style="background:{{styleBgColor.positive}}">
+            <text>弱阳</text>
+          </view>
+          <view wx:if="{{item.lhValue == 3 }}" class="scroll-photo_state" style="background:#5BAC17">
+            <text>阳性</text>
+          </view>
+          <view wx:if="{{item.lhValue == 4 }}" class="scroll-photo_state" style="background:#5BAC17;line-height: 36rpx;">
+            <text  style="white-space:pre-wrap">强阳 \n建议同房</text>
+          </view>
+         
+          <view class="del" bindtap="toFatherPage" data-id="{{item.id}}">删除</view>
+        </view>
+      </view>
+    </scroll-view>
+    <view class="choice" wx:else>
+        <image style='width:775rpx;' mode="widthFix" src='{{imageurl}}/attachments/null/ac10100d7328aee8017328c4db3e0034.jpg'></image>
+      <!-- <view wx:for="{{stateName}}" bindtap="activeState" wx:key="{{index}}" class="state {{activeIndex==item.index?'activeState':''}}" data-index="{{item.index}}">
+        <view class="label">{{item.state}}</view>
+        <image class="img" style="height:52rpx;" src="../../assets/img/i-states{{item.index}}.jpg"></image>
+      </view> -->
+    </view>
+  </view>
+
+  <!-- 删除普通排卵记录 -->
+  <!-- 普通排卵记录 -->
+  <!-- <view hidden='{{pageIndex == 1 && normalPageCurrent == 1}}'>
+    <canvas canvas-id="normal" class="canvas" style="width:100%;height:{{domHeight}}px;margin-top:30px;" bindtouchstart="touchHandler" bindtouchmove="moveHandler" bindtouchend="touchEndHandler"></canvas>
+  </view> -->
+</view>
+
+<!-- 半定量部分 -->
+<view class="main" hidden="{{pageIndex != 2}}">
+  <view class="swiper-wrap">
+    <!-- <view class='swiper-wrap_btn swiper-wrap_btn--left icon i-left2' data-current='0' bindtap='chuangeShowPage'></view>
+    <view class='swiper-wrap_btn swiper-wrap_btn--right icon i-right2' data-current='1' bindtap='chuangeShowPage'></view> -->
+    <swiper class="wx-swiper" bindchange="chuangeShowPage" current="{{normalPageCurrent}}" indicator-active-color="#e1738f" indicator-color="#fddee5" >
+      <swiper-item class="wx-swiper--item">
+        <view class="title">排卵表格</view>
+        <view class="explain">半定量排卵试纸强阳锁定黄金受孕24小时</view>
+      </swiper-item>
+      <!-- <swiper-item class="wx-swiper--item">
+        <view class="title">排卵记录</view>
+        <view class="explain">实时记录排卵情况</view>
+      </swiper-item> -->
+    </swiper>
+  </view>
+  <!-- <scroll-photo id="scroll-photo" wx:if="{{pageIndex == 2 && normalPageCurrent == 0}}" needColor="true" url="/ovulate/getList.do?type=2" type="1" bind:toFatherPage='isShowDelModal'></scroll-photo> -->
+  <view class="scroll-photo" wx:if="{{pageIndex == 2 && normalPageCurrent == 0}}">
+    <view class="scroll-photo_header">
+      <text class="scroll-photo_year">{{year}}</text>
+      <navigator class="scroll-photo_intro" url="../packageA/question/question?type=3">说明</navigator>
+    </view>
+    
+    <!-- 验孕结果 -->
+    <scroll-view class="scroll-photo_content " scroll-y="true" style="height:40vh" wx:if="{{rows.length !== 0}}" bindscroll="scrollChange">
+      <!-- 半定量色标卡 -->
+      <view class="color-guide">
+        <view class='label'>色标卡</view>
+        <image src="{{imageurl}}/attachments/20200908/null/ac10100d746ba81d01746ca3be2e0031.png" style="width:100%;height:25px;"></image>
+      </view>
+      <view class="scroll-photo_list {{item.isTouchMove ? 'touch-move-active' : ''}}" wx:for="{{rows}}" wx:key="{{index}}" bindtouchmove="touchmove" data-index="{{index}}" bindtouchstart="touchstart">
+      <view class="content" bindlongpress='longPress' data-id="{{item.id}}" data-date="{{item.monthDay}}" data-time="{{item.time}}">
+        <view class="scroll-photo_date">{{item.monthDay}}</view>
+        <view class="scroll-photo_img-wrap">
+          <!-- 按规范拍出的图片 得出C线的大概位置 53% -->
+          <image class="image" src="{{item.fullImg}}" wx:if="{{ item.valueClocation }}" style="margin-left: {{item.valueClocation_2}}%;"></image>
+          <image class="image" src="{{item.fullImg}}" wx:else></image>
+        </view>
+        <view class="scroll-photo_time">{{item.time}}</view>
+        <!-- <view class="scroll-photo_state" style="background:{{item.lhValue <= 45?styleBgColor.invalid:styleBgColor.negative}}"> -->
+        <view wx:if="{{item.remind}}" class="scroll-photo_state" style="line-height:36rpx;background:{{item.lhValue >= 25?'#5BAC17':styleBgColor.invalid}}">
+          <text>{{item.lhValue}} LH</text>
+          <text>建议同房</text>
+        </view>
+        <view wx:else class="scroll-photo_state" style="background:{{item.lhValue >= 25?'#5BAC17':styleBgColor.invalid}}">
+          <text>{{item.lhValue}} LH</text>
+        </view>
+        <view class="del" bindtap="toFatherPage" data-id="{{item.id}}">删除</view>
+      </view>
+    </view>
+    </scroll-view>
+    <view wx:else class='nonelist'>
+      <image mode="widthFix" src='{{imageurl}}/attachments/compound/ac10100d72a7c1c00172a7ff63970090.jpg'></image>
+    </view>
+  </view>
+  <!-- 半定量排卵记录 -->
+  <view class="scroll-photo" wx:if='{{pageIndex == 2 && normalPageCurrent == 1}}'>
+    
+    <view class="scrolldate">
+      <view class="icon i-left2" bindtap='prevMonth'></view>
+      <view>{{year}}年{{month}}月</view>
+      <!-- <view>{{sny}}至{{eny}}</view> -->
+      <view class="icon i-right2" wx:if="{{hideright==true}}" bindtap='nextMonth'></view>
+      <view class="icon i-right2" style='color:#ddd' wx:else ></view>
+    </view>
+    <!-- <view style='text-align: center;'>
+      <text wx:if="{{tooltip.type=='showmens'}}">姨妈期</text>
+      <text wx:if="{{tooltip.type=='showovl'}}">排卵期</text>
+      <text wx:if="{{tooltip.type=='showovluate'}}">排卵日</text>
+      <text wx:if="{{tooltip.name&&!tooltip.type}}">安全期</text>
+    </view> -->
+    <!-- <view class="scroll-photo_header">
+      <text class="scroll-photo_year">{{year}}</text>
+      <navigator class="scroll-photo_intro" url="../packageA/question/question?type={{type}}">说明</navigator>
+    </view> -->
+    <view class="container" style='height: {{domHeight}}px;'>
+      <ec-canvas id="mychart1" canvas-id="lineChart" ec="{{ ec }}" ></ec-canvas>
+    </view>
+    <!-- <cover-view wx:if="{{tooltip.value}}" class="tooltipContainer" style="left:{{tooptipLeft}}px;top:{{tooptipTop}}px">
+      <cover-view class='tooltipdata'>{{tooltip.name}}</cover-view>
+      <cover-view class='tooltipwat' wx:if="{{tooltip.degree}}">体温：{{tooltip.degree}}℃</cover-view>
+      <cover-view class='tooltipwat' wx:if="{{tooltip.value}}">LH值：{{tooltip.value}}LH</cover-view>
+      <cover-view class='tooltipbtn'>
+        <cover-view class='toolbtn1' data-id="{{tooltip.id}}" bindtap="canceltemp">删除</cover-view>
+      </cover-view>
+    </cover-view> -->
+    <!-- <canvas canvas-id="all" class="canvas" style="width:100%;height:{{domHeight}}px;" bindtouchstart="touchHandler" bindtouchmove="moveHandler" bindtouchend="touchEndHandler"></canvas> -->
+  </view>
+  <view class="explainBtn" hidden='{{pageIndex == 2 && normalPageCurrent == 0}}'> 
+    <view class="yuejing"><view class="yuejingIcon"></view>月经期</view>
+    <view class="pailuan"><view class="pailuanIcon"></view>排卵期</view>
+    <view class="pailuanDay"><view class="pailuanDayIcon"></view>排卵日</view>
+  </view>
+  <view class='toolTop' wx:if="{{tooltip.value}}">
+    <view class='tipdate'>
+      <text class='icon i-guanbi1 shanchu' bindtap='cleartoop'></text>
+      <text class='icon i-rili1 rili'></text>
+      <text class='tipday'>{{tooltip.date}}</text>
+      <view class='tiptemp'>
+        <text style='font-size:30rpx;'>{{tooltip.name}}</text>
+        <text style='font-size:28rpx;margin-top:5rpx;'><text wx:if="{{tooltip.degree}}">体温：{{tooltip.degree}}℃</text><text style='margin-left:20rpx;'>LH值：{{tooltip.value}}LH</text></text>
+      </view>
+    </view>
+    <view class='tipbtn'>
+      <text bindtap="canceltemp">删除</text>
+    </view>
+  </view>
+</view>
+
+<!-- 开始插入验孕部分 -->
+<view hidden='{{pageIndex == 2 ||pageIndex == 1}}'>
+  <view id="header" >
+    <view class="title">验孕结果</view>
+    <view class="explain">喜讯早知道！</view>
+  </view>
+  <!-- <scroll-photo id="scroll-photo" wx:if="{{pageShow}}" url="pregnancy/getPage.do" type="2" bind:toFatherPage='isShowDelModal'></scroll-photo> -->
+  <view class="scroll-photo">
+    <view class="scroll-photo_header">
+      <text class="scroll-photo_year">{{year}}</text>
+      <navigator class="scroll-photo_intro" url="../packageA/question/question?type=4">说明</navigator>
+    </view>
+    <!-- 验孕结果 -->
+    <scroll-view class="scroll-photo_content " scroll-y="true" style="height:40vh" wx:if="{{rows.length !== 0}}" bindscroll="scrollChange">
+      <view class="scroll-photo_list {{item.isTouchMove ? 'touch-move-active' : ''}}" wx:for="{{rows}}" wx:key="{{index}}" bindtouchmove="touchmove" data-index="{{index}}" bindtouchstart="touchstart">
+      <view class="content" bindlongpress='longPress' data-id="{{item.id}}" data-date="{{item.monthDay}}" data-time="{{item.time}}">
+        <view class="scroll-photo_date">{{item.monthDay}}</view>
+        <view class="scroll-photo_img-wrap">
+          <!-- 按规范拍出的图片 得出C线的大概位置 53% -->
+          <image class="image" src="{{item.fullImg}}" wx:if="{{ item.valueClocation }}" style="margin-left: {{item.valueClocation_2}}%;"></image>
+          <image class="image" src="{{item.fullImg}}" wx:else></image>
+        </view>
+        <view class="scroll-photo_time">{{item.time}}</view>
+        <view class="scroll-photo_state" style="background:{{item.pregnant == 1?styleBgColor.negative:item.pregnant == 0?styleBgColor.invalid:styleBgColor.positive}}">
+          <text wx:if="{{item.pregnant == 0 }}">无效</text>
+          <text wx:if="{{item.pregnant == 1 }}">阴性</text>
+          <text wx:if="{{item.pregnant == 2 }}">弱阳</text>
+          <text wx:if="{{item.pregnant == 3 }}">阳性</text>
+          <text wx:if="{{item.pregnant == 4 }}">强阳</text>
+        </view>
+        <view class="del" bindtap="toFatherPage" data-id="{{item.id}}">删除</view>
+      </view>
+    </view>
+    </scroll-view>
+    <view wx:else class='nonelist'>
+      <image mode="widthFix" src='{{imageurl}}/attachments/compound/ac10100d72a7c1c00172a8006b620092.jpg'></image>
+    </view>
+  </view>
+
+  <view class="common-footer-btn"  >
+    <view class="btn-wrap">
+      <navigator class="iconfont iconfont--small" url="../camera/camera?source=2" hover-class="navigator-hover">
+        <text class="icon i-paizhao"></text>
+        <!-- <image src='../../assets/img/pic.png' class='newiconfont'></image> -->
+      </navigator>
+      <view class="text">拍照</view>
+    </view>
+    <view class="btn-wrap">
+      <view class="iconfont iconfont--small" bindtap="oppenPoster">
+        <text class="icon i-yun"></text>
+      </view>
+      <view class="text">报喜</view>
+    </view>
+    <block wx:if="{{isShow3}}">
+      <view class='btn-wrap'>
+        <w-cart buytype="yanyun" weater="{{weater3}}" bind:showforthree="checkthree"></w-cart>
+        <view class="text">购买</view>
+      </view>
+    </block>
+    <view class='btn-wrap'>
+      <w-service></w-service>
+      <view class="text">客服</view>
+    </view>
+  </view>
+  <!-- 海报 -->
+  <view class="bgPoster" wx:if="{{showPoster}}">
+    <view class="posterBox" wx:if="{{showPoster}}">
+      <view class="iconfont icon i-guanbi1" bindtap="closePoster" style="position:absolute;top:0;right:0;z-index:1;font-size:50rpx;color:#cfab55;"></view>
+      <image class="p-Img" src="{{imageurl}}{{baoxicode}}" mode="widthFix" style='height:200rpx;'></image>
+      <view class="p-BtnWrap">
+        <button class="p-btn" open-type="share" hover-class="none">
+          <view class="iconfont icon i-fenxiang"></view>
+          分享
+        </button>
+        <button class="p-btn" open-type="contact" hover-class="none">
+          <view class="iconfont icon i-kefu"></view>
+          客服
+        </button>
+        <button class="p-btn" bindtap="download" hover-class="none">
+          <view class="iconfont icon i-xiazai1"></view>
+          下载
+        </button>
+      </view>
+    </view>
+  </view>
+  
+  <w-authorize></w-authorize>
+</view>
+<!-- 插入验孕部分结束 -->
+
+
+
+<!-- 页脚部分，拍照和记录 -->
+<view class="common-footer-btn" wx:if="{{pageIndex==1||pageIndex==2}}">
+  <view class='btn-wrap btn-wrap-5' bindtap='jumpCamera'>
+    <view class="iconfont iconfont--small" hover-class="navigator-hover">
+      <text class="icon i-paizhao"></text>
+    </view>
+    <view class="text">拍照</view>
+  </view>
+  <view class='btn-wrap btn-wrap-5' bindtap='jumpRecord'>
+    <view class="iconfont iconfont--small" hover-class="navigator-hover">
+      <text class="icon i-jilu"></text>
+    </view>
+    <view class="text">记录</view>
+  </view>
+  <!-- <view class='btn-wrap btn-wrap-5' wx:if="{{normalPageCurrent == 0}}">
+    <view class="iconfont iconfont--small" bindtap="jumpPage">
+      <text class="icon i-shangchuan"></text>
+    </view>
+    <view class="text">导图</view>
+  </view>  -->
+  <block wx:if="{{isShow}}">
+    <view class='btn-wrap btn-wrap-5' wx:if='{{pageIndex==1}}'>
+      <w-cart weater="{{weater1}}" bind:showfor="checkcart"></w-cart>
+      <view class="text">购买</view>
+    </view> 
+  </block>
+  <block wx:if="{{isShow2}}">
+    <view class='btn-wrap btn-wrap-5' wx:if='{{pageIndex==2}}'>
+      <w-cart weater="{{weater2}}" bind:showfortwo="checktwo"></w-cart>
+      <view class="text">购买</view>
+    </view> 
+  </block>
+  <view class='btn-wrap btn-wrap-5'>
+    <w-service></w-service>
+    <view class="text">客服</view>
+  </view> 
+</view>
+
+<!-- 拍照弹窗 -->
+<view class='onemodel' wx:if="{{showpic}}">
+  <view class='picmodel' bindtap='hidepicmodel'></view>
+  <view class='btnmodel'>
+    <view class='ban' bindtap='twopic'>
+      <image src='{{imageurl}}/attachments/20200911/null/ac10100d746d449e01747c5068de0492.png'></image>
+      <view>半定量</view>
+    </view>
+    <view class='ban' bindtap='threepic'>
+      <image src='{{imageurl}}/attachments/20200911/null/ac10100d746d449e01747c51228a0493.png'></image>
+      <view>升级版半定量</view>
+    </view>
+    <view class='ltip'>请根据试纸版本选择拍照入口</view>
+  </view>
+</view>
+
+<!-- 确定删除的模态框 -->
+<view class="delModal" style="display: {{isShowDelModal}};">
+  <view class="ModalContent">
+    <view class="ModalTitle">
+      温馨提示
+    </view>
+    <view class="tipInfo">
+      是否确认删除该条数据?
+    </view>
+    <view class="btnList">
+      <button class="cancel" bindtap="closeDelModal">取消</button>
+      <button class="comfim" bindtap='delData'>确认</button>
+    </view>
+  </view>
+</view>
+
+<!-- <view class="common-footer-btn daotu" hidden='{{pageIndex==3}}'>
+  <view class='btn-wrap btn-wrap-5' wx:if="{{normalPageCurrent == 0}}">
+    <view class="iconfont iconfont--small export" bindtap="jumpPage">
+      <text class="icon i-shangchuan" style='font-size:36rpx'></text>
+      导图
+    </view>
+  </view> 
+</view> -->
+<view hidden='{{pageIndex==3}}' class='daotu'>
+  <view wx:if="{{normalPageCurrent == 0}}" bindtap="jumpPage" class='export'>
+    <image src='../../assets/img/daotu.png' style='width:40rpx;height:40rpx;margin-top:25rpx;margin-right:10rpx'></image>
+     <!-- <text class="icon i-shangchuan" style='font-size:36rpx;margin-right:10rpx;'></text> -->
+      导图
+  </view>
+</view>
+
+<w-authorize></w-authorize>
+<!-- <w-delModal  isShowDelModal='{{isShowDelModal}}' ></w-delModal> -->

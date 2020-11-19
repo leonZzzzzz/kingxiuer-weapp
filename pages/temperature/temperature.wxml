@@ -1,0 +1,135 @@
+<!-- <view class="swiper-wrap">
+  <view class='swiper-wrap_btn swiper-wrap_btn--left icon i-zuocehua' data-current='0' bindtap='swiper'></view>
+  <view class='swiper-wrap_btn swiper-wrap_btn--right icon i-zuocehua-copy' data-current='1' bindtap='swiper'></view>
+  <swiper class="wx-swiper" bindchange="swiper" current='{{current}}' indicator-active-color="#e1738f" indicator-color="#fddee5" >
+    <swiper-item class="wx-swiper--item">
+      <view class="title">温度曲线</view>
+      <view class="explain">实时记录基础体温</view>
+    </swiper-item>
+    <swiper-item class="wx-swiper--item">
+      <view class="title">体温表格</view>
+      <view class="explain">实时记录基础体温</view>
+    </swiper-item>
+  </swiper>
+</view> -->
+<w-top></w-top>
+<view class='cont'>
+  <view class="title">温度曲线</view>
+  <view class="explain">不要偷懒，记得每天起床前测试，数据更准哦！</view>
+</view>
+<view class="header">
+  <view class="date">
+    <view class="icon i-left2 clickicon" bindtap='prevMonth'></view>
+    <view style='height:60rpx;line-height: 60rpx;'>{{year}}年{{month}}月</view>
+    <!-- <view>{{sny}}至{{eny}}</view> -->
+    <view class="icon i-right2 clickicon" wx:if="{{hideright==true}}" bindtap='nextMonth'></view>
+    <view class="icon i-right2 clickicon" style='color:#ddd' wx:else ></view>
+  </view>
+</view>
+<!-- 曲线图 -->
+<view hidden="{{current == 1}}" class="chart-wrap">
+  <view class="container">
+    <view class="graph-head" style="padding:20rpx 20rpx 30rpx 20rpx;">
+      <view style="font-size:20rpx;color:#FF8C8C;">℃</view>
+      <!-- <view>
+        <text wx:if="{{tooltip.type=='showmens'}}">月经期</text>
+        <text wx:if="{{tooltip.type=='showovl'}}">排卵期</text>
+        <text wx:if="{{tooltip.type=='showovluate'}}">排卵日</text>
+        <text wx:if="{{tooltip.name&&!tooltip.type}}">安全期</text>
+      </view> -->
+      <navigator class="intro" url="../packageA/question/question?type=1">说明</navigator>
+    </view>
+    <view class="container"  style='height: {{domHeight}}px'>
+    <ec-canvas id="mychart" canvas-id="lineChart" ec="{{ ec }}" bind:send="receiveSrc"></ec-canvas>
+    </view>
+    <!-- 自定义tooltip -->
+    <!-- <cover-view wx:if="{{tooltip.name}}" class="tooltipContainer" style="left:{{tooptipLeft}}px;top:{{tooptipTop}}px">
+      <cover-view class='tooltipdata'>{{tooltip.name}}</cover-view>
+      <cover-view class='tooltipwat'>体温：{{tooltip.value}}℃</cover-view>
+      <cover-view class='tooltipwat' wx:if="{{tooltip.lhValue}}">LH值：{{tooltip.lhValue}}LH</cover-view>
+      <cover-view class='tooltipbtn'>
+        <cover-view class='toolbtn1' data-id="{{tooltip.id}}" bindtap="canceltemp">删除</cover-view>
+        <navigator open-type="navigate" url="../temperatureRecord/temperatureRecord?date={{tooltip.name}}&temp={{tooltip.value}}&id={{tooltip.id}}">
+          <cover-view class='toolbtn2'>编辑</cover-view>
+        </navigator>
+      </cover-view>
+    </cover-view> -->
+
+    <!-- <canvas canvas-id="lineCanvas" class="canvas" style="width:100%;height:500rpx" bindtouchstart="touchHandler" bindtouchmove="moveHandler" bindtouchend="touchEndHandler"></canvas> -->
+  </view>
+</view>
+<view class="explainBtn">
+  <view class="yuejing"><view class="yuejingIcon"></view>月经期</view>
+  <view class="pailuan"><view class="pailuanIcon"></view>排卵期</view>
+  <view class="pailuanDay"><view class="pailuanDayIcon"></view>排卵日</view>
+</view>
+
+<view class='toolTop' wx:if="{{tooltip.value}}">
+  <view class='tipdate'>
+    <text class='icon i-guanbi1 shanchu' bindtap='cleartoop'></text>
+    <view class='dalday'>
+      <text class='icon i-rili1 rili'></text>
+      <view class='tipday'>{{tooltip.date}}</view>
+    </view>
+    
+    <view class='tiptemp'>
+      <text style='font-size:30rpx;'>{{tooltip.name}}</text>
+      <text style='font-size:28rpx;margin-top:5rpx;'>
+        <text>体温：{{tooltip.value}}℃</text>
+        <text style='margin-left:20rpx;' wx:if="{{tooltip.lhValue&&tooltip.ovulateType==2}}">LH值：{{tooltip.lhValue}}LH</text>
+        <text style='margin-left:20rpx;' wx:if="{{tooltip.ovulateType==1&&tooltip.lhValue==0}}">试纸检测：无效</text>
+        <text style='margin-left:20rpx;' wx:if="{{tooltip.ovulateType==1&&tooltip.lhValue==1}}">试纸检测：阴性</text>
+        <text style='margin-left:20rpx;' wx:if="{{tooltip.ovulateType==1&&tooltip.lhValue==2}}">试纸检测：弱阳性</text>
+        <text style='margin-left:20rpx;' wx:if="{{tooltip.ovulateType==1&&tooltip.lhValue==3}}">试纸检测：阳性</text>
+        <text style='margin-left:20rpx;' wx:if="{{tooltip.ovulateType==1&&tooltip.lhValue==4}}">试纸检测：强阳性</text>
+      </text>
+    </view>
+  </view>
+  <view class='tipbtn'>
+    <text bindtap="updatatemp">编辑</text>
+    <text bindtap="canceltemp">删除</text>
+  </view>
+</view>
+  
+<!-- 表格 -->
+<!-- <view hidden="{{current == 0}}" class="table-wrap">
+  <view class="graph">
+    <view class="graph-head" hidden="{{dataNum == 0}}">
+      <text class="year">{{year}}</text>
+      <navigator class="intro" url="../packageA/question/question?type=0">说明</navigator>
+    </view>
+    <view class="ul">
+      <view class="li li-num" wx:if="{{ dataNum !== 0 }}">
+        <view class="li-item li-item-num" style="background:#fcfbf8"></view>
+        <view class="li-item li-item-num" wx:for="{{number}}" wx:key="{{inumberndex}}">{{item}}</view>
+      </view>
+      <scroll-view scroll-x="true" scroll-left="{{current == 1?scrollLeft:0}}" bindscroll="scrollChange" style=" white-space: nowrap;">
+        <view class="li" wx:for="{{ tableData }}" wx:for-item="itemList" wx:for-index="indexList" wx:key="{{index}}" data-year="{{itemList[0].year}}" style="display: inline-block;">
+          <view class="li-item" style="background:#fcfbf8">{{itemList[0].monthDay}}</view>
+          <view class="li-item" wx:for="{{itemList}}" wx:key="{{index}}">{{item.degree?item.degree:''}}</view>
+        </view>
+      </scroll-view>
+    </view>
+    <view class="unit" hidden="{{dataNum == 0}}">(单位：℃)</view>
+  </view>
+</view> -->
+<!-- 记录体温 -->
+<view class="common-footer-btn" style="height:220rpx;background:#fff">
+  <view class='btn-wrap'>
+    <navigator class="iconfont iconfont--big" url='../temperatureRecord/temperatureRecord?ymonthDay={{ymonthDay}}' hover-class="navigator-hover">
+      <text class="icon i-jilu" style="font-size:50rpx;"></text>
+    </navigator>
+    <view class="text">记录体温</view>
+  </view>
+  <view class='btn-wrap' wx:if="{{isShow}}">
+    <w-cart weater="{{weater}}" bind:showfor="checkcart"></w-cart>
+    <view class="text">购买</view>
+  </view>
+  <view class='btn-wrap'>
+    <w-service></w-service>
+    <view class="text">客服</view>
+  </view>
+</view>
+
+<w-authorize></w-authorize>
+<!-- <w-service></w-service> -->

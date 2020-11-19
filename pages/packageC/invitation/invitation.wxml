@@ -1,0 +1,14 @@
+
+<view>
+  <image  mode="widthFix" src='{{imageURL}}/attachments/null/ac10100d738f5b520173930cd25100b4.jpg'></image>
+  <!-- <view class='foryou'>您的专属邀请码</view> -->
+  <view class='number'>{{code}}</view>
+  <view class='invita'>
+    <!-- <view class='message'>邀请说明：</view> -->
+    <!-- <view class='content'>备孕不是一个人的事，赶紧邀请老公一起来吧！ </view> -->
+  </view>
+  <button class='btn' open-type="share">
+    <text class='icon i-fenxiang'></text>
+    <text style='margin-left:10rpx'>点我分享给先生</text>
+  </button>
+</view>

@@ -1,0 +1,35 @@
+/* pages/dome/dome.wxss */
+
+.tip {
+  padding: 15rpx 0;
+  text-align: center;
+  font-size: 26rpx;
+  color: #666;
+}
+
+.controls {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  margin-top: 15rpx;
+  padding: 10rpx 0;
+  font-size: 28rpx;
+  background: #fff;
+  border-bottom: 1px solid #eee;
+}
+
+.controls  .p-btn {
+  padding: 4px 5px;
+  line-height: 1;
+  font-size: 28rpx;
+  border-radius: 0;
+  color: #555;
+  background: #fff;
+}
+
+.controls .p-btn .iconfont {
+  font-size: 40rpx;
+  color: #cfab55;
+  text-align: center;
+  padding-bottom: 3px;
+}

@@ -1,0 +1,11 @@
+<view class="authorize-wrap" wx:if="{{showModel}}">
+  <view class="authorize-box">
+    <view class="title" style='text-align:center;padding:15px 0;'>温馨提示</view>
+    <view class="msg">您还未登录或登录已过期。登录便于找回记录，还可以有排卵检测提醒哦！</view>
+    <!-- <view class="msg">登录便于找回记录，还可以有排卵检测提醒哦！</view> -->
+    <view class="btns">
+      <view class="btn cancel-btn" hover-class="hover-class" bindtap="onCancel">取消</view>
+      <view class="btn confirm-btn" hover-class="hover-class" bindtap="onConfirm">去登录</view>
+    </view>
+  </view>
+</view>

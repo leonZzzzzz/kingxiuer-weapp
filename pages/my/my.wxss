@@ -1,0 +1,161 @@
+/* pages/input/input.wxss */
+
+page {
+  /* background: #f2f2f2; */
+  position: relative;
+}
+
+.userinfo-btn{
+  /* margin-bottom: 40rpx; */
+  width: 80%;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-size: 32rpx;
+  color: #fff;
+  background: #ff9e9e;
+  border-radius: 10rpx;
+}
+
+.bg{
+  /* height: 750rpx; */
+  border-top:135rpx solid #ff9e9e ;
+  border-bottom: 135rpx solid #fff;
+  
+}
+.my-wrap {
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  top: 35rpx;
+  width: 94%;
+  border-radius: 20rpx;
+  padding-bottom: 40rpx;
+  margin-bottom: 20rpx;
+  padding-top: 40rpx;
+  /* align-items: center; */
+  /* text-align: center; */
+  background: #fff;
+  box-shadow: 0rpx 0rpx 10rpx #D9C4C4;
+  display: flex;
+
+}
+.my-wrap .userinfo .userinfo-nickname{
+  margin-bottom: 20rpx;
+  
+}
+.my-wrap .userinfo-avatar {
+  display: block;
+  margin: 0rpx 30rpx;
+  width: 125rpx;
+  height: 125rpx;
+  border-radius: 50%;
+}
+
+.qc-cell {
+  background: #fff;
+}
+
+.qc-cell .qc-list {
+  position: relative;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 35rpx 0;
+  line-height: 1;
+  padding-left: 35rpx;
+  overflow: hidden;
+  border-bottom: 1rpx solid #eee;
+}
+
+.qc-cell .qc-l-icon {
+  display: inline-block;
+  margin-right: 35rpx;
+  font-size: 34rpx;
+}
+
+.qc-cell .qc-list .qc-r-icon {
+  color: #ccc;
+  font-size: 26rpx;
+  padding-right: 20rpx;
+}
+
+.qc-cell .qc-list .text {
+  flex: 1;
+  font-size: 34rpx;
+  text-align: left;
+}
+
+.kf {
+  background-color: #fff;
+}
+
+.kf .icon.i-weixin {
+  margin-right: 28rpx;
+}
+
+.qc-list.tip-list {
+  display: block !important;
+}
+
+.qc-list.tip-list .info {
+  font-size: 26rpx;
+  margin-top: 20rpx;
+  padding: 0 20rpx 0 70rpx;
+  line-height: 1.3;
+}
+
+
+#loginOut{
+  width: 24%;
+  height: 5%;
+  line-height: normal;
+  font-size: 14px;
+  border-radius: 5%;
+}
+
+.myWishingModal{
+  width: 100%;
+height: 100%;
+position: fixed;
+z-index: 888;
+top: 0;
+left: 0;
+}
+.myWishingModalInfo{
+  position: absolute;
+width: 100%;
+height: 100%;
+background: #000;
+opacity: 0.4;
+}
+.modelcontent{
+  position: absolute;
+top: 10%;
+background: #fff;
+/* padding: 20rpx; */
+border-radius: 10rpx;
+width: 80%;
+margin-left: 10%;
+}
+.i-guanbi{
+  position:absolute;
+  right:0;
+  top:0;
+  font-size:52rpx;
+}
+.wishtip{
+  margin: 20rpx;
+font-size: 30rpx;
+text-align: center;
+}
+.myWishingModalContent{
+  width: 86%;
+margin-left: 7%;
+height: 680rpx;
+margin-top: 35rpx;
+}
+.modifyWishing{
+  background:#faa4a3;
+  color:#fff;
+  margin-top:20rpx;
+}

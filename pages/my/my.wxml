@@ -1,0 +1,97 @@
+<w-top></w-top>
+<view class="my-wrap" style="top:56rpx !important">
+  <block wx:if="{{hasUserInfo}}">
+    <image bindtap="bindViewTap" class="userinfo-avatar" src="{{imgUrl}}" background-size="cover"></image>
+    <view class="userinfo">
+      <view class="userinfo-nickname">{{nickName}}</view>
+      <text selectable="true" class="userinfo-nickname" style="font-size:30rpx;color:#666;">ID:{{number}}</text>
+    </view>
+      
+  </block>
+  <button wx:else class="userinfo-btn" open-type='getUserInfo' bindgetuserinfo='getUserInfo'>获取头像和昵称</button>
+</view>
+<view class="bg" style="margin-top:28rpx">
+  
+</view>
+  
+<view class="qc-cell">
+  <view class='qc-list' bindtap='punchClass'>
+    <text class='qc-icon qc-l-icon icon i-daka' style="color:#7BC664"></text>
+    <text class='text'>日常打卡</text>
+    <text class='qc-icon qc-r-icon icon i-right2'></text>
+  </view>
+  <navigator class='qc-list' url='../packageC/recordUpdate/recordUpdate' open-type='navigate'>
+    <text class='qc-icon qc-l-icon icon i-shezhi' style="color:#FF9E9E"></text>
+    <text class='text'>经期设置</text>
+    <text class='qc-icon qc-r-icon icon i-right2'></text>
+  </navigator>
+  <navigator class='qc-list' url='../wishingTree/wishingTree' open-type='navigate'>
+    <text class='qc-icon qc-l-icon icon i-xuyuanshu' style="color:#7BC664;font-size: 36rpx;"></text>
+    <text class='text'>许愿树</text>
+    <text class='qc-icon qc-r-icon icon i-right2'></text>
+  </navigator>
+  <navigator class='qc-list' url='../packageA/pregnant/pregnant' open-type='navigate'>
+    <text class='qc-icon qc-l-icon icon i-yun' style="color:#ECA991"></text>
+    <text class='text'>孕力测试</text>
+    <text class='qc-icon qc-r-icon icon i-right2'></text>
+  </navigator>
+  <navigator wx:if="{{userType!=4}}" class='qc-list' url='../packageC/invitation/invitation' open-type='navigate' >
+    <text class='qc-icon qc-l-icon icon i-xiansheng' style="color:#5686CF"></text>
+    <text class='text'>邀请先生</text>
+    <text class='qc-icon qc-r-icon icon i-right2'></text>
+  </navigator>
+  <button class='qc-list kf' open-type="contact">
+    <text class='qc-icon qc-l-icon icon i-kefu2' style="color:#84D5D6"></text>
+    <text class='text'>联系客服</text>
+    <text class='qc-icon qc-r-icon icon i-right2'></text>
+  </button>
+  <!-- <navigator class='qc-list' url='../../pageCommon/article/article' open-type='navigate'> -->
+  <view class='qc-list' bindtap="showcode">
+    <text class='qc-icon qc-l-icon icon i-zhensuo' style="color:#FF9E9E;font-size: 36rpx;"></text>
+    <text class='text'>医生咨询</text>
+    <text class='qc-icon qc-r-icon icon i-right2'></text>
+  </view>
+  <!-- </navigator> -->
+  <view class='qc-list' bindtap="showOfficial">
+    <text class='qc-icon qc-l-icon icon i-guanzhucopy' style="color:#FF9E9E;font-size: 36rpx;"></text>
+    <text class='text'>关注公众号</text>
+    <text class='qc-icon qc-r-icon icon i-right2'></text>
+  </view>
+  <navigator class='qc-list' url='../packageA/releasePost/releasePost' open-type='navigate' >
+    <text class='qc-icon qc-l-icon icon i-zhifeiji' style="color:#5686CF"></text>
+    <text class='text'>我的发布</text>
+    <text class='qc-icon qc-r-icon icon i-right2'></text>
+  </navigator>
+  <!-- <view class='qc-list tip-list'>
+    <text class='qc-icon qc-l-icon icon i-xiaolian' style="color:#ff6160"></text>
+    <text class='text'>温馨提示</text>
+    <view class='info'>各位姐妹，因接口异常，部分消息无法接入。如发送消息后，长时间未收到回复，请移步公众号“金秀儿平姐”进行相关咨询。谢谢大家！ </view>
+  </view> -->
+</view>
+
+<!-- 医生咨询 -->
+<view class="myWishingModal" wx:if="{{isshowcode}}">
+  <view class="myWishingModalInfo" style='position:relative'></view>
+  <view class='modelcontent'>
+    <text class='icon i-guanbi' bindtap="closeCode"></text>
+    <view class="myWishingModalContent">
+       <image model="widthFix" style='width:100%;height:100%' src='{{imageurl1}}{{menzhencode}}'></image>
+    </view>
+    <!-- <view class='wishtip'>备孕专家在线解答您的困惑，好孕无忧！</view> -->
+    <button class="modifyWishing" style='margin-top:20rpx;' data-type='1' bindtap="downImage"> 保存到手机</button>
+  </view>
+</view>
+<!-- 关注公众号 -->
+<view class="myWishingModal" wx:if="{{isshowofficial}}">
+  <view class="myWishingModalInfo" style='position:relative'></view>
+  <view class='modelcontent'>
+    <text class='icon i-guanbi' bindtap="closeofficial"></text>
+    <view class="myWishingModalContent">
+       <image model="widthFix" style='width:100%;height:100%' src='{{imageurl1}}{{officialcode}}'></image>
+    </view>
+    <button class="modifyWishing" style='margin-top:20rpx;background:#faa4a3' data-type='2' bindtap="downImage"> 保存到手机</button>
+  </view>
+</view>
+
+<button wx:if="{{userType!=4}}" id="loginOut" style="width:24%;margin-top:40px;margin-bottom:30rpx;line-height: normal;padding: 20rpx 30rpx;background: transparent;border-radius: 39px;border: 1px solid #D2D2D2; color: #D2D2D2;" bindtap='onLogout'>退出帐号</button>
+<w-authorize></w-authorize>

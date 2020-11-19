@@ -1,0 +1,48 @@
+<w-top></w-top>
+<view style='position:fixed;top:0'>
+  <scroll-view scroll-x style='white-space: nowrap;' >
+    <view class='nav'>
+      <view bindtap='changeprograma' data-type='1' class="nav_img"><text class='{{choose==1?"active":""}}'>问卷列表</text></view>
+      <view bindtap='changeprograma' data-type='2' class="nav_img"><text class='{{choose==2?"active":""}}'>测试记录</text></view>
+    </view>
+  </scroll-view>
+</view>
+<block wx:if='{{showload}}'>
+  <view class='content' wx:if='{{choose==1}}'>
+    <block wx:if='{{public.length>0}}'>
+      <view wx:for="{{public}}" class='box' bindtap='goskill' data-id='{{item.id}}'>
+        <image src='{{imageurl+item.cover}}'></image>
+        <view class='title'>
+          <view>{{item.title}}</view>
+          <text>已有<text style='color:#FAA4A3;font-weight:bold'>{{item.quantity}}</text>人测试</text>
+        </view>
+        <!-- <view class='tip'>{{item.description}}</view> -->
+        <!-- <view class='btn'>
+          <text wx:if="{{item.isAnswered}}" bindtap='goresult' data-id='{{item.id}}'>查看测试结果</text>
+          <text>去测试</text>
+        </view> -->
+      </view>
+    </block>
+    <view wx:else style='text-align: center;margin-top:100rpx;flex-direction: column;display:flex;margin-top:50rpx' class='nocontent'>
+      <image style='width:350rpx;height:350rpx;margin-left:170rpx;margin-bottom:30rpx' src='{{imageurl}}/attachments/null/ac10100d72e4dc4b0172e57823e20087.png'></image>
+      <text>暂无数据</text>
+    </view>
+  </view>
+  <view class='content' wx:if='{{choose==2}}'>
+    <block wx:if='{{textrecord.length>0}}'>
+      <view wx:for="{{textrecord}}" class='box' bindtap='goConse' data-id='{{item.id}}'>
+        <image src='{{imageurl+item.cover}}'></image>
+        <view class='title'>
+          <view style='width:425rpx !important'>{{item.title}}</view>
+          <text class='result'>查看测试结果</text>
+        </view>
+        <view class='tip'>{{item.description}}</view>
+      </view>
+    </block>
+    <view wx:else style='text-align: center;margin-top:100rpx;flex-direction: column;display:flex;margin-top:50rpx' class='nocontent'>
+      <image style='width:350rpx;height:350rpx;margin-left:170rpx;margin-bottom:30rpx' src='{{imageurl}}/attachments/null/ac10100d72e4dc4b0172e57823e20087.png'></image>
+      <text>暂无数据</text>
+    </view>
+  </view>
+</block>
+

@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "许愿",
+  "usingComponents": {
+    "w-top": "../../components/top/top"
+  }
+}

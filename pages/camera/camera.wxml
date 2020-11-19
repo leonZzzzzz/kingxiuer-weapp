@@ -1,0 +1,24 @@
+<view id="wrapper">
+  <block wx:if="{{!oppenPhoto}}">
+    <!-- 相机 -->
+    <camera device-position="back" resolution="high" flash="off" bindinitdone="initdone" binderror="error" class='camera'>
+      <!-- 取景器 -->
+      <cover-view class='viewfinder'></cover-view>
+      <cover-view class='sbk-tips' wx:if="{{source == 1}}">请保持试纸完整处在取景框内</cover-view>
+      <!-- 取景卡 -->
+      <cover-image wx:if="{{source==1}}" class="sbk" src="{{imageURL+image1}}"></cover-image>
+      <cover-image wx:if="{{source==2}}" class="sbk" src="{{imageURL+image2}}"></cover-image>
+      <cover-image wx:if="{{source==3}}" class="sbk" src="{{imageURL+image3}}"></cover-image>
+      <!-- 点击拍摄 -->
+      <cover-view class="takePhoto" bindtap="takePhoto">
+        <cover-view class="inside"></cover-view>
+      </cover-view>
+    </camera>
+  </block>
+  <!-- 拍摄-图片 -->
+  <cover-view wx:if="{{oppenPhoto}}" class="photoWrap">
+    <cover-view class="btn closePhoto" bindtap="closePhoto">返回</cover-view>
+    <cover-view class="btn savePhoto" bindtap="handleThrottle">确认</cover-view>
+    <canvas class='img-wrap' canvas-id="image-canvas" style='width:{{cropImgWidth}}px; height:30px;border:1px solid #eee;'></canvas>
+  </cover-view>
+</view>

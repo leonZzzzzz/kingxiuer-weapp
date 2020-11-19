@@ -1,0 +1,24 @@
+.content{
+ margin:20rpx 30rpx;
+ position:relative;
+ height:215rpx;
+}
+.content>image{
+  position: absolute;
+  width: 690rpx;
+  height: 215rpx;
+  border-radius: 10rpx;
+  z-index:-1;
+}
+.content>view{
+  width:200rpx;
+  text-align: center;
+  z-index:2;
+  color:#fff;
+  background:#FAA4A3;
+  display: inline-block;
+margin-left: 420rpx;
+margin-top: 93rpx;
+padding: 10rpx 20rpx;
+border-radius: 47rpx;
+}

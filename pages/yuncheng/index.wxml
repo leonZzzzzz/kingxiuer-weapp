@@ -1,0 +1,19 @@
+<!--
+  <v-lh-paper-analysis
+  bind:getBase64ForImage="getBase64ForImage"
+  bind:navigatePageBack="navigatePageBack"
+  bind:confirmSubmit="confirmSubmit"
+  saasOb="{{saasOb}}"
+  />
+-->
+<!-- 请注意插件文档示例的 navigateBack事件名是错误的，正确的是：navigatePageBack -->
+<v-lh-paper-analysis
+  bind:navigatePageBack="navigatePageBack"
+  bind:confirmSubmit="confirmSubmit"
+  bind:errorEvent="errorEvent"
+  bind:saveEditor="saveEditor"
+  saasOb="{{saasOb}}"
+  panoramaAnalysisRes="{{panoramaAnalysisRes}}"
+>
+  <button slot="confirm" class="confirm">确认提交</button>
+</v-lh-paper-analysis>

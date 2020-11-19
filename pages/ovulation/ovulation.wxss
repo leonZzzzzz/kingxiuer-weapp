@@ -1,0 +1,684 @@
+.nav-wrap {
+  position: relative;
+  background: #fff;
+}
+
+.nav-wrap .nav-item {
+  display: flex;
+}
+
+.nav-wrap .nav-item .nav-list {
+  flex: 1;
+  font-size: 30rpx;
+  text-align: center;
+  height: 90rpx;
+  line-height: 90rpx;
+}
+
+.nav-wrap .nav-bar {
+  width: 33.3%;
+  height: 4rpx;
+  background: #ff9e9e;
+  position: absolute;
+  bottom: 0rpx;
+  left: 0;
+  transition: all 0.3s;
+}
+
+.changedata {
+  display: flex;
+  margin: 20rpx;
+  font-size: 34rpx;
+  justify-content: center;
+  align-items: center;
+}
+
+.changedata>view {
+  padding: 0 10rpx;
+}
+
+.explainBtn {
+  display: flex;
+  /* justify-content: space-around; */
+  justify-content: center;
+  margin-top: 10rpx;
+  font-size: 28rpx;
+}
+
+.explainBtn .yuejing,
+.explainBtn .pailuan,
+.explainBtn .pailuanDay {
+  /* font-size: 12pt; */
+  display: flex;
+  line-height: 11pt;
+}
+
+.explainBtn .yuejing .yuejingIcon,
+.explainBtn .pailuan .pailuanIcon,
+.explainBtn .pailuanDay .pailuanDayIcon {
+  /* font-size: 12pt; */
+  height: 11pt;
+  width: 11pt;
+  border-radius: 50%;
+  margin: 0pt 5pt 0pt 5pt
+}
+
+.explainBtn .yuejing .yuejingIcon {
+  background-color: #FC9CC0;
+}
+
+.explainBtn .pailuan {
+  margin: 0pt 15pt 0pt 15pt;
+}
+
+.explainBtn .pailuan .pailuanIcon {
+  background-color: #AEDB88;
+}
+
+.explainBtn .pailuanDay .pailuanDayIcon {
+  background-color: #5BAC17;
+}
+
+/* 插入验孕部分的代码 */
+
+page {
+  height: 100%;
+}
+
+#header {
+  /* height: 180rpx; */
+  line-height: 1;
+  text-align: center;
+}
+
+#header .title {
+  padding: 40rpx 0 16rpx;
+  font-size: 34rpx;
+  color: #000;
+}
+
+#header .explain {
+  font-size: 26rpx;
+  color: #999;
+}
+
+/* 背景层 */
+
+.bgPoster {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 222;
+}
+
+.posterBox {
+  position: relative;
+  z-index: 333;
+  width: 500rpx;
+  height: 765rpx;
+  margin: 200rpx auto 0;
+  box-sizing: border-box;
+  background: #fff;
+  overflow: hidden
+}
+
+.posterBox .p-Img {
+  position: absolute;
+  top: 20rpx;
+  left: 20rpx;
+  width: 460rpx;
+}
+
+.p-BtnWrap {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  margin-top: 15rpx;
+  padding: 10rpx 0;
+  font-size: 28rpx;
+  background: #fff;
+}
+
+.posterBox .p-btn {
+  padding: 4px 5px;
+  line-height: 1;
+  font-size: 28rpx;
+  border-radius: 0;
+  color: #555;
+  background: #fff;
+}
+
+.posterBox .p-btn .iconfont {
+  font-size: 40rpx;
+  color: #cfab55;
+  text-align: center;
+  padding-bottom: 3px;
+}
+
+.bgPoster .s-text {
+  position: absolute;
+  top: 50rpx;
+  right: 180rpx;
+  font-size: 38rpx;
+  font-weight: bolder;
+  color: #fff;
+}
+
+.bgPoster .s-text .zhiShi {
+  position: absolute;
+  top: -50rpx;
+  right: -50rpx;
+  font-size: 50rpx;
+  color: #fff;
+}
+
+#footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 240rpx;
+  background: #f2f2f2;
+  text-align: center;
+  font-size: 32rpx;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+}
+
+#footer .icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 120rpx;
+  height: 120rpx;
+  border-radius: 50%;
+  background: #cca955;
+}
+
+#footer .text {
+  margin-top: 16rpx;
+  color: #cca955;
+}
+
+/* 删除模态框 */
+
+.delModal {
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, .3);
+  position: fixed;
+  left: 0;
+  top: 0;
+}
+
+.delModal .ModalContent {
+  width: 66.6%;
+  height: 32%;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #fff;
+  border-radius: 12rpx;
+}
+
+.delModal .ModalContent .ModalTitle {
+  color: #712726;
+  font-size: 15pt;
+  text-align: center;
+  font-weight: bold;
+  margin: 35rpx;
+}
+
+.delModal .ModalContent .tipInfo {
+  color: #9A7475;
+  font-size: 11pt;
+  text-align: center;
+  margin: 35rpx;
+}
+
+.delModal .ModalContent .btnList {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  /* height: 100%; */
+  margin-top: 65rpx;
+}
+
+.delModal .ModalContent .btnList button {
+  width: 40%;
+  height: 21%;
+  padding: 0;
+  border-radius: 50rpx;
+  border: 1px solid #FAA4A3;
+}
+
+.delModal .ModalContent .btnList .comfim {
+  background-color: #FAA4A3;
+  color: #fff;
+}
+
+.delModal .ModalContent .btnList .cancel {
+  background-color: #fff;
+  color: #FAA4A3;
+}
+
+.viewbtn {
+  color: #FAA4A3;
+  text-align: right;
+  margin: 0 30rpx;
+}
+
+.viewbtn>text {
+  border: 1px solid #FAA4A3;
+  border-radius: 50rpx;
+  padding: 2rpx 30rpx;
+  font-size: 28rpx;
+  margin-left: 10rpx;
+}
+
+ec-canvas {
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+}
+
+.tooltipContainer {
+  z-index: 1000 !important;
+  background-color: rgba(0, 0, 0, 0.4);
+  position: absolute;
+  top: 30rpx;
+  color: white;
+  border-radius: 6rpx;
+  /* padding: 20rpx; */
+  font-size: 28rpx;
+}
+
+.tooltip {
+  display: flex;
+  padding: 6rpx 16rpx;
+  justify-content: flex-start;
+}
+
+.tooltipdata {
+  background: #faa4a3;
+  padding: 10rpx 20rpx;
+  text-align: center;
+}
+
+.tooltipbtn {
+  display: flex;
+  margin-top: 20rpx;
+  padding: 0 20rpx 20rpx 20rpx;
+}
+
+.tooltipwat {
+  color: #9A7475;
+  /* text-align: center; */
+  padding: 20rpx 30rpx;
+}
+
+.toolbtn1 {
+  color: #FAA4A3;
+  padding: 5rpx 15rpx;
+  border: 1px solid #FAA4A3;
+  border-radius: 40rpx;
+  margin: 0 auto;
+}
+
+.toolbtn2 {
+  padding: 5rpx 15rpx;
+  border: 1px solid #FAA4A3;
+  border-radius: 40rpx;
+  background: #FAA4A3;
+  color: #fff;
+  margin-left: 10rpx;
+}
+
+.toolTop {
+  background: #eee;
+  width: 710rpx;
+  margin-left: 20rpx;
+  position: fixed;
+  bottom: 20rpx;
+  z-index: 99999;
+}
+
+.tipdate {
+  background: #FAA4A3;
+  display: flex;
+  border-top-left-radius: 10rpx;
+  border-top-right-radius: 10rpx;
+  padding: 10rpx 20rpx;
+  position: relative;
+}
+
+.tipdate>.rili {
+  font-size: 87rpx;
+  color: #fff;
+}
+
+.tipdate>.shanchu {
+  position: absolute;
+  right: 2rpx;
+  top: 2rpx;
+  font-size: 40rpx;
+  color: #fff;
+}
+
+.tiptemp {
+  flex-direction: column;
+  color: #fff;
+  display: flex;
+  margin-left: 20rpx;
+  margin-top: 7rpx;
+}
+
+.tipbtn {
+  background: #FDEEEE;
+  padding: 20rpx;
+  text-align: center;
+}
+
+.tipbtn>text {
+  color: #fff;
+  background: #FAA4A3;
+  border-radius: 40rpx;
+  padding: 3rpx 20rpx;
+  border: 1rpx solid #FAA4A3;
+  margin-right: 20rpx;
+}
+
+.tipday {
+  position: absolute;
+  color: #000;
+  font-size: 50rpx;
+  font-weight: bold;
+  left: 32rpx;
+  top: 30rpx;
+}
+
+.model {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+}
+
+.mengceng {
+  width: 100%;
+  height: 100%;
+  background: #000;
+  opacity: 0.6;
+}
+
+.ucode {
+  position: absolute;
+  top: 260rpx;
+  width: 550rpx;
+  height: 650rpx;
+  background: #fff;
+  border-radius: 10rpx;
+  left: 100rpx;
+}
+
+.ucode>image {
+  width: 510rpx;
+  margin: 20rpx;
+}
+
+.ucode>view {
+  background: #faa4a3;
+  color: #fff;
+  padding: 20rpx 0;
+  width: 480rpx;
+  text-align: center;
+  border-radius: 50rpx;
+  margin-left: 35rpx;
+}
+
+/* 图片滚动 */
+
+.color-guide {
+  display: flex;
+}
+
+.color-guide .label {
+  width: 95rpx;
+  font-size: 22rpx;
+  color: #cca955;
+}
+
+.scroll-photo {
+  padding: 20rpx 20rpx 0;
+}
+
+.scroll-photo .scroll-photo_header {
+  padding: 30rpx 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.scroll-photo .scroll-photo_header .scroll-photo_year {
+  padding: 2rpx 0;
+  padding-right: 12rpx;
+  font-size: 24rpx;
+  color: #fff;
+  line-height: 1;
+  background: #ff8b8b;
+  border-radius: 0 8px 8px 0;
+}
+
+.scroll-photo .scroll-photo_header .scroll-photo_intro {
+  font-size: 28rpx;
+  padding: 6rpx 40rpx;
+  line-height: 1;
+  /* background: #ff8b8b; */
+  border: 1px solid #ff8b8b;
+  border-radius: 20px;
+  color: #ff8b8b;
+}
+
+.scroll-photo .scroll-photo_content {
+  height: 460rpx;
+}
+
+.scroll-photo .scroll-photo_content .scroll-photo_list {
+  position: relative;
+  border-bottom: 1px solid #fff;
+}
+
+.scroll-photo .scroll-photo_content .scroll-photo_list .content {
+  transform: translateX(-120rpx);
+  transition: all 1s;
+}
+
+.scroll-photo .scroll-photo_content .scroll-photo_list .del {
+  position: absolute;
+  right: 0;
+  top: 0;
+  background-color: orangered;
+  width: 120rpx;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  height: 40px;
+  transform: translateX(120rpx);
+  transition: all 0.1s;
+}
+
+.touch-move-active .content {
+  transform: translateX(0rpx) !important;
+  transition: all 1s !important;
+}
+
+.nonelist {
+  text-align: center;
+  /* margin: 50rpx; */
+  /* height:500rpx; */
+  width: 710rpx;
+}
+
+.nonelist>image {
+  width: 100%;
+  /* height:100%; */
+}
+
+.scroll-photo .scroll-photo_content .scroll-photo_list .scroll-photo_date {
+  float: left;
+  font-size: 22rpx;
+  color: #712726;
+  line-height: 40px;
+}
+
+.scroll-photo .scroll-photo_content .scroll-photo_list .scroll-photo_img-wrap {
+  position: relative;
+  height: 40px;
+  margin-left: 85rpx;
+  overflow: hidden;
+}
+
+.scroll-photo .scroll-photo_content .scroll-photo_list .image {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 40px !important;
+  /* border: 1px solid #FFCECE; */
+}
+
+.scroll-photo .scroll-photo_content .scroll-photo_list .scroll-photo_time,
+.scroll-photo .scroll-photo_content .scroll-photo_list .scroll-photo_state {
+  position: absolute;
+  width: 110rpx;
+  height: 40px;
+  box-sizing: border-box;
+  /* padding-left: 20rpx; */
+  line-height: 40px;
+  font-size: 28rpx;
+  color: #fff;
+  display:flex;
+  flex-direction: column;
+}
+
+.scroll-photo .scroll-photo_content .scroll-photo_list .scroll-photo_state {
+  font-size: 24rpx;
+  top: 0;
+  right: 0;
+  text-align: center;
+}
+
+.scroll-photo .scroll-photo_content .scroll-photo_list .scroll-photo_state text {
+  color: #fff;
+}
+
+.scroll-photo .scroll-photo_content .scroll-photo_list .scroll-photo_time {
+  top: 0;
+  left: 85rpx;
+  /* background: rgba(0, 0, 0, 0.5); */
+  background-color: #f9f0f0;
+  color: #9A7475;
+}
+
+.scrolldate {
+  display: flex;
+  align-items: center;
+  padding: 15rpx 150rpx;
+  justify-content: space-between;
+}
+
+.choice {
+  width: 710rpx;
+  overflow: hidden;
+}
+
+.choice .state {
+  display: flex;
+  margin-bottom: 10px;
+  font-size: 30rpx;
+  color: #555;
+  background: #fff;
+  border: 1px solid #eee;
+}
+
+.choice .state .label {
+  width: 120rpx;
+  height: 48rpx;
+  line-height: 48rpx;
+  text-align: center;
+  border-right: none;
+}
+
+.choice .activeState {
+  background: #ffbee3;
+}
+
+.daotu{
+  position: fixed;
+top: 131rpx;
+width: 130rpx;
+right:0rpx;
+height: 90rpx;
+background:#ff9e9e;
+color:#fff;
+border-bottom-left-radius:50rpx !important;
+  border-top-left-radius:50rpx !important;
+  line-height: 90rpx;
+}
+.export{
+ margin-left:20rpx;
+  display:flex !important;
+  flex-direction: row !important;
+  font-size:26rpx !important;
+  color:#fff !important;
+}
+.newiconfont{
+  width:130rpx;height:135rpx;
+}
+.onemodel{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 222;
+}
+.picmodel{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  background: #000;
+  opacity: 0.5;
+}
+.btnmodel{
+  z-index: 2222;
+  position: absolute;
+  bottom: 0;
+  width:100%;
+  background:#fff
+}
+.ban{
+  margin:40rpx 0;
+}
+.ban>image{
+  width: 650rpx;
+  height: 140rpx;
+  margin-left: 50rpx;
+}
+.ban>view{
+  text-align: center;
+  font-size: 30rpx;
+}
+.ltip{
+  text-align: center;
+  font-size: 28rpx;
+  color: #999;
+  margin-bottom: 20rpx;
+}

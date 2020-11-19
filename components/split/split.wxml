@@ -1,0 +1,3 @@
+<view class="split" bindtap='click' style="height:{{height}}rpx;background:{{color}}">
+  {{innerText}}
+</view>

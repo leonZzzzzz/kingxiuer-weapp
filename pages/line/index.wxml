@@ -1,0 +1,4 @@
+<!--index.wxml-->
+<view class="container" style='height: 1000rpx;'>
+  <ec-canvas id="mychart-dom-line" bindtouchend="touchEndHandler" canvas-id="lineChart" ec="{{ ec }}"></ec-canvas>
+</view>

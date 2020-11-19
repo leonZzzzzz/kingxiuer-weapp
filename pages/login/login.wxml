@@ -1,0 +1,43 @@
+<view id="login" wx:if="{{showPage}}">
+  <image class='bg-img' src="http://kingsuer-1255600302.file.myqcloud.com/attachments/assets/img/bg-login.png"></image>
+  <view class='form' wx:if="{{ false }}">
+    <form bindsubmit="formSubmit">
+      <view class="section">
+        <input name="mobile" bindinput="putMobile" type="number" maxlength="11" placeholder="请输入手机号码" placeholder-style='font-size:28rpx;color:#fa95bd' />
+      </view>
+      <view class="section code">
+        <input name="code" type="number" maxlength="6" bindinput="putCode" placeholder="请输入验证码" placeholder-style='font-size:28rpx;color:#fa95bd' style="width:280rpx;" />
+        <view wx:if="{{!isPost}}" class='get' bindtap="getCode">发送验证码</view>
+        <view wx:else class='get'>{{obj}}</view>
+      </view>
+      <view class="btn-area">
+        <button class='btn' formType="submit" wx:if="{{userInfo.userType == 1}}">创建帐号</button>
+        <button class='btn' formType="submit" wx:else>登录</button>
+        <view class='tip' wx:if="{{ userInfo.userType == 1 }}">创建账号便于找回记录，还可以有排卵检测提醒哦!</view>
+      </view>
+    </form>
+  </view>
+
+  <view class="fast-login">
+    <button class="btn" open-type="getPhoneNumber" bindgetphonenumber="handleGetPhoneNumber" type="primary">微信快捷登录</button>
+    <view class='tip'>登录便于找回记录，还可以有排卵检测提醒哦!</view>
+    <!-- wx:if="{{ userInfo.userType == 1 }}" -->
+    <navigator open-type="switchTab" url="/pages/calendar/calendar" class="authorize-back-home">
+      <text>暂不登录，返回首页</text>
+    </navigator>
+  </view>
+
+  <block>
+    <navigator wx:if="{{ userInfo.userType == 1 }}" class='tourist' open-type="navigate" url="../record/record?mobile=1">游客登录</navigator>
+    <navigator wx:if="{{ userInfo.userType == 2 }}" class='tourist' open-type="switchTab" url="../calendar/calendar">游客登录</navigator>
+  </block>
+</view>
+
+<!-- <view wx:if="{{!userInfo.user && hasAudit}}" style="position:fixed;top:0;bottom:0;width:100%;background:rgba(0,0,0,0.6);z-index:5000">
+  <view style="border-radius:5px;width:80%;background:#fff;margin:0 auto;position:fixed;top:46%;transform:translate(-50%,-50%);left:50%;">
+    <view style='text-align:center;padding:15px 0;'>开启授权</view>
+    <view style='text-align:center;font-size:14px;padding: 0 20px;'>为了更好的体验</view>
+    <view style='text-align:center;font-size:14px;padding: 0 20px 15px;'>我们需要获取你的昵称，头像</view>
+    <button style='color: #cca955' open-type='getUserInfo' bindgetuserinfo='getUserInfo'>授权</button>
+  </view>
+</view> -->

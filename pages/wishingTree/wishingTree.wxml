@@ -1,0 +1,238 @@
+<!--pages/wishingTree/wishingTree.wxml-->
+<w-top></w-top>
+<view class="bg"> 
+  <image class="bgImg" src="{{imageurl1}}/attachments/compound/ac10100d72a821150172a825d8c20008.png"   />
+</view>
+  
+<!-- 全部好孕内容渲染 -->
+<view class="wishingContent" wx:for="{{showWishingContent}}" >
+  <image style="left:{{item.Rl}};top:{{item.Rt}};" class="haoyunImg"  src="../../assets/img/haoyun.png" bindtap='seeContent' data-index="{{index}}" />
+</view>
+<!-- 移动的好孕令牌 -->
+<view class="move" >
+<image style="left:{{left}};top:{{top}};display:{{display}};" class="haoyunImg" src="../../assets/img/haoyun.png" bindtap='seeContent' data-index="myWishing" />
+</view>
+
+
+<!-- 查看信息模态框 -->
+<view class="contentModal" style="display:{{modalDisplay}};" >
+  <view class="modalcontent" style='position:relative'>
+    <text class='icon i-guanbi' bindtap='closeModal'></text>
+    <view class="modalTitle">
+      <view class="onePic"></view>
+      <view class="twoPic"></view>
+      <text>好孕许愿</text>
+      <view class="onePic"></view>
+      <view class="twoPic"></view>
+    </view>
+    <view class="userInfo" >
+      <view class="userImg">
+        <image class="" src="{{seeContent.userImgUrl}}"/>
+      </view>
+      <view class="username">
+        {{seeContent.userName}}
+      </view>
+    </view>
+    <view class="importantContent">
+      <textarea class="textContent" value="{{seeContent.content}}"  placeholder-class="textarea-placeholder" maxlength="90" 
+      disabled="true"> 
+      </textarea>
+    </view>
+  </view>
+  <!-- <view class="closeSuccessHuanyuan">
+    <view class="closeline"></view>
+    <button class="closeSuccessHuanyuanBtn" bindtap='closeModal'>x</button>    
+  </view> -->
+</view>
+<!-- 还愿模态框 -->
+<view class="huanyuanModal" style="display:{{isShowHuanyuan}};">
+  <view class="huanyuanModalInfo">
+    <view class="huanyuanModalTitle">
+      <view class="onePic"></view>
+      <view class="twoPic"></view>
+      <text>好孕报喜</text>
+      <view class="twoPic"></view>
+      <view class="onePic"></view>
+    </view>
+    <view class="huanyuanModalContent">
+      <textarea class="" value="{{inputValue}}" placeholder="传递您的小幸孕吧！"  placeholder-class="huanyuanModalTextarea"  maxlength="90" bindinput='reportput'>
+      </textarea> 
+    </view>
+    <view class="huanyuanModalBtn">
+      <button class="huanyuanModalBtnCancel" bindtap="closeHuanyuanModal">取消</button>
+      <button class="huanyuanModalBtnConfirm" bindtap='huanyuan'>确认</button> 
+    </view>  
+  </view>
+</view>
+<!-- 还愿成功模态框 -->
+<view class="successHuanyuan" style="display:{{isShowSuccessHuanyuan}};">  
+  <view class="successHuanyuanInfo" style='position:relative;padding:30rpx 0;'>
+    <text class='icon i-guanbi' bindtap='closeSuccessHuanyuanModal'></text>
+    <view class="successHuanyuanTitle">
+      <view class="onePic"></view>
+      <view class="twoPic"></view>
+      <text>报喜成功</text>
+      <view class="twoPic"></view>
+      <view class="onePic"></view>
+    </view>
+    <view class="successHuanyuanContent">
+     <view class="successHuanyuanContentInfo" style="height:70%;width:85%">
+      <textarea disabled value="{{huanyuanContent.content}}">
+      </textarea>
+     </view>
+      <text class="successHuanyuanContentTips">
+        恭喜您怀孕啦，扫码领取报喜小礼品吧！
+      </text>   
+    </view>
+    <view class="successHuanyuanBtn">
+      <button class="successHuanyuanConfirm" bindtap='kefuCode'>扫码领礼品</button>  
+      <!-- <button class="successHuanyuanCancel" open-type="contact">直接联系客服</button>    -->
+    </view>  
+  </view>
+  <!-- <view class="closeSuccessHuanyuan">
+    <view class="closeline"></view>
+    <button class="closeSuccessHuanyuanBtn" bindtap="closeSuccessHuanyuanModal">x</button>    
+  </view> -->
+    
+</view>
+<!-- 客服二维码模态框 -->
+<view class="kefuCode" style="display:{{isShowKefuCode}};">  
+  <view class="kefuCodeInfo" style='position:relative'>
+    <text class='icon i-guanbi' bindtap="closeKefuCode"></text>
+    <view class="kefuCodeTitle">
+      <view class="onePic"></view>
+      <view class="twoPic"></view>
+      <text>扫码领礼品</text>
+      <view class="twoPic"></view>
+      <view class="onePic"></view>
+    </view>
+    <view class="kefuCodeContent">
+        <image class="" src="{{imageurl1}}{{kefuCode}}" lazy-load="false" binderror="" bindload="" />
+    </view>
+    <view class="kefuCodeBtn">
+      <button class="kefuCodeConfirm" data-url='1' bindtap='downImage'>保存到手机</button> 
+    </view>  
+  </view>
+  <!-- <view class="closeSuccessHuanyuan">
+    <view class="closeline"></view>
+    <button class="closeSuccessHuanyuanBtn" bindtap="closeKefuCode">x</button>    
+  </view> -->
+</view>
+
+<!-- 访问授权弹框--未使用 -->
+<dialog id='dialog' 
+      title='访问提示' 
+      content='小程序需要您的授权才能提供更好的服务哦' 
+      confirmText='知道了'
+      bind:confirmEvent='confirmEvent'
+      bind:bindGetUserInfo='bindGetUserInfo'>
+</dialog>
+
+
+<!-- 我要许愿模态框 -->
+<view class="xuyuanModal" style="display: {{isShowXuyuan}};">
+  <view class="xuyuanModalInfo">
+    <view class="xuyuanModalTitle">
+      <view class="onePic"></view>
+      <view class="twoPic"></view>
+      <text>许好愿</text>
+      <view class="twoPic"></view>
+      <view class="onePic"></view>
+    </view>
+    <view class="xuyuanModalContent">
+      <textarea class="" value="{{wishingValue}}" placeholder="在这里许下您的小愿望吧！"  placeholder-class="xuyuanModalTextarea"  maxlength="90" bindinput='Binput'>
+      </textarea> 
+    </view>
+    <view class="xuyuanModalBtn">
+      <button class="xuyuanModalBtnCancel" bindtap="closexuyuanModal">取消</button>
+      <button wx:if="{{addwish}}" class="xuyuanModalBtnConfirm" bindtap='subWishing'>确认</button> 
+      <button wx:else class="xuyuanModalBtnConfirm">确认</button> 
+    </view>  
+  </view>
+</view>
+
+
+<!-- 我的愿望模态框 -->
+<view class="myWishingModal" style="display: {{isShowMyWishing}};">
+  <view class="myWishingModalInfo"  style='position:relative'>
+    <text class='icon i-guanbi' bindtap="closeMyWishingModal"></text>
+    <view class="myWishingModalTitle">
+      <view class="onePic"></view>
+      <view class="twoPic"></view>
+      <text>我的许愿</text>
+      <view class="twoPic"></view>
+      <view class="onePic"></view>
+    </view>
+    <view class="myWishingModalContent">
+      <textarea class="" value="{{wishingValue}}" placeholder=""  placeholder-class="myWishingModalTextarea"  maxlength="90" bindinput='Binput'>
+      </textarea> 
+    </view>
+    <button wx:if="{{insert}}" class="modifyWishing" bindtap="modWishing"> 修改愿望</button>
+    <button wx:else class="modifyWishing"> 修改愿望</button>
+    <!-- <view class="closeSuccessHuanyuan">
+      <view class="closeline"></view>
+      <button class="closeSuccessHuanyuanBtn" bindtap="closeMyWishingModal">x</button>    
+    </view> -->
+  </view>
+</view>
+
+<!-- 诊所二维码 -->
+<view class="myWishingModal" style="display: {{iscode}};">
+  <view class="myWishingModalInfo" style='position:relative'>
+    <text class='icon i-guanbi' bindtap="closeCode"></text>
+    <view class="myWishingModalContent" style='margin-top:20rpx;height:75%'>
+       <image style='width:100%;height:100%' src='{{imageurl1}}{{menzhencode}}'></image>
+    </view>
+    <!-- <view class='wishtip'>备孕专家在线解答您的困惑，好孕无忧！</view> -->
+    <button class="modifyWishing" style='margin-top:20rpx;' data-url='2' bindtap="downImage2"> 保存到手机</button>
+    <!-- <view class="closeSuccessHuanyuan">
+      <view class="closeline"></view>
+      <button class="closeSuccessHuanyuanBtn" bindtap="closeCode">x</button>    
+    </view> -->
+  </view>
+</view>
+  
+
+<!-- 还愿成功滚动条 -->
+<!-- <view class="scrollNew" style="display:{{isShowScroll}};"> -->
+<view class="scrollNew" >
+  <scroll-view class="Scroll_view">
+    <view class="scrolltxt ">
+      <view class="marquee_text" style="margin-left:{{windowWidth}}px; transform: translateX(-{{marqueeDistance}}px)">
+          <view class="scrollItem" wx:for='{{allHuanyuanContent}}' style="margin-right: {{windowWidth/3}}px;">{{item.content}}</view>
+      </view>
+    </view>
+  </scroll-view>
+</view>
+
+  
+<view class="btnList">
+  <button class="huanyuan" bindtap="go2Home"><view class="icon i-shouye"></view><view>首页</view>
+    </button>
+  <!-- <button class="huanyuan" bindtap="go2huanyuan"><view class="icon i-yun"></view><view>报喜</view>
+    </button> -->
+  <button class="zhenduan"  bindtap='go2webView'> <view class="icon i-zhensuo"></view> <view>诊所</view>
+    </button>
+</view>
+  
+  <view class='newbtn' wx:if="{{isWishing}}">
+  <!-- <block  wx:if="{{isWishing}}"> -->
+    <button  bindtap='toWishing' data-type="myWishing">许愿</button>
+    <button  bindtap='go2huanyuan'>报喜</button>
+  <!-- </block> -->
+  </view>
+
+  <!-- <view class='newbtn' wx:else>
+    <button id="wishingBtn" bindtap='toWishing' data-type="toWishing">我要许愿</button>
+    <button  bindtap='go2huanyuan'>报喜</button>
+  </view> -->
+  <view class='newbtn' wx:elif="{{wishSwitch == 'open'}}">
+    <button id="wishingBtn" bindtap='toWishing' data-type="toWishing">我要许愿</button>
+    <button  bindtap='go2huanyuan'>报喜</button>
+  </view>
+    
+  <w-authorize></w-authorize>
+    
+  
+
+  

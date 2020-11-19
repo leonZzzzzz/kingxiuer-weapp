@@ -1,0 +1,128 @@
+<w-top></w-top>
+<view class='discuss'>#{{daralist.columnName}}#</view>
+<view class='usercontent'>
+  <!-- <view class='user'>
+    <image src='{{daralist.imgUrl}}'></image>
+    <view class='name'>
+      <view>{{daralist.nickName}}</view>
+      <text>{{daralist.createTime}}</text>
+    </view>
+  </view> -->
+  <view class='user' wx:if="{{daralist.type=='user'}}">
+    <image src='{{daralist.imgUrl}}'></image>
+    <view class='name'>
+      <view>{{daralist.nickName}}</view>
+      <text>{{daralist.createTime}}</text>
+    </view>
+  </view>
+  <view class='user' wx:else>
+    <image src='{{imageurl}}/attachments/null/ac10100d74203d7a0174207efbc31f62.png'></image>
+    <!-- <text class='icon i-touxiang' style='font-size:45px;color:#999'></text> -->
+    <view class='name'>
+      <view>{{daralist.nickName}}</view>
+      <text>{{daralist.createTime}}</text>
+    </view>
+  </view>
+  <view class='word' style="white-space:pre-line;">
+    <image wx:if="{{daralist.isTop}}" class='hotimg' src="{{imageurl}}/attachments/20200904/null/ac10100d74585c050174586082be0003.png"></image>
+    {{daralist.content}}</view>
+  <view class='imagemod' wx:if="{{daralist.attachments!=''}}">
+    <block wx:for="{{daralist.imagelist}}" wx:for-item='img'>
+      <image bindtap='previewImage' src='{{imageurl}}{{img}}' data-src='{{imageurl}}{{img}}'></image>
+    </block>
+  </view>
+
+  <view class='cogname' >
+    <view style='display:flex'>
+      <!-- <text class='icon i-dianzan good'></text>
+      <view class='nickpeople'>
+        <block wx:for="{{dianzanlist}}">
+          <text>{{item.memberName}}，</text>
+        </block>
+      </view> -->
+    </view>
+    <!-- <view class='threeicon' style='font-size:28rpx;'>浏览 {{daralist.readQuantity}}</view> -->
+    <view class='threeicon' bindtap="deletepost" wx:if='{{showdelete==true}}'>
+      <text class='icon i-lajitong threeicon' style='font-size:40rpx;'></text>
+    </view>
+  </view>
+
+  <view class='nickname'>
+    留言({{daralist.commentQuantity}})
+  </view>
+  <view class='comm'>
+    <view class='comment' wx:for="{{comment}}" >
+      <image src='{{item.memberHeadImage}}'></image>
+      <view style='border-bottom: 1rpx solid #eee;padding-bottom:20rpx;width:600rpx;'>
+        <view class='commentone' bindtap='replywrite' data-sourceId='{{item.id}}' data-type='7' data-replay='1' data-memberId="{{item.memberId}}">
+          <text>{{item.memberName}}</text>
+          <view>{{item.content}}</view>
+        </view>
+        <view class='replay' wx:if="{{item.subComments.length>0}}">
+          <view wx:for="{{item.subComments}}" wx:for-item='val' bindtap='replywrite' data-id='{{val.sourceId}}' data-sourceId='{{val.id}}' data-parsourceid='{{item.id}}' data-type='8' data-replay='2' data-memberId="{{val.memberId}}">{{val.memberName}}：{{val.content}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+<view style='height:130rpx'></view>
+<view class='bottomBtn'>
+  <View class='btns'>
+    <view class='icon' bindtap='gohome'>
+      <text class='icon i-shouye threeicon'></text>
+      <view>首页</view>
+    </view>
+    <button class='icon' open-type="share" wx:if='{{daralist.status==1}}'>
+      <text style='margin-top:5rpx;' class='icon i-fenxiang threeicon'></text>
+      <view style='margin-top:7rpx;'>分享</view>
+    </button>
+    <view class='icon' data-type='share' bindtap='onmessage' wx:else>
+      <text class='icon i-fenxiang threeicon'></text>
+      <view>分享</view>
+    </view>
+    <view class='icon' data-type='message' bindtap='onmessage'>
+      <text class='icon i-pinglun threeicon'></text>
+      <view>留言</view>
+    </view>
+    <view class='icon' bindtap="disdianzan" wx:if="{{daralist.isPraise}}">
+      <text class='icon i-dianzan disicon'></text>
+      <view>{{daralist.praiseQuantity}}</view>
+    </view>
+    <view class='icon' bindtap="dianzan" wx:else>
+      <text class='icon i-dianzan threeicon'></text>
+      <view>{{daralist.praiseQuantity}}</view>
+    </view>
+    <!-- <view class='icon' bindtap="deletepost" wx:if='{{showdelete==true}}'>
+      <text class='icon i-lajitong threeicon' style='font-size:40rpx;'></text>
+      <view>删除</view>
+    </view> -->
+  </View>
+</view>
+
+
+<!-- 留言窗口 -->
+<view class='notemodel' wx:if="{{shownote==true}}">
+  <view class='notesurn' bindtap='offmessage'></view>
+  <view class='notecontent'>
+    <input focus="true" placeholder="输入您的留言" bindinput="getmessage"/>
+    <text class='notebtn' data-type='7' bindtap='leavemessage'>留言</text>
+  </view>
+</view>
+
+<view class='notemodel' wx:if="{{showreplay==true}}">
+  <view class='notesurn' bindtap='offreplay'></view>
+  <view class='notecontent'>
+    <input focus="true" placeholder="输入您的回复" bindinput="getmessage"/>
+    <text class='notebtn' data-type='8' bindtap='leavemessage'>回复</text>
+  </view>
+</view>
+
+<!-- 删除评论弹窗 -->
+<view class='modelreplay' wx:if='{{redemodel==true}}'>
+  <view class='replaysurn'></view>
+  <view class='replaycontent'>
+    <view bindtap='confirmReplay'>回复</view>
+    <view bindtap='deleteReplay' wx:if="{{deletenone==true}}">删除</view>
+    <view bindtap='cancel' style='margin-top:10rpx'>取消</view>
+  </view>
+</view>

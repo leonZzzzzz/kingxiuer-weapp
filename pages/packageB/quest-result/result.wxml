@@ -1,0 +1,47 @@
+
+<!-- item.type-------  1:单选  2：多选  3：文本 -->
+<w-top></w-top>
+<view class='modelcontent'>
+  <image src='{{imageurl}}/attachments/null/ac10100d737ee80f01738038ea8a00d3.png'></image>
+  <view class='modeltitle'>{{content.title}}</view>
+  <!-- <view class='info'>{{content.title}}</view> --> 
+  <view class='import' wx:for='{{answer}}' wx:for-item="list" style='padding:40rpx;margin-top:{{content.title.length>16?"80rpx":"50rpx"}}'>
+    <view class='start'>
+      <view class='start_one'>问卷结果</view>
+      <view class='start_two'>{{list.collectionTime}}</view>
+    </view>
+    <!-- <view class='importrow'  > -->
+      <view wx:for='{{list.surveyQuestions}}' wx:for-item="item" style='margin-bottom:30rpx;margin-top:15rpx'>
+        <view>
+          <text style='font-size:30rpx'>{{item.seqNum+1}}.{{item.title}}</text>
+          <image style='width:630rpx' mode='widthFix' wx:if='{{item.picture}}' src='{{imageurl+item.picture}}'></image>
+        </view>
+        <view  wx:if='{{item.answerList!=null}}' class='topmar'>
+          <text wx:for="{{item.answerList}}" wx:for-item='val'>{{val.textAnswer}}</text>
+        </view>
+        <view wx:if='{{item.optionList!=null}}' class='topmar'>
+          <view wx:for="{{item.optionList}}" wx:for-item='val'>
+            <text>{{val.value}}</text>
+            <view>
+              <image style='width:630rpx' mode='widthFix' wx:if='{{val.picture}}' src='{{imageurl+val.picture}}'></image>
+            </view>
+            <!-- <view style='display:flex;'>
+              <progress class="s_prg" percent="{{val.percent}}" border-radius="10" stroke-width="12" active-color="#FF9E9E" style='margin-right:10rpx;width:240rpx' active/>
+              <view style='width:100rpx;text-align: right;'>{{val.num}}%</view>
+            </view> -->
+          </view>
+        </view>
+      </view>
+      <view>
+        <view class='start'>问卷点评</view>
+        <view style='margin-top:20rpx'>{{list.reviewsContent?list.reviewsContent:'暂无点评'}}</view>
+      </view>
+    <!-- </view> -->
+  </view>
+  <!-- <view class='import'>
+    <view class='start'>问卷点评</view>
+    <view class='importrow'>
+      <text>{{punch?punch:'暂无点评'}}</text>
+    </view>
+  </view> -->
+</view>

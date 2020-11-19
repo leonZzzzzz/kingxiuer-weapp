@@ -1,0 +1,5 @@
+<w-top></w-top>
+ <view style='text-align: center;margin-top:20rpx;' wx:if="{{key=='ovulation_day'||key=='suggest_love'}}">暂无数据</view>
+ <view wx:else class="img-wrap">
+    <image style='height:auto' mode="widthFix" src='{{imageurl+imagesrc}}' class='io'></image> 
+ </view> 

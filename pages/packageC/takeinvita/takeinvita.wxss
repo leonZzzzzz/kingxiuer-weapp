@@ -1,0 +1,44 @@
+page{
+  background:#F9F0F0;
+}
+.content{
+  margin-top:150rpx;
+  width:650rpx;
+  margin-left:50rpx;
+}
+.invation{
+  color:#712726;
+  font-size:34rpx;
+}
+.invatcode{
+  background:#fff;
+  border-radius: 50rpx;
+  padding:30rpx 0;
+  display:flex;
+  margin-top:50rpx;
+}
+.invatcode>text{
+  font-size: 44rpx;
+color: #B8A0A1;
+margin-left: 30rpx;
+}
+.invatcode>view{
+  width: 500rpx;
+color: #B8A0A1;
+margin-left: 20rpx;
+}
+.btns{
+  margin-top:260rpx;
+  text-align: center;
+}
+.tip{
+  font-size:30rpx;
+  color:#9A7475;
+}
+.confirm{
+  background:#FAA4A3;
+  color:#fff;
+  border-radius: 50rpx;
+  padding:30rpx 0;
+  margin-top:25rpx;
+}

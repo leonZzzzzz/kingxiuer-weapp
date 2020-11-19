@@ -1,0 +1,10 @@
+<w-top></w-top>
+<view style='margin:20rpx;'>
+  <view style='font-weight:bold'>{{datalist.title}}</view>
+  <view style='font-size:26rpx;margin:20rpx 0;'>{{datalist.createTime}}</view>
+  <!-- <view style='background: #eee;font-size: 28rpx;padding: 10rpx;margin:30rpx 0 30rpx 0;'>简介:{{datalist.info}}</view> -->
+  <view style='font-size:28rpx;margin-top:20rpx'>
+    <rich-text nodes="{{datalist.content}}" ></rich-text>
+  </view>
+  
+</view>

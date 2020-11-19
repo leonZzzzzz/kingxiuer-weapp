@@ -1,0 +1,118 @@
+
+<view>
+  <w-top></w-top>
+  <view class='linecolor'>
+    <view class='search' style="{{showscroll?'top:0rpx':'top:56rpx'}}">
+      <input placeholder="请输入关键字" placeholder-style='font-size:26rpx' bindtap='gosearch'/>
+      <view bindtap='conference'><text class='icon i-zhifeiji' style='margin-right:5rpx;'></text>发布</view>
+    </view>
+    <swiper indicator-dots autoplay circular  style='width:710rpx;margin-left:20rpx;margin-top:90rpx'>
+      <block wx:for="{{swiperlist}}" >
+        <swiper-item>
+          <view class="swiper-item" style="height: 100%;border-radius: 15rpx;" data-id="{{item.articleId}}" data-type='{{item.type}}' data-skip="{{item.skip}}" bindtap='goxiangq'>
+            <image src="{{imagefixed}}{{item.imgUrl}}"></image>
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+  <view style='width:710rpx;padding:30rpx 20rpx;background:#fff;'>
+    <scroll-view scroll-x style='white-space: nowrap;' >
+      <view class='nav'>
+        <view wx:for='{{navInfo}}' wx:key='*this'  bindtap='changeprograma' data-id='{{item.id}}' class="nav_img">
+          <image src="{{imagefixed}}{{item.iconUrl}}" /> 
+          <view class='nav_text' selectable="false" space="false" decode="false">{{ item.name }}</view>
+          <text wx:if="{{id==item.id}}" class='icon i-xiaosanjiao pointto'></text>
+        </view>
+      </view>
+    </scroll-view>
+  </view>
+  <block wx:if="{{showcontent==true}}">
+    <view wx:if="{{essaylist.length>0}}">
+      <view class='usercontent' wx:for="{{essaylist}}">
+        <view class='user' wx:if="{{item.type=='user'}}">
+          <image src='{{item.imgUrl}}'></image>
+          <view class='name'>
+            <view>{{item.nickName}}</view>
+            <text>{{item.createTime}}</text>
+          </view>
+          
+        </view>
+        <view class='user' wx:else>
+          <image src='{{imagefixed}}/attachments/null/ac10100d74203d7a0174207efbc31f62.png'></image>
+          <!-- <text class='icon i-touxiang' style='font-size:45px;color:#999'></text> -->
+          <view class='name'>
+            <view>{{item.nickName}}</view>
+            <text>{{item.createTime}}</text>
+          </view>
+          
+        </view>
+        <navigator url='../packageA/information/mation?id={{item.id}}' open-type='navigate'>
+          <view class='forum'>#{{item.columnName}}#</view>
+        </navigator>
+        <navigator url='../packageA/information/mation?id={{item.id}}' open-type='navigate'>
+          <view class='word'  style="white-space:pre-line;">
+            <!-- <text wx:if="{{item.isTop}}" class='icon i-remen2 rhot'></text> -->
+            <image wx:if="{{item.isTop}}" class='hotimg' src="{{imagefixed}}/attachments/20200904/null/ac10100d74585c050174586082be0003.png"></image>
+            {{item.content}}
+          </view>
+        </navigator>
+        <view class='imagemod' wx:if="{{item.imagelist.length>0}}">
+          <block  wx:for="{{item.imagelist}}"  wx:for-item="value">
+            <!-- <image src='{{imagefixed}}{{value}}'></image> -->
+            <image bindtap='previewImage' src='{{imagefixed}}{{value}}' data-img='{{item.imagelist}}' data-src='{{imagefixed}}{{value}}'></image>
+          </block>
+        </view>
+        
+        
+        <View class='info'>
+          <View class='num'>
+            <text class='icon i-yiyue oneicon'></text>
+            <text>{{item.readQuantity}}</text>
+          </View>
+          <View class='num' bindtap='godetail' data-id="{{item.id}}">
+            <text class='icon i-pinglun oneicon'></text>
+            <text>{{item.commentQuantity}}</text>
+          </View>
+          <View wx:if='{{item.isPraise||item.newisPraise}}' class='num' bindtap='disdianzan' data-id='{{item.id}}'>
+            <text class="icon i-dianzan officon"></text>
+            <text>{{item.praiseQuantity}}</text>
+          </View>
+          <View wx:else class='num' bindtap='dianzan' data-id='{{item.id}}'>
+            <text class="icon i-dianzan oneicon"></text>
+            <text>{{item.praiseQuantity}}</text>
+          </View>
+          <!-- <button class='num' open-type="share" style='margin-top:5rpx'> -->
+          <view class='num' bindtap='godetail' data-id='{{item.id}}'>
+            <text class='icon i-fenxiang oneicon'></text>
+            <text>{{item.shareQuantity}}</text>
+          </view>
+          <!-- </button> -->
+        </View>
+      </view>
+    </view>
+    <view wx:else style='text-align: center;margin-top:100rpx' class='nocontent'>
+      <image src='{{imagefixed}}/attachments/null/ac10100d72e4dc4b0172e57823e20087.png'></image>
+      <text>暂无数据</text>
+    </view>
+  </block>
+  
+  <view style='height:150rpx'></view>
+
+  <!-- <navigator url='../../pageCommon/newinfor/newinfor?id={{id}}' open-type='navigate'>
+    <button class="fabu_btn" size="default" type="default" plain="default"  >
+      ＋发布
+    </button>
+  </navigator> -->
+</view>
+<view class='write' bindtap='gowrite'>
+  <text class='icon i-fatie'></text>
+  <view>发帖</view>
+</view>
+<view class='backtop' wx:if='{{showscroll==true}}' bindtap='backscrolltop'>
+  <text class='icon i-huidaodingbu'></text>
+  <view>顶部</view>
+</view>
+<w-authorize></w-authorize> 
+  
+  

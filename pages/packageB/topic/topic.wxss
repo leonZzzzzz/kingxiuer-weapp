@@ -1,0 +1,207 @@
+page{
+  background:rgb(247,161,160);
+}
+/* 弹窗start */
+.punchmodel{
+  width:100%;height:100%;
+  /* position:fixed; */
+  /* top:0; */
+}
+.punchsurn{
+  width:100%;height:100%;
+  background:#000;
+  opacity: 0.6;
+}
+.modelcontent{
+  /* position:absolute; */
+  /* z-index:2; */
+  /* width:570rpx; */
+  /* height:575rpx; */
+  /* background:#fff; */
+  /* border-radius: 10rpx; */
+  /* left:70rpx;
+  top:300rpx; */
+  /* padding:20rpx; */
+}
+.modelcontent>image{
+  width:100%;
+  height:355rpx;
+}
+.modeltitle{
+  position:absolute;
+  top:305rpx;
+  text-align: center;
+  width:470rpx;
+  margin-left:100rpx;
+  color:#da6261;
+  background:#feeaea;
+  padding:15rpx 40rpx;
+  border-radius: 40rpx;
+
+}
+.info{
+  background:#fff;
+  border-radius: 15rpx;
+  margin:80rpx 20rpx 20rpx 20rpx;
+  padding:20rpx;
+  font-size:28rpx;
+}
+.import{
+  flex-direction: column;
+  margin:20rpx;
+  padding:20rpx;
+  font-size:30rpx;
+  background:#fff;
+  border-radius: 15rpx;
+}
+.importrow{
+  position: relative;
+  /* display:flex; */
+  /* flex-direction: row; */
+  /* justify-content: space-between; */
+  /* border-bottom:1rpx solid #eee; */
+  padding:20rpx;
+  margin-bottom:20rpx;
+}
+.start{
+  text-align: center;
+  font-weight: bold;
+  border-bottom:1px solid #eee;
+  padding-bottom:20rpx;
+}
+.mulchoice{
+  display:flex;
+  flex-direction: column;
+}
+.mulbox{
+  margin-top:15rpx;
+}
+.mulbox>image{
+  width:580rpx;
+}
+checkbox .wx-checkbox-input {
+	width: 34rpx;
+	height: 34rpx;
+	border-radius: 50%;
+}
+/*checkbox选中后样式  */
+checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+  background: #FAA4A3;
+  border-color:#FAA4A3;
+}
+/*checkbox选中后图标样式  */
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+  width: 20rpx;
+  height: 20rpx;  
+  line-height: 20rpx;
+  text-align: center;
+  font-size: 22rpx;
+  color: #fff;
+  background: transparent;
+  transform: translate(-50%, -50%) scale(1);
+  -webkit-transform: translate(-50%, -50%) scale(1);
+}
+
+/* 选中前radio样式 */
+radio .wx-radio-input{
+  height: 34rpx;
+  width: 34rpx;
+  /* border: 1px solid #007AFF; */
+}
+/* 选中后按钮样式 */
+radio .wx-radio-input.wx-radio-input-checked{
+  background: #FAA4A3; 
+  border: 1px solid #FFF; 
+}
+/* 选中之后按钮中对勾样式 */
+radio .wx-radio-input.wx-radio-input-checked::before{
+  width: 30rpx; /* 选中后对勾大小 省略 /
+  height: 20rpx; / 选中后对勾大小 省略 */
+  line-height: 20rpx; 
+  text-align: center; 
+  background: #FAA4A3;
+  border-radius: 50%;
+}
+.none{
+  border-bottom:none !important;
+  display:block;
+}
+.importrow>input{
+  text-align: left;
+  border:1px solid #eee;
+  border-radius: 15rpx;
+  padding:15rpx;
+  margin-top:15rpx;
+  /* width:370rpx; */
+}
+.slecshow{
+  /* width:140rpx; */
+  text-align: right;
+}
+.select_box{
+  position: absolute;
+text-align: center;
+width: 140rpx;
+border: 1px solid #eee;
+}
+.select_one{
+  border-bottom:1rpx  solid #eee;
+  padding:5rpx 0;
+}
+.language{
+  margin-top:15rpx;
+  display:flex;
+  flex-wrap:wrap;
+}
+.userinfo-avatar{
+  width:160rpx;
+  height:160rpx;
+  /* margin-left:10rpx; */
+}
+.pics{
+  width:160rpx;
+  height:160rpx;
+  margin-right:15rpx;
+  position:relative;
+}
+.pics>image{
+  width:160rpx;
+  height:160rpx;
+}
+.modelbtn{
+  text-align: center;
+  /* margin-top:30rpx;
+  margin-bottom:30rpx; */
+  width:100%;
+  position:fixed;
+  bottom:50rpx;
+  z-index:5555;
+}
+.modelbtn>text{
+  /* border: 1px solid #FAA4A3; */
+  padding: 20rpx 260rpx;
+  border-radius: 50rpx;
+  font-size: 30rpx;
+  /* color:#FAA4A3; */
+  background:rgb(253,220,220);
+  color:rgb(87, 58, 58);
+  box-shadow: 2rpx 1rpx 10rpx #945a5a;
+}
+.modelbtn>text:nth-child(2){
+  background:#FAA4A3;
+  margin-left:20rpx;
+  color:#fff !important;
+}
+/* 弹窗end */
+
+.foods{
+  background:rgb(252, 249, 249);
+  margin:10rpx;
+}
+.add{
+  text-align: center;
+  border:1px dotted #FAA4A3;
+  color:#FAA4A3;
+  padding:15rpx 0;
+  margin-top:10rpx;
+}

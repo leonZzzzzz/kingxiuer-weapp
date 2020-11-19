@@ -1,0 +1,87 @@
+/* pages/recordTemperature/recordTemperature.wxss */
+page{
+  height: 100%;
+}
+#section {
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
+  flex-direction: column;
+  /*	background:#ccc;*/
+  margin-top: 50rpx;
+  background-color: #f9f0f0;
+  height: 100%;
+}
+
+.section-item {
+  margin-top: 40rpx;
+}
+
+.section-item .title {
+  padding-left: 35rpx;
+  font-size: 17pt;
+  color: #712726;
+  /* font-weight: bold; */
+}
+
+.input-wrap {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 496rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  padding: 0 40rpx;
+  margin-top: 26rpx;
+  font-size: 30rpx;
+  background: #fff;
+  border-radius: 50px;
+  /* box-shadow: 0 0 0px 20rpx rgba(254, 228, 243, 0.8); */
+}
+
+.input-wrap input {
+  width: 500rpx;
+}
+
+.input-wrap .picker-wrap {
+  overflow: hidden;
+}
+
+.input-wrap .picker-wrap picker {
+  float: left;
+  padding-right: 20rpx;
+}
+
+.input-wrap .picker-text {
+  color: #555;
+}
+
+.input-wrap .value {
+  color: #555;
+}
+
+.input-wrap .deg {
+  color: #555;
+}
+
+.submit {
+  padding: 30rpx 170rpx;
+  margin-top: 23pt;
+  line-height: 1;
+  font-size: 32rpx;
+  color: #fff;
+  background: #faa4a3;
+  border-radius: 50px;
+}
+
+.tipMssg {
+ 
+  width: 100%;
+  background: #f9f0f0;
+  padding: 10rpx;
+  text-align: center;
+  font-size: 28rpx;
+  line-height: 40rpx;
+  color: #712726;
+  margin-top: 85.5pt;
+}

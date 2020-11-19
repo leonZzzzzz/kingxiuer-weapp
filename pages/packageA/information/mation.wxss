@@ -1,0 +1,283 @@
+page{
+  background:#f6f6f6;
+}
+.discuss{
+  color:#999;
+  font-size:26rpx;
+  margin: 15rpx 20rpx;
+}
+.usercontent{
+  background:#fff;
+  padding:20rpx;
+}
+.user{
+  display:flex;
+  flex-direction: row;
+}
+.user>image{
+  width:90rpx;height:90rpx;
+  border-radius: 50%;
+}
+.name{
+  flex-direction: column;
+  margin-left:15rpx;
+}
+.name>view{
+  font-size:30rpx;
+}
+.name>text{
+  font-size:26rpx;
+  color:#999;
+  margin-top:5rpx;
+}
+.forum{
+  margin-top:15rpx;
+  color:#576B8F;
+  font-size:26rpx;
+}
+.word{
+  font-size:30rpx;
+  margin:20rpx 0;
+}
+.oneicon{
+  font-size:22rpx;
+  color:#999;
+}
+.twoicon{
+  font-size:30rpx;
+  color:#999;
+}
+.info{
+  display:flex;
+  flex-direction: row;
+}
+.num{
+  margin-right:60rpx;
+}
+.num>text:nth-child(2){
+  font-size:26rpx;
+  margin-left:3rpx;
+  color:#999;
+}
+.nickname{
+  margin:50rpx 0 20rpx 0;
+  display:flex;
+  flex-direction: row;
+  border-bottom: 1px solid #eee;
+padding-bottom: 15rpx;
+}
+.nickname>view{
+  flex-direction: row;
+  margin-left:20rpx;
+  color:#576B8F;
+  font-size:30rpx;
+}
+.comm{
+  /* display:flex;
+  justify-content: space-between; */
+  /* border-radius: 1px solid #eee; */
+}
+.comm>.comment:last-child>.commentone{
+  border-bottom:none !important;
+}
+.comment{
+  display:flex;
+  flex-direction: row;
+  margin-top:15rpx;
+}
+.comment>image{
+  width:90rpx;
+  height:90rpx;
+  border-radius: 50%;
+  margin-right:15rpx;
+}
+.commentone{
+  width: 600rpx;
+padding-bottom: 20rpx;
+}
+.commentone>text{
+  color:#576B8F;
+  font-size:28rpx;
+}
+.commentone>view{
+  font-size:30rpx;
+  margin-top:10rpx;
+}
+.bottomBtn{
+  position:fixed;
+  bottom:0;
+  width:100%;
+  background:#fff;
+  padding:30rpx 0;
+ 
+}
+.btns{
+  width:670rpx;
+  margin-left:40rpx;
+  justify-content: space-between;
+  display: flex;
+}
+.icon{
+  color:#222;
+  display:flex;
+}
+.threeicon{
+  color:#B2B2B2;
+  margin-right:7rpx;
+  margin-top:5rpx;
+}
+.good{
+  color:#B2B2B2;
+  margin-right:7rpx;
+  margin-top:5rpx;
+  font-size: 30rpx;
+}
+.disicon{
+  color: #FF9E9E;
+margin-right: 7rpx;
+margin-top: 5rpx;
+
+}
+
+.imagemod{
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.imagemod>image{
+  width:222rpx;
+  height:222rpx;
+  margin-right:20rpx;
+  margin-top:10rpx;
+  margin-bottom:10rpx;
+}
+.imagemod>image:nth-child(3),.imagemod>image:nth-child(6),.imagemod>image:nth-child(9){
+  margin-right:0;
+}
+.cogname{
+  margin:30rpx 0;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+.nickpeople{
+  flex-direction: row;
+  margin-left:20rpx;
+  color:#576B8F;
+  font-size:30rpx;
+}
+
+
+.notemodel{
+  position:fixed;
+  top:0;
+  left:0;
+  width:100%;
+  height:100%;
+}
+.notesurn{
+  width:100%;
+  height:100%;
+  background:#000;
+  opacity:0.5;
+}
+.notecontent{
+  position:fixed;
+  bottom:0;
+  width:100%;
+  height:100rpx;
+  background:#fff;
+  display: flex;
+justify-content: space-between;
+}
+.notecontent>input{
+  width: 600rpx;
+height: 50rpx;
+margin-top: 25rpx;
+margin-left:20rpx;
+}
+.notebtn{
+  background: #FF9D9D;
+line-height: 100rpx;
+color: #fff;
+width: 150rpx;
+text-align: center;
+}
+button {
+  display: inline-block;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
+  box-sizing: border-box;
+  font-size: 18px;
+  text-align: center;
+  text-decoration: none;
+  line-height: 1;
+  border-radius: 5px;
+  -webkit-tap-highlight-color: transparent;
+  overflow: hidden;
+  color: #000;
+  background-color: #fff;
+}
+  
+button::after {
+  border: none;
+  background-color:#fff;
+  line-height: 0;
+  margin-left:none;
+}
+.replay{
+  background: #eee;
+padding: 10rpx 20rpx;
+border-radius: 15rpx;
+font-size:30rpx;
+}
+.replay>view{
+  margin:10rpx 0;
+}
+.huifu{
+  font-size: 30rpx;
+color: #999;
+}
+.modelreplay{
+  width:100%;
+  height:100%;
+  position:fixed;
+  top:0;left:0
+}
+.replaysurn{
+  top:0;
+  width:100%;
+  height:100%;
+  background:#000;
+  opacity: 0.5;
+}
+.replaycontent{
+  width:100%;
+  position:absolute;
+  bottom:0;
+  background:#eee;
+}
+.replaycontent>view{
+  border-bottom:1rpx solid #eee;
+  width:100%;
+  padding:25rpx 0;
+  text-align: center;
+  background:#fff;
+}
+.replaycontent>view:last-child{
+  border:none;
+}
+.rhot{
+  display:inline;
+  color: red;
+  font-size: 34rpx;
+  margin-right: 10rpx;
+}
+.hotimg{
+  width: 78rpx;
+    height: 81rpx;
+    margin-top: -13rpx;
+    margin-bottom: -27rpx;
+    margin-right: 10rpx;
+}

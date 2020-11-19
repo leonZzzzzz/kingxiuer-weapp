@@ -1,0 +1,213 @@
+page{
+  background:#eee;
+}
+.postrow{
+  display: flex;
+justify-content: space-between;
+border-bottom: 1px solid #eee;
+padding: 20rpx;
+}
+.postcontent{
+  width:550rpx;
+}
+.postcontent>view:first-child{
+  font-size:28rpx;
+}
+.postcontent>view:last-child{
+  font-size:26rpx;
+  margin-top:5rpx;
+}
+.time{
+  color:#999;
+  font-size:26rpx;
+  text-align: right;
+}
+.img{
+  margin-top:10rpx;
+}
+.img>image{
+  width:100rpx;height:100rpx;
+  margin-right:10rpx;
+}
+
+.modelreplay{
+  width:100%;
+  height:100%;
+  position:fixed;
+  top:0;left:0
+}
+.replaysurn{
+  top:0;
+  width:100%;
+  height:100%;
+  background:#000;
+  opacity: 0.5;
+}
+.replaycontent{
+  width:100%;
+  position:absolute;
+  bottom:0;
+  background:#eee;
+}
+.replaycontent>view{
+  border-bottom:1rpx solid #eee;
+  width:100%;
+  padding:25rpx 0;
+  text-align: center;
+  background:#fff;
+}
+.replaycontent>view:last-child{
+  border:none;
+}
+
+
+.usercontent{
+  margin-bottom:20rpx;
+  background:#fff;
+  padding:20rpx;
+}
+.user{
+  display:flex;
+  flex-direction: row;
+}
+.user>image{
+  width:90rpx;height:90rpx;
+  border-radius: 50%;
+}
+.name{
+  width:540rpx;
+  flex-direction: column;
+  margin-left:15rpx;
+}
+.name>view{
+  font-size:30rpx;
+}
+.name>text{
+  font-size:26rpx;
+  color:#999;
+}
+.delrep{
+  font-size: 14px;
+background: #eee;
+height: 55rpx;
+line-height: 55rpx;
+width: 80rpx;
+text-align: center;
+border-radius: 10rpx;
+color: #999;
+}
+.forum{
+  margin-top:15rpx;
+  color:#576B8F;
+  font-size:26rpx;
+}
+.word{
+  font-size:30rpx;
+  margin:20rpx 0;
+  text-overflow:ellipsis;/*设置隐藏部分为省略号*/
+   overflow: hidden;/*设置隐藏*/
+   display: -webkit-box;
+   -webkit-line-clamp: 5;/*设置显示行数，此处为2行，可设置其他数字*/
+   -webkit-box-orient: vertical;
+}
+.oneicon{
+  font-size:24rpx;
+  color:#999;
+}
+.twoicon{
+  font-size:30rpx;
+  color:#999;
+}
+.officon{
+  font-size:24rpx;
+  color:#FF9E9E;
+}
+.info{
+  display:flex;
+  justify-content: space-between;
+}
+.num{
+  margin-right:60rpx;
+}
+.num>text:nth-child(2){
+  font-size:26rpx;
+  margin-left:3rpx;
+  color:#999;
+}
+.nickname{
+  margin:30rpx 0;
+  display:flex;
+  flex-direction: row;
+}
+.nickname>view{
+  flex-direction: row;
+  margin-left:20rpx;
+  color:#576B8F;
+  font-size:30rpx;
+}
+.comm>.comment:last-child>.commentone{
+  border-bottom:none !important;
+}
+.comment{
+  display:flex;
+  flex-direction: row;
+  margin:0 20rpx;
+  margin-top:15rpx;
+}
+.comment>image{
+  width:90rpx;
+  height:90rpx;
+  border-radius: 50%;
+  margin-right:15rpx;
+}
+.commentone{
+  width: 600rpx;
+border-bottom: 1rpx solid #eee;
+padding-bottom: 20rpx;
+}
+.commentone>text{
+  color:#576B8F;
+  font-size:28rpx;
+}
+.commentone>view{
+  font-size:30rpx;
+}
+.imagemod{
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+.imagemod>image{
+  width:222rpx;
+  height:222rpx;
+  margin-right:20rpx;
+  margin-top:10rpx;
+  margin-bottom:10rpx;
+}
+.imagemod>image:nth-child(3),.imagemod>image:nth-child(6),.imagemod>image:nth-child(9){
+  margin-right:0;
+}
+.nocontent{
+  text-align: center;
+margin-top: 50px;
+display: flex;
+flex-direction: column;
+}
+.nocontent>image{
+  width:270rpx;
+  height:270rpx;
+  margin-left:240rpx;
+  margin-bottom:30rpx;
+}
+.rhot{
+  display:inline;
+  color: red;
+  font-size: 34rpx;
+  margin-right: 10rpx;
+}
+.hotimg{
+  width: 78rpx;
+    height: 81rpx;
+    margin-top: -13rpx;
+    margin-bottom: -27rpx;
+    margin-right: 10rpx;
+}

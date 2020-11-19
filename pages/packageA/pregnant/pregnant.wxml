@@ -1,0 +1,87 @@
+<w-top></w-top>
+<view class='pregent'>
+  <view class='title'>孕力测试</view>
+  <view class='detitle'>给你一份专业的孕力测试报告结果</view>
+  <view class='detitle2'><text>22万+人参与测试</text></view>
+  <view class='letter'>
+    本测评将从年龄、月经周期和相应的检查等多个方面来综合评估你当前的孕力状况，并提供一些基础的建议，来协助你的怀孕过程。
+  </view>
+  <view class='testcontent'>
+    <view class='testtitle'>
+      <image src='{{imageurl}}/attachments/null/ac10100d72da86200172daa0bb390015.png'></image>
+      <view>孕力自测项</view>
+    </view>
+    <view  class='dehealth'>
+      <text>备孕时间看长短</text>
+      <view class='detext'>所谓不孕，按照临床医学上的定义，夫妻有正常性生活，没有采取避孕措施，一年还不能怀孕，才建议到医院对症治疗。30岁以上的备孕人群可适当缩短备孕的时间，比如尝试怀孕6个月仍未怀孕就应该引起重视。</view>
+    </view>
+    <view class='dehealth'>
+      <text>月经周期看多少</text>
+      <view class='detext'>在正常情况下，月经周期是25～35天，经期为3～7天。月经正常，就表示内分泌功能正常，也会有排卵，这就具备了怀孕的基本条件。如果月经一直不规律，月经量过多或过少，甚至是不来月经了，就可能影响排卵导致不孕。</view>
+    </view>
+    <view class='dehealth'>
+      <text>相关病史看周详</text>
+      <view class='detext'>有些不孕症，和女性以前的疾病史有很大关系。如，有过盆腔和腹腔的感染及手术经历的女性，就容易引起不孕，比如盆腔脓肿、腹腔结核、盆腔炎、宫外孕、子宫内膜异位症、卵巢囊肿、人工流产等，都可影响到输卵管的正常功能导致不孕。</view>
+    </view>
+    <view class='dehealth'>
+      <text>体重指数看胖瘦</text>
+      <view class='detext'>长期太胖或太瘦的人，内分泌功能都会有些异常，从而影响卵巢排卵，导致不孕。</view>
+    </view>
+    <view class='dehealth'>
+      <text>怀孕年龄看大小</text>
+      <view class='detext'>女性越年轻，卵子的质量越好，女性到了30岁之后，身体生理机能都发生了衰退，如果怀孕，会比30岁以前怀孕更辛苦，风险也更大!</view>
+    </view>
+
+    <!-- <view class='theory'>
+      <view class='testrow'>
+        <view>气虚质</view>
+        <view>阳虚质</view>
+        <view>阴虚质</view>
+        <view>痰湿质</view>
+        <view>平和质</view>
+        <view>血瘀质</view>
+        <view>湿热质</view>
+        <view>气郁质</view>
+        <view>特禀质</view>
+      </view>
+    </view> -->
+    <view style='height:10rpx;background:#FBEAB5;margin-top:20rpx'></view>
+    <view class='testtitle'>
+      <image src='{{imageurl}}/attachments/null/ac10100d72da86200172daa0bb390015.png'></image>
+      <view>我们有什么优点？</view>
+    </view>
+    <view class='threerow'>
+      <view class='detext' style='font-size:26rpx'>自测只能知道自己生育力的大概情况，通过我们的测试，通过一些相对精准的数据来为你的生育力进行评估，能帮助你对自己的情况有更清晰的认识，并知道一些具体的情况应该如何针对性的处理</view>
+      <!-- <view class='row_one'>
+        <image style="width:55rpx;height:60rpx;" src='{{imageurl}}/attachments/null/ac10100d72da86200172daa7b9b1001b.png'></image>
+        <view class='rowonetitle'>国家标准</view>
+        <view class='rowonecontent'>中医体质分类与判定</view>
+      </view>
+      <view class='row_one'>
+        <image style="width:60rpx;height:60rpx;" src='{{imageurl}}/attachments/null/ac10100d72da86200172daa846ce001c.png'></image>
+        <view class='rowonetitle'>国家标准</view>
+        <view class='rowonecontent'>中医体质分类与判定</view>
+      </view>
+      <view class='row_one'>
+        <image style="width:70rpx;height:60rpx;" src='{{imageurl}}/attachments/null/ac10100d72da86200172daa8a2b9001d.png'></image>
+        <view class='rowonetitle'>国家标准</view>
+        <view class='rowonecontent'>中医体质分类与判定</view>
+      </view> -->
+    </view>
+    <view style='height:10rpx;background:#FBEAB5;margin-top:20rpx'></view>
+    <view class='testtitle'>
+      <image src='{{imageurl}}/attachments/null/ac10100d72da86200172daa0bb390015.png'></image>
+      <view>可以得到什么？</view>
+    </view>
+    <view class='minget'><text style='color:red;font-size:50rpx;'>3</text>分钟即可获得</view>
+    <view class='result'>
+      <text>你的孕力分析结果</text>
+      <view>+</view>
+      <text>合理化的调理建议</text>
+    </view>
+  </view>
+  <view style='height:150rpx'></view>
+  <view class='btn'>
+      <view bindtap="gotest">立即测评</view>
+  </view>
+</view>

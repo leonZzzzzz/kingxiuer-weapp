@@ -1,0 +1,417 @@
+<w-top></w-top>
+
+<view class='loginshow' wx:if="{{loginshow==false}}" bindtap='loginclick'></view>
+<view class='loginshow' wx:if="{{comclick==1}}"></view>
+<view class="date">
+  <view class="icon i-left2" bindtap='prevMonth'></view>
+  <view style='font-weight:bold'>{{year}}.{{month}}</view>
+  <view class="icon i-right2" bindtap='nextMonth'></view>
+</view>
+<view class="header" bindtap='goaritc'>
+  <!-- <image class='backimg' src='{{rilipic}}'></image> -->
+  <image class='backimg' mode="widthFix" src='http://kingsuer-1255600302.file.myqcloud.com/attachments/20201019/null/ac10100d74cf467b01753f7124cd0dcc.png'></image>
+  <!-- <image wx:if="{{selected.menses || selected.mensesId != null}}" mode='scaleToFill' class='icons' style="width:112rpx;height:89rpx;" src="../../assets/img/y.png"></image>
+  <image wx:elif="{{selected.ovluateDay}}" mode='scaleToFill' class='icons' style="width:77rpx;height:86rpx;" src="../../assets/img/plr.png"></image>
+  <image wx:elif="{{selected.ml}}" mode='scaleToFill'  class='icons' style="width:113rpx;height:86rpx;" src="../../assets/img/tf.png"></image>
+  <image wx:elif="{{selected.mlDay}}" mode='scaleToFill'  class='icons' style="width:113rpx;height:86rpx;" src="../../assets/img/tf.png"></image>
+  <image wx:elif="{{selected.ovluate}}" mode='scaleToFill'  class='icons' style="width:112rpx;height:89rpx;" src="../../assets/img/jz.png"></image>
+  <image wx:else class='icons' mode='scaleToFill'  style="width:112rpx;height:89rpx;" src="../../assets/img/s.png"></image> -->
+  <!-- <view class='back' wx:if="{{!isToDay}}" bindtap='thisDay'>今天</view> -->
+  <view class='pos'>
+    <view class="title" style='margin-top:70rpx' wx:if="{{foreStage.type=='noData'}}">您还没有录入经期,无法预测时间</view>
+    <block wx:else>
+    <view class="title" style='font-size:24rpx !important' wx:if="{{foreStage.type=='ovulation'}}">距离排卵期开始还有</view>
+    <view class="title" style='font-size:24rpx !important' wx:if="{{foreStage.type=='menstrual'}}">距离下次经期还有</view>
+    <view class="title" style='font-size:24rpx !important' wx:if="{{foreStage.type=='ovulationEnd'}}">距离排卵期结束还有</view>
+    <view style='font-size:20rpx;color:#fff;margin-top:15rpx;'><span style='font-size:60rpx !important;font-weight:bold'>{{foreStage.days}} </span> 天</view>
+  </block>
+    <view class="title">
+      <view wx:if="{{selected.menses || selected.mensesId != null}}">- 月经期 -</view>
+      <view wx:elif="{{selected.ovluateDay}}">- 排卵日 -</view>
+      <view wx:elif="{{selected.ml}}">- 已同房 -</view>
+      <view wx:elif="{{selected.mlDay}}">- 建议同房 -</view>
+      <view wx:elif="{{selected.ovluate}}">- 排卵期 -</view>
+      <view wx:elif="{{selected.follicle}}">- 卵泡期 -</view>
+      <view wx:else>- 安全期 -</view>
+    </view>
+    <view class="tip">
+      <text wx:if="{{selected.menses || selected.mensesId != null}}">注意保暖，喝点红糖姜茶可以温宫益经哦！</text>
+      <text wx:elif="{{selected.ovluateDay}}">抓住受孕黄金时机，怀孕几率很高哦！</text>
+      <text wx:elif="{{selected.ml}}">10~14日后可测早孕</text>
+      <text wx:elif="{{selected.mlDay}}">小技巧：同房后平躺30~60分钟</text>
+      <text wx:elif="{{selected.ovluate}}">抓住受孕黄金时机，怀孕几率很高哦！</text>
+      <text wx:elif="{{selected.follicle}}">含丰富雌激素的食物有助于卵泡发育，黑豆就是不错的选择！</text>
+      <text wx:else>此阶段怀孕几率低。</text>
+    </view>
+    <!-- <view class='aixintip' bindtap='goaritc'>{{showValue}}</view> -->
+  </view>
+  
+</view>
+
+<view class="calendar">
+  <view class="week">
+    <view>日</view>
+    <view>一</view>
+    <view>二</view>
+    <view>三</view>
+    <view>四</view>
+    <view>五</view>
+    <view>六</view>
+  </view>
+  <view class="day">
+    <view class="item" wx:for="{{firstInterval}}" wx:key="{{index}}"></view>
+    <block wx:if="{{clickday}}">
+      <view class="item {{clickday == item.full?'border':''}}" wx:for="{{day}}" wx:key="{{index}}" data-list="{{item}}" bindtap='selectedDay'>
+        <!--月经期  -->
+        <view class="list menses {{item.mensesType == 'start'?'start':''}} {{item.mensesType == 'end'?'end':''}}" wx:if="{{item.mensesId != null}}">{{item.day}}</view>     
+        <view class="list menses-color" wx:elif="{{item.menses}}">{{item.day}}</view>
+        <!--排卵期  -->
+        <view class="list ovluate {{item.ovluateType == 'start'?'start':''}} {{item.ovluateType == 'end'?'end':''}}" wx:elif="{{item.ovluate}}">
+          {{item.day}}
+          <!--排卵日  -->
+          <view class="ovluateDay" wx:if="{{item.ovluateDay}}">{{item.day}}</view>
+        </view>
+        <!--普通日  -->
+        <view class="list" wx:else>{{item.day}}</view>
+        <!-- 白带增多 -->
+        <!-- 如果想增加识别，用item.leu增加 -->
+        <!-- <view class="leu">
+          <text  wx:if="{{item.leu}}">多</text>
+        </view> -->
+        <!--同房 和 建议同房  -->
+        <view class="list">
+          <text wx:if="{{item.ml}}" class="icon i-tongfang"></text>
+          <text wx:elif="{{item.mlDay&&!item.mensesId}}" class="icon i-tongfang2"></text>  
+        </view>   
+      </view>
+    </block>
+    <block wx:else>
+      <view class="item {{selected.full == item.full?'border':''}}" wx:for="{{day}}" wx:key="{{index}}" data-list="{{item}}" bindtap='selectedDay'>
+        <!--月经期  -->
+        <view class="list menses {{item.mensesType == 'start'?'start':''}} {{item.mensesType == 'end'?'end':''}}" wx:if="{{item.mensesId != null}}">{{item.day}}</view>
+        <block wx:elif="{{item.menses}}">
+          <view class="list menses-color aa" style='background-color: #fc9cc0; opacity:0.6;' wx:if="{{item.forecast}}">{{item.day}}</view>
+          <view class="list menses-color" wx:else>{{item.day}}</view>
+        </block>
+        <!-- <view class="list menses-color" wx:elif="{{item.menses}}">{{item.day}}</view> -->
+        <!--排卵期  -->
+        <view class="list ovluate {{item.ovluateType == 'start'?'start':''}} {{item.ovluateType == 'end'?'end':''}}" wx:elif="{{item.ovluate}}">
+          {{item.day}}
+          <!--排卵日  -->
+          <view class="ovluateDay" wx:if="{{item.ovluateDay}}">{{item.day}}</view>
+        </view>
+        <!--普通日  -->
+        <view class="list" wx:else>{{item.day}}</view>
+        <!-- 白带增多 -->
+        <!-- 如果想增加识别，用item.leu增加 -->
+        <!-- <view class="leu">
+          <text  wx:if="{{item.leu}}">多</text>
+        </view> -->
+        <!--同房 和 建议同房  -->
+        <view class="list">
+          <text wx:if="{{item.ml}}" class="icon i-tongfang"></text>
+          <text wx:elif="{{item.mlDay&&!item.mensesId}}" class="icon i-tongfang2"></text>  
+        </view>   
+      </view>
+    </block>
+    <view class="item" wx:for="{{lastInterval}}" wx:key="{{index}}"></view>
+  </view>
+  <view class="tip">
+    <view>
+      <text class='circle' style='background:#fc9cc0'></text> 月经期
+    </view>
+    <view>
+      <text class='circle' style='background:#7ec441'></text> 排卵期
+    </view>
+    <view>
+      <text class='circle' style='background:#5bac17'></text> 排卵日
+    </view>
+    <view>
+      <text class='icon i-tongfang2'></text> 建议同房
+    </view>
+    <view>
+      <text class='icon i-tongfang'></text> 已同房
+    </view>
+  </view>
+  <view class='comemer'>
+    <block wx:if="{{!lock}}">
+      <view class="{{selected.leu?'have':'not'}} anniu" bindtap="leucorrhea_Inc"><text class='icon i-baidai'></text>白带增多</view>
+      <view class="{{selected.ml?'have':'not'}} anniu" bindtap="makeLove"><text class='icon i-tongfang'></text>已经同房</view>
+      <!-- <view class='anniu'><text class='icon i-lijia'></text>姨妈来了</view> -->
+
+      <block wx:if='{{selected.come==true}}'>
+        <block wx:if="{{selected.mensesType=='start'}}">
+          <block wx:if='{{selected.forecast}}'>
+            <view class="{{!selected.forecast?'have':'not'}} anniu" bindtap="mCome" data-type='scene5'><text class='icon i-lijia'></text>姨妈来了</view>
+          </block>
+          <block wx:else>
+            <view class="{{selected.mensesType=='start'?'have':'not'}} anniu" bindtap="mCome" data-type='scene1'><text class='icon i-lijia'></text>姨妈没来</view>
+          </block>
+        </block>
+        <block wx:else>
+            <block wx:if='{{selected.mensesId!=null}}'>
+              <view class="{{selected.mensesType=='start'?'have':'not'}} anniu" bindtap="mCome" data-type='scene2'><text class='icon i-lijia'></text>姨妈走了</view>
+            </block>
+            <block wx:else>
+              <block wx:if='{{selected.forecast}}'>
+                <view class="{{selected.mensesType=='start'?'have':'not'}} anniu"  bindtap="mCome" data-type='scene5'><text class='icon i-lijia'></text>姨妈来了</view>
+              </block>
+              <block wx:else>
+                <view class="{{selected.mensesType=='start'?'have':'not'}} anniu" bindtap="mCome" data-type='scene3'><text class='icon i-lijia'></text>姨妈走了</view>
+              </block>
+            </block>
+        </block>
+      </block>
+      <block wx:else>
+        <block wx:if='{{updateMsg.msg&&updateMsg.msg=="update"}}'>
+          <view class="{{(selected.mensesType=='start'&&selected.mensesId!=null)?'have':'not'}} anniu" bindtap="mCome" data-type='scene3' data-num='2'><text class='icon i-lijia'></text>姨妈来了</view>
+        </block>
+        <block wx:else>
+          <block wx:if="{{nextupdate==null}}">
+            <view class="{{(selected.mensesType=='start'&&selected.mensesId!=null)?'have':'not'}} anniu"  bindtap="mCome" data-type='scene6'><text class='icon i-lijia'></text>姨妈来了</view>
+          </block>
+          <block wx:else>
+            <view class="{{(selected.mensesType=='start'&&selected.mensesId!=null)?'have':'not'}} anniu" bindtap="mCome" data-type='scene5'><text class='icon i-lijia'></text>姨妈来了</view>
+          </block>
+        </block>
+      </block>
+      <block wx:if='{{selected.come==true&&!selected.mensesId}}'>
+        <block wx:if="{{selected.mensesType=='start'}}">
+          
+        </block>
+        <block wx:else>
+          <block wx:if="{{selected.mensesType  == 'end'}}">
+            
+          </block>
+          <block wx:else>
+            <block wx:if='{{selected.mensesId!=null}}'>
+              
+            </block>
+            <block wx:else>
+              <block wx:if='{{!selected.forecast}}'>
+                <view class="{{selected.mensesType=='start'?'have':'not'}} anniu" bindtap="mCome" data-type='scene5' data-num='2'><text class='icon i-lijia'></text>姨妈刚来</view>
+              </block>
+            </block>
+          </block>
+        </block>
+      </block>
+    </block>
+    <view wx:elif="{{selected == ''}}" class='moreDate'>
+      选择日期，获取更多操作~
+    </view>
+    <view wx:else class='moreDate'>
+      无法标志未来的日期哦~
+    </view>
+  </view>
+</view>
+
+<!-- <view class='daliy' bindtap='gocenter' data-key='{{centerKey}}'>
+  <image src='{{imageurl2+centerImg}}'></image>
+  <view class='number'>
+    <text class='icon i-rili1 rili'></text>
+    <view class='dalday'>{{selected.day}}</view>
+  </view>
+  <view class='text'>
+    <view class='date'>{{year}}年{{month}}月</view>
+    <view class='msg'>
+      <view wx:if="{{selected.menses || selected.mensesId != null}}">月经期</view>
+      <view wx:elif="{{selected.ovluateDay}}">排卵日</view>
+      <view wx:elif="{{selected.ml}}">已同房</view>
+      <view wx:elif="{{selected.mlDay}}">建议同房</view>
+      <view wx:elif="{{selected.ovluate}}">排卵期</view>
+      <view wx:else>安全期</view>
+    </view>
+  </view>
+</view> -->
+
+<view style='display:none'>
+  <block wx:if="{{!lock}}">
+    <view class="switch-wrap" style='border-bottom:1px solid #f2f2f2'>
+      <block wx:if='{{selected.come==true}}'>
+        <block wx:if="{{selected.mensesType=='start'}}">
+          <block wx:if='{{selected.forecast}}'>
+            <view class="label bb"><view class='iconview'  style='background:#FC9CC0'><text class='icon i-lijia'></text></view>姨妈来了</view>
+            <switch color="#faa4a3" checked="{{!selected.forecast}}" bindchange="mCome" data-type='scene5'/>
+          </block>
+          <block wx:else>
+            <view class="label cc"><view class='iconview'  style='background:#FC9CC0'><text class='icon i-lijia'></text></view>姨妈没来</view>
+            <switch color="#faa4a3" checked="{{selected.mensesType=='start'}}" bindchange="mCome" data-type='scene1'/>
+          </block>
+        </block>
+        <block wx:else>
+            <block wx:if='{{selected.mensesId!=null}}'>
+              <view class="label"><view class='iconview bb'  style='background:#FC9CC0'><text class='icon i-lijia'></text></view>姨妈走了</view>
+              <switch color="#faa4a3" checked="{{selected.mensesType=='start'}}" bindchange="mCome" data-type='scene2'/>
+            </block>
+            <block wx:else>
+              <block wx:if='{{selected.forecast}}'>
+                  <view class="label kk"><view class='iconview cc'  style='background:#FC9CC0'><text class='icon i-lijia'></text></view>姨妈来了</view>
+                  <switch color="#faa4a3" checked="{{selected.mensesType=='start'}}" bindchange="mCome" data-type='scene5'/>
+              </block>
+              <block wx:else>
+                <view class="label ff"><view class='iconview cc'  style='background:#FC9CC0'><text class='icon i-lijia'></text></view>姨妈走了</view>
+                <switch color="#faa4a3" checked="{{selected.mensesType=='start'}}" bindchange="mCome" data-type='scene3'/>
+              </block>
+            </block>
+        </block>
+      </block>
+      <block wx:else>
+        <block wx:if='{{updateMsg.msg&&updateMsg.msg=="update"}}'>
+          <view class="label nn"><view class='iconview'  style='background:#FC9CC0'><text class='icon i-lijia'></text></view>姨妈来了</view>
+          <switch color="#faa4a3" checked="{{selected.mensesType  == 'start' && selected.mensesId != null}}" bindchange="mCome" data-type='scene3' data-num='2'/>
+        </block>
+        <block wx:else>
+          <block wx:if="{{nextupdate==null}}">
+            <view class="label xx"><view class='iconview'  style='background:#FC9CC0'><text class='icon i-lijia'></text></view>姨妈来了</view>
+            <switch color="#faa4a3" checked="{{selected.mensesType  == 'start' && selected.mensesId != null}}" bindchange="mCome" data-type='scene6'/>
+          </block>
+          <block wx:else>
+            <view class="label gg"><view class='iconview'  style='background:#FC9CC0'><text class='icon i-lijia'></text></view>姨妈来了</view>
+            <switch color="#faa4a3" checked="{{selected.mensesType  == 'start' && selected.mensesId != null}}" bindchange="mCome" data-type='scene5'/>
+          </block>
+        </block>
+      </block>
+    </view>
+    <view wx:if='{{selected.come==true&&!selected.mensesId}}'>
+      <block wx:if="{{selected.mensesType=='start'}}">
+        
+      </block>
+      <block wx:else>
+        <block wx:if="{{selected.mensesType  == 'end'}}">
+          
+        </block>
+        <block wx:else>
+          <block wx:if='{{selected.mensesId!=null}}'>
+            
+          </block>
+          <block wx:else>
+            <view wx:if='{{!selected.forecast}}' class="switch-wrap" style='border-bottom:1px solid #f2f2f2'> 
+              <view class="label ff"><view class='iconview cc'  style='background:#FC9CC0'><text class='icon i-lijia'></text></view>姨妈刚来</view>
+              <switch color="#faa4a3" checked="{{selected.mensesType=='start'}}" bindchange="mCome" data-type='scene5' data-num='2'/>
+            </view>
+          </block>
+        </block>
+      </block>
+    </view>
+   
+    <view class="switch-wrap">
+      <view class="label"><view class='iconview' style='background:#8BBCF3'><text class='icon i-baidai'></text></view>白带增多</view>
+      <switch color="#faa4a3" checked="{{selected.leu}}" bindchange="leucorrhea_Inc" />
+    </view>
+    <view class="switch-wrap">
+      <view class="label"><view class='iconview' style='background:#FEB829'><text class='icon i-tongfang'></text></view>已经同房</view>
+      <switch color="#faa4a3" checked="{{selected.ml}}" bindchange="makeLove" />
+    </view>
+  </block>
+  <view wx:elif="{{selected == ''}}" style="padding:30px;text-align:center;font-size:28rpx;">
+    选择日期，获取更多操作~
+  </view>
+  <view wx:else style="padding:30px;text-align:center;font-size:28rpx;">
+    无法标志未来的日期哦~
+  </view>
+</view>
+
+<view class='gocontent'>
+  <view class='rowbox' bindtap='gooval'>
+    <image mode="widthFix" src='http://kingsuer-1255600302.file.myqcloud.com/attachments/20201019/null/ac10100d74cf467b01753fb9da120e1b.png'></image>
+    <view class='posbox'>
+      <image src='http://kingsuer-1255600302.file.myqcloud.com/attachments/20201019/null/ac10100d74cf467b01753fbfa2030e1d.png'></image>
+      <text>测排卵/验孕</text>
+      <text class='icon i-right2"'></text>
+    </view>
+  </view>
+  <view class='rowbox' bindtap='gotemp'>
+    <image mode="widthFix" src='http://kingsuer-1255600302.file.myqcloud.com/attachments/20201019/null/ac10100d74cf467b01753fba7de40e1c.png'></image>
+    <view class='posbox'>
+      <image src='http://kingsuer-1255600302.file.myqcloud.com/attachments/20201019/null/ac10100d74cf467b01753fc031d10e1e.png'></image>
+      <text>记录体温</text>
+      <text class='icon i-right2"'></text>
+    </view>
+  </view>
+</view>
+<view class="switch-wrap" style='border-bottom:1px solid #eee'>
+  <view class="label"><view class='iconview' style='background:#8EE3D3'><text class='icon i-duanxin'></text></view>获取排卵期免费短信提醒</view>
+  <switch color="#faa4a3"  checked="{{config.remind == 1}}" bindchange="onChange" />
+</view>
+<view class="switch-wrap">
+  <view class="label"><view class='iconview' style='background:#5BAC17'><text class='icon i-xiaoxitixing'></text></view>获取金秀儿平姐消息提醒</view>
+  <switch color="#faa4a3"  bindchange="gongzhongTips" checked="{{config.messageAlert==true}}"/>
+</view>
+<view class='message' bindtap='clickmodel' wx:if="{{nofollow==false}}">关注金秀儿平姐获取更多备孕知识</view>
+
+<view wx:if='{{botpic}}' style='background:#fff'>
+  <image style='width:690rpx;height:146rpx;border-radius:10rpx;margin-left:30rpx;margin-bottom:20rpx' src='{{imageurl2+botpic}}' bindtap='gobot'></image>
+</view>
+
+<view class='forum'>
+  <view class='forumtitle' bindtap='goforum'>
+    <image src='http://athena-1255600302.cosgz.myqcloud.com/attachments/scrm/2437ef7f179544debf08866b916d397b.png'></image>
+    <view>好孕圈</view>
+    <image src='http://athena-1255600302.cosgz.myqcloud.com/attachments/scrm/5db108f022d54087a0db0f0371f6b1d9.png'></image>
+  </view>
+  <view class='flexbox' wx:for='{{essaylist}}' bindtap='godetail' data-id='{{item.id}}'>
+    <view class='contentbox'>
+      <view class='boxleft' style="width:{{item.imagelist.length>0?'475rpx':''}}">
+        <view class='box-con' style="white-space:pre-line;">
+          <image wx:if="{{item.isTop}}" class='hotimg' src="{{imageurl2}}/attachments/20200904/null/ac10100d74585c050174586082be0003.png"></image>
+          {{item.content}}</view>
+        <view class='discuss'>#{{item.columnName}}#</view>
+      </view>
+      <image wx:if="{{item.imagelist.length>0}}" class='boxpic' src='{{imageurl2+item.imagelist[0]}}'></image>
+    </view>
+    <view class='contentbox martop'>
+      <view class='me'>
+        <image src='{{item.imgUrl}}'></image>
+        <view>{{item.nickName}}</view>
+      </view>
+      <view class='iconbox'>
+        <view><text class='icon i-yiyue' style='font-size:20rpx'></text>{{item.readQuantity}}</view>
+        <view><text class='icon i-dianzan'></text>{{item.praiseQuantity}}</view>
+        <view><text class='icon i-pinglun'></text>{{item.commentQuantity}}</view>
+        <view><text class='icon i-fenxiang'></text>{{item.shareQuantity}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<!-- 弹出许愿模态框 -->
+<view class="wishingModal" style="display: {{modalSatus}};" wx:if="{{wishSwitch == 'open'}}">
+  <!-- <text class='icon i-guanbi'  bindtap='closeModal'></text> -->
+  <image class="wishingModalImg" src="{{imageurl}}/attachments/null/26fc81d3b3484e9db37d3bd9ac202a1b.png"/>
+  <view class="wishingModalContent">
+    <text class="welcomeUse" >
+      欢迎使用【金秀儿备孕怀孕助手】
+    </text>
+    <text class="wishingtext" >
+      幸“孕”妈妈，快到论坛许愿接好孕吧！
+    </text>   
+    <button class="wishingBtn" bindtap='toWishing' >
+      许好愿
+    </button>
+  </view>
+  <view class="wishingModalClose">
+    <view class="shugang">
+    </view>
+    <button class="closeBtn" bindtap='closeModal'>x</button>
+  </view>
+</view>
+<view class='publicmodel' wx:if="{{showpublic}}">
+  <view class='public'></view>
+  <view class='publicback'>
+    <text class='icon i-guanbi publicdel' bindtap="delpublic"></text>
+    <image src='{{gzcode}}'></image>
+    <view class='publicbtn'><view bindtap="downImage">保存</view></view>
+  </view>
+</view>
+<view class='write' bindtap='gowrite'>
+  <text class='icon i-fatie'></text>
+  <view>发帖</view>
+</view>
+<view class='backtop' wx:if='{{showscroll==true}}' bindtap='backscrolltop'>
+  <text class='icon i-huidaodingbu'></text>
+  <view>顶部</view>
+</view>
+<w-authorize></w-authorize>
+<w-service paramAtoB='true'></w-service>
+
+

@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "论坛",
+  "usingComponents": {
+    "w-top": "../../components/top/top"
+  }
+}

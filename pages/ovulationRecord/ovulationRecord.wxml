@@ -1,0 +1,36 @@
+<image class='bg-img' src="http://kingsuer-1255600302.file.myqcloud.com/attachments/assets/img/bg-record.png"></image>
+<view class="header" wx:if="{{imgUrl}}">
+  <image class="img" style="height:25px;" src="{{imageURL}}/attachments/20200908/null/ac10100d746ba81d01746ca3be2e0031.png"></image>
+  <image class="img" src="{{imgUrl}}"></image>
+</view>
+<view class="section">
+  <view class="section-item">
+    <view class='title'>选择性状</view>
+    <view class="choice">
+      <view wx:for="{{stateName}}" wx:key="{{index}}" bindtap="activeState" class="state {{ activeIndex == item ? 'activeState' : '' }}" data-index="{{item}}">{{item}}</view>
+    </view>
+  </view>
+  <view class="section-item">
+    <view class='title'>测量时间</view>
+    <view class="input-wrap">
+      <view class="picker-wrap">
+        <picker mode="date" value="{{date}}" start="1979-01-01" end="{{toDay}}" bindchange="getDateChange">
+          <view class="picker" style="text-align:left;">
+            <text class="picker-text" wx:if="{{date==toDay}}">今天</text>
+            <text class="picker-text" wx:else>{{ date }}</text>
+          </view>
+        </picker>
+        <picker mode="time" value="{{time}}" start="" end="" bindchange="getTimeChange">
+          <text class="picker-text" style="text-align:left;">{{ time }}</text>
+        </picker>
+      </view>
+    </view>
+  </view>
+  <button class="submit" bindtap="success" loading='{{btnLoading}}' disabled='{{btnLoading}}'>确定</button>
+</view>
+<view class="tipMssg">
+  <view style="color:#333">注意:</view>
+  <view class="text">将试纸对准参考色标卡，对比颜色，取值填入即可</view>
+  <view class="text">选择26~45性状，系统默认为35</view>
+  <view class="text">选择46~64性状，系统默认为55</view>
+</view>

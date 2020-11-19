@@ -1,0 +1,10 @@
+{
+  "navigationBarTitleText": "体温",
+  "usingComponents": {
+    "w-authorize": "../../components/authorize/index",
+    "w-service":"../../components/service/service",
+    "w-top": "../../components/top/top",
+    "w-cart":"../../components/buy/buy",
+    "ec-canvas":"../../components/ec-canvas/ec-canvas"
+  }
+}

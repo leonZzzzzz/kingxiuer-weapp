@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "我的",
+  "navigationBarBackgroundColor": "#ff9e9e",
+  "navigationBarTextStyle": "white",
+  "usingComponents": {
+    "w-top": "../../components/top/top",
+    "w-authorize": "../../components/authorize/index"
+  }
+}

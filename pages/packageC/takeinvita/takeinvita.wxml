@@ -1,0 +1,12 @@
+<w-top></w-top>
+<view class='content'>
+  <view class='invation'>邀请人：{{nickName}}</view>
+  <view class='invatcode'>
+    <text class='icon i-shouji1'></text>
+    <input placeholder="请输入邀请码" value='{{code}}' placeholder-style='color:#B8A0A1' bindinput='getcode'/>
+  </view>
+  <view class='btns'>
+    <view class='tip'>验证通过后，方可进行备孕记录哦</view>
+    <view class='confirm' bindtap='confirm'>确定</view>
+  </view>
+</view>

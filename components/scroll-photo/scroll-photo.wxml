@@ -1,0 +1,44 @@
+<view class="scroll-photo">
+  <view class="scroll-photo_header">
+    <text class="scroll-photo_year">{{year}}</text>
+    <navigator class="scroll-photo_intro" url="../packageA/question/question?type={{type}}">说明</navigator>
+  </view>
+  <!-- 半定量色标卡 -->
+  <view class="color-guide" wx:if="{{needColor}}">
+    <view class='label'>色标卡</view>
+    <image src="{{imageURL}}/attachments/20200908/null/ac10100d746ba81d01746ca3be2e0031.png" style="width:100%;height:25px;"></image>
+  </view>
+  <!-- 验孕结果 -->
+  <scroll-view class="scroll-photo_content " scroll-y="true" style="height:40vh" wx:if="{{data.length !== 0}}" bindscroll="scrollChange">
+    <view class="scroll-photo_list {{item.isTouchMove ? 'touch-move-active' : ''}}" wx:for="{{data}}" wx:key="{{index}}" bindtouchmove="touchmove" data-index="{{index}}" bindtouchstart="touchstart">
+    <view class="content" >
+      <view class="scroll-photo_date">{{item.monthDay}}</view>
+      <view class="scroll-photo_img-wrap">
+        <!-- 按规范拍出的图片 得出C线的大概位置 53% -->
+        <image class="image" src="{{item.fullImg}}" wx:if="{{ item.valueClocation }}" style="margin-left: {{item.valueClocation_2}}%;"></image>
+        <image class="image" src="{{item.fullImg}}" wx:else></image>
+      </view>
+      <view class="scroll-photo_time">{{item.time}}</view>
+      <view class="scroll-photo_state" wx:if="{{item.pregnant>-1}}" style="background:{{item.pregnant == 1?styleBgColor.negative:item.pregnant == 0?styleBgColor.invalid:styleBgColor.positive}}">
+        <text wx:if="{{item.pregnant == 0 }}">无效</text>
+        <text wx:if="{{item.pregnant == 1 }}">阴性</text>
+        <text wx:if="{{item.pregnant == 2 }}">弱阳</text>
+        <text wx:if="{{item.pregnant == 3 }}">阳性</text>
+        <text wx:if="{{item.pregnant == 4 }}">强阳</text>
+      </view>
+      <view class="scroll-photo_state" wx:elif="{{item.type == 1}}" style="background:{{item.lhValue == 1?styleBgColor.negative:item.lhValue == 0?styleBgColor.invalid:item.lhValue == 3?styleBgColor.qiangyang:styleBgColor.positive}}">
+        <text wx:if="{{item.lhValue == 0 }}">无效</text>
+        <text wx:if="{{item.lhValue == 1 }}">阴性</text>
+        <text wx:if="{{item.lhValue == 2 }}">弱阳</text>
+        <text wx:if="{{item.lhValue == 3 }}">阳性</text>
+        <text wx:if="{{item.lhValue == 4 }}">强阳</text>
+      </view>
+      <view class="scroll-photo_state" wx:else style="background:{{item.lhValue <= 45?styleBgColor.invalid:styleBgColor.negative}}">
+        <text>{{item.lhValue}} LH</text>
+      </view>
+      <!-- <view class="del" catchtap="del" data-index="{{index}}">删除</view> -->
+      <view class="del" bindtap="toFatherPage" data-index="{{index}}">删除</view>
+    </view>
+  </view>
+  </scroll-view>
+</view>

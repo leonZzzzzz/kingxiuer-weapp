@@ -1,0 +1,28 @@
+<!--pages/Towishing/Towishing.wxml-->
+<w-top></w-top>
+<view class="wishing">
+<block wx:if="{{isWishing}}">
+  <textarea class="wishingInput" value="{{myWishing.content}}" placeholder="请输入要发布的内容"  placeholder-class="wishingInput-placeholder" 
+  maxlength="140" bindinput='Binput'>
+ </textarea>
+ 
+  
+ <button class="wishingBtn" bindtap='modWishing'>
+  修改愿望
+</button>
+  
+</block>
+<block wx:else>
+  <textarea class="wishingInput" value="" placeholder="请输入要发布的内容"  placeholder-class="wishingInput-placeholder" 
+  maxlength="140" bindinput='Binput'>
+</textarea>
+  
+   
+  <button class="wishingBtn" bindtap='subWishing'>
+    提交愿望
+  </button>
+</block>
+  
+  
+</view>
+  

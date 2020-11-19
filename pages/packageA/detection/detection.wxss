@@ -1,0 +1,142 @@
+page{
+  background:#FACACA;
+}
+.avtor{
+  width:100rpx;height:100rpx;
+  border-radius: 50%;
+  border:2rpx solid #fff;
+  margin-top:40rpx
+}
+.nickname{
+  font-size:28rpx;
+  margin-top:10rpx;
+  text-align: center;
+}
+.title{
+  font-size: 42rpx;
+  font-weight:bold;
+  margin:25rpx;
+  text-shadow:1px 1px 0px #FFFFFF, -1px -1px 0px #FFFFFF, 1px 1px 0px #FFFFFF, -1px -1px 0px #FFFFFF, 1px 1px 0px #FFFFFF, -1px -1px 0px #FFFFFF;
+}
+.content,.recommon{
+  width:670rpx;
+  margin:20rpx;
+  padding:20rpx;
+  border:2rpx solid #222;
+  border-radius: 10rpx;
+  background:#fff;
+  font-size:26rpx;
+  
+}
+.content{
+  overflow: hidden;
+}
+rich-text .rich-img{
+  width: 670rpx ;
+  width:auto;
+height: auto ;
+}
+.anal{
+  text-align: center;
+margin-bottom: 20rpx;
+font-weight: bold;
+border-bottom: 1px solid #eee;
+padding-bottom: 20rpx;
+font-size:30rpx
+}
+.anal-box{
+  margin:15rpx 20rpx;
+  color:rgb(113,39,38)
+}
+.recommon{
+  position:relative;
+  margin-top:50rpx;
+  display:flex;
+  flex-direction: column;
+  line-height: 40rpx;
+}
+.profix{
+  width:670rpx;
+  text-align: center;
+  position:absolute;
+  top:-15rpx;
+}
+.profix>text{
+  background:#000;
+  color:#fff;
+  padding:15rpx 50rpx;
+  border-radius: 10rpx;
+  letter-spacing:5rpx;
+}
+.product{
+  width:210rpx;
+  margin-right:20rpx;
+  margin-top:30rpx;
+}
+.recommon>.product:last-child{
+  margin-right:0rpx !important;
+}
+.procontent{
+  font-size:28rpx;
+  display:flex;
+  flex-direction: column;
+}
+.procontent>image{
+  width:210rpx;
+  height:210rpx;
+}
+.procontent>text{
+  color:#222;
+  margin:10rpx 0 20rpx 0;
+}
+.procontent>view{
+  color:#D86666;
+}
+.share{
+  margin:20rpx;
+  margin-top:50rpx;
+  display:flex;
+  justify-content: space-between;
+}
+.share>text{
+  width:260rpx;
+  text-align: center;
+  background: linear-gradient(to top,#FBEAB5,#F6D367);
+  padding:20rpx;
+  font-size:28rpx;
+  border-radius: 50rpx;
+}
+
+button {
+  display: inline-block;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
+  box-sizing: border-box;
+  font-size: 18px;
+  text-align: center;
+  text-decoration: none;
+  line-height: 1;
+  border-radius: 5px;
+  -webkit-tap-highlight-color: transparent;
+  overflow: hidden;
+  background-color: #FAA4A3;
+}
+  
+button::after {
+  border: none;
+  background-color:#FAA4A3;
+  line-height: 0;
+  margin-left:none;
+}
+.btn{
+  width:260rpx;
+  text-align: center;
+  background: linear-gradient(to top,#FBEAB5,#F6D367);
+  padding:20rpx;
+  font-size:28rpx;
+  border-radius: 50rpx;
+  line-height: 38rpx;
+}
+

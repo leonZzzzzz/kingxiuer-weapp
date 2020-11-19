@@ -1,0 +1,124 @@
+{
+  "pages": [
+    "pages/login/login",
+    "pages/calendar/calendar",
+    "pages/temperature/temperature",
+    "pages/ovulation/ovulation",
+    "pages/forum/forum",
+    "pages/my/my",
+    "pages/methods/methods",
+    "pages/ovulationRecord/ovulationRecord",
+    "pages/record/record",
+    
+    "pages/temperatureRecord/temperatureRecord",
+    "pages/conceiveRecord/conceiveRecord",
+    "pages/camera/camera",
+    "pages/superPhoto/superPhoto",
+    "pages/yuncheng/index",
+    "pages/wishingTree/wishingTree",
+    "pages/graph/graph",
+
+    "pageCommon/searchPost/searchPost"
+
+  ],
+  "subpackages": [
+    {
+      "root": "pages/packageA",
+      "pages": [
+        "question/question",
+        "share/share",
+        "information/mation",
+        "newinfor/newinfor",
+        "pregnant/pregnant",
+        "examlist/list",
+        "evaluation/evaluation",
+        "detection/detection",
+        "adress/adress",
+        "releasePost/releasePost"
+      ]
+    },
+    {
+      "root": "pages/packageB",
+      "pages": [
+        "clockout/clockout",
+        "topic/topic",
+        "punch/punch",
+        "quest-result/result",
+        "clockPunch/clockPunch",
+        "picturewords/picturewords"
+      ]
+    },
+    {
+      "root": "pages/packageC",
+      "pages": [
+        "recordUpdate/recordUpdate",
+        "invitation/invitation",
+        "takeinvita/takeinvita"
+      ]
+    }
+  ],
+
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "备孕记录",
+    "navigationBarTextStyle": "black",
+    "renderingMode": "seperated"
+  },
+  "plugins": {
+    "lhPlugin": {
+      "version": "1.1.11",
+      "provider": "wx479777803030f27b"
+    },
+    "detectionPlugin": {
+      "version": "1.0.3",
+      "provider": "wxe1887dc818c79517"
+    }
+  },
+  "functionalPages": {
+    "independent": true
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "tabBar": {
+    "borderStyle": "white",
+    "selectedColor": "#ff9e9e",
+    "backgroundColor": "#fafafa",
+    "list": [
+      {
+        "pagePath": "pages/calendar/calendar",
+        "text": "经期",
+        "iconPath": "assets/img/i-jq2.png",
+        "selectedIconPath": "assets/img/i-jq.png"
+      },
+      {
+        "pagePath": "pages/temperature/temperature",
+        "text": "体温",
+        "iconPath": "assets/img/i-tw2.png",
+        "selectedIconPath": "assets/img/i-tw.png"
+      },
+      {
+        "pagePath": "pages/ovulation/ovulation",
+        "text": "试纸",
+        "iconPath": "assets/img/i-pn2.png",
+        "selectedIconPath": "assets/img/i-pn.png"
+      },
+      {
+        "pagePath": "pages/forum/forum",
+        "text": "论坛",
+        "iconPath": "assets/img/luntan (2).png",
+        "selectedIconPath": "assets/img/luntan (1).png"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "text": "我的",
+        "iconPath": "assets/img/i-kf2.png",
+        "selectedIconPath": "assets/img/i-kf.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json"
+}

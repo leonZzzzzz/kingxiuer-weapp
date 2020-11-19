@@ -1,0 +1,117 @@
+.header {
+  position: relative;
+  background: #eee;
+}
+
+.header .img {
+  display: block;
+  width: 100%;
+  height: 40px;
+}
+
+.section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 20rpx;
+}
+
+.section-item {
+  margin-top: 40rpx;
+}
+
+.section-item .title {
+  padding-left: 35rpx;
+  margin-bottom: 28rpx;
+  font-size: 30rpx;
+  color: #444;
+}
+
+.choice {
+  width: 640rpx;
+}
+
+.choice .state {
+  display: flex;
+  margin-bottom: 10px;
+  font-size: 30rpx;
+  color: #555;
+  background: #fff;
+  border:1px solid #eee;
+}
+
+.choice .state .label {
+  width: 120rpx;
+  height: 48rpx;
+  line-height: 48rpx;
+  text-align: center;
+  border-right: none;
+}
+
+.choice .activeState {
+  background: #ffbee3;
+}
+
+.input-wrap {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: 560rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  padding: 0 40rpx;
+  margin-top: 26rpx;
+  font-size: 30rpx;
+  background: #fec9e7;
+  border-radius: 50px;
+  box-shadow: 0 0 0px 20rpx rgba(254, 228, 243, 0.8);
+}
+
+.input-wrap input {
+  width: 500rpx;
+}
+
+.input-wrap .picker-wrap {
+  overflow: hidden;
+}
+
+.input-wrap .picker-wrap picker {
+  float: left;
+  padding-right: 20rpx;
+}
+
+.input-wrap .picker-text {
+  color: #555;
+}
+
+.input-wrap .value {
+  color: #555;
+}
+
+.input-wrap .deg {
+  color: #555;
+}
+
+.submit {
+  margin-top: 125rpx;
+  padding: 25rpx 170rpx;
+  line-height: 1;
+  font-size: 32rpx;
+  color: #fff;
+  background: #cca955;
+  border-radius: 50px;
+}
+
+.tipMssg {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: #f6f0e5;
+  padding: 25rpx;
+  text-align: center;
+  font-size: 28rpx;
+  line-height: 40rpx;
+  color: #666;
+}

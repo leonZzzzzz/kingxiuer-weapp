@@ -1,0 +1,38 @@
+<!--pages/recordTemperature/recordTemperature.wxml-->
+<w-top></w-top>
+<view id="section">
+  <!-- <image class='bg-img' mode="widthFlex" src="http://kingsuer-1255600302.file.myqcloud.com/attachments/assets/img/bg-record.png"></image> -->
+  <view class="section-item">
+    <view class='title'>输入基础体温</view>
+    <view class="input-wrap">
+      <input class='value' name="degree" type="digit" maxlength='5' bindinput="getDegree" value="{{degree}}" placeholder="请输入体温" />
+      <text class="deg">℃</text>
+    </view>
+  </view>
+  <view class="section-item">
+    <view class='title'>测量日期</view>
+    <view class="input-wrap">
+      <view wx:if="{{id}}" style='color:#999;' space="ensp">{{date}}        {{ time }}</view>
+      <view wx:else class="picker-wrap">
+        <picker mode="date" value="{{date}}" start="1979-01-01" end="{{toDay}}" bindchange="bindDateChange">
+          <view class="picker" style="text-align:left;">
+            <text class="picker-text" wx:if="{{date==toDay}}">今天</text>
+            <text class="picker-text" wx:else>{{ date }}</text>
+          </view>
+        </picker>
+        <picker mode="time" value="{{time}}" start="" end="" bindchange="bindTimeChange">
+          <text class="picker-text" style="text-align:left;">{{ time }}</text>
+        </picker>
+      </view>
+    </view>
+    
+  </view>
+  <view class="tipMssg">
+    <text style="color:#712726;font-weight: bold;">注意:</text>
+    <text class="text">
+      每日早晨睡醒后不要讲话，不活动，不起床，
+      立刻测量口腔体温3分钟以上。
+    </text>
+  </view>
+  <button class="submit" bindtap="apiInputTemperature" loading='{{btnLoading}}' disabled="{{btnLoading}}">确定</button>
+</view>

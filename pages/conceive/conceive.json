@@ -1,0 +1,8 @@
+{
+  "navigationBarTitleText": "验孕",
+  "usingComponents": {
+    "scroll-photo": "../../components/scroll-photo/scroll-photo",
+    "w-authorize": "../../components/authorize/index",
+    "w-service":"../../components/service/service"
+  }
+}

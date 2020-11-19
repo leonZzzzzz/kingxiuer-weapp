@@ -1,0 +1,40 @@
+<!--components/service/service.wxml-->
+<!-- 客服浮窗 -->
+
+<!-- <view class="view1" style=" bottom:{{bottom}}px;right:{{right}}px;margin: 0% 0rpx 0rpx 0%;" bindtouchmove="setTouchMove">
+  <button class="serviceIcon" open-type="contact" bindtap='click'><text class='icon i-kefu2'></text>客服</button>
+</view> -->
+
+<button wx:if="{{paramAtoB==true}}" class="serviceIcon1" open-type="contact" bindtap='click'><text class='icon i-kefu2'></text>客服</button>
+<button wx:else open-type="contact" class="serviceIcon2" bindtap='click'><text class='icon i-kefu2'></text></button>
+
+ <!-- 还愿成功模态框 -->
+<!-- <view class="successHuanyuan" wx:if="{{ismodel}}">  
+  <view class="successHuanyuanInfo">
+    <text class='icon i-guanbi' bindtap="closeSuccessHuanyuanModal"></text >
+    <view class="successHuanyuanBtn">
+      <button class="successHuanyuanConfirm" bindtap='kefuCode'>客服二维码</button> 
+      <button class="successHuanyuanCancel" open-type="contact">直接联系客服</button>   
+    </view>  
+  </view>
+    
+</view> -->
+<!-- 客服二维码模态框 -->
+<!-- <view class="kefuCode" style="display:{{isShowKefuCode}};">  
+  <view class="kefuCodeInfo" style='position:relative'>
+    <text class='icon i-guanbi' bindtap="closeKefuCode"></text>
+    <view class="kefuCodeTitle">
+      <view class="onePic"></view>
+      <view class="twoPic"></view>
+      <text>客服二维码</text>
+      <view class="twoPic"></view>
+      <view class="onePic"></view>
+    </view>
+    <view class="kefuCodeContent">
+        <image class="" src="{{kefuCode}}" lazy-load="false" binderror="" bindload="" />
+    </view>
+    <view class="kefuCodeBtn">
+      <button class="kefuCodeConfirm" data-url='1' bindtap='downImage'>保存到手机</button> 
+    </view>  
+  </view>
+</view> -->

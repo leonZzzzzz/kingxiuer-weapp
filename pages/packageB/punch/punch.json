@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "日常打卡",
+  "usingComponents": {
+    "w-top": "../../../components/top/top"
+  }
+}

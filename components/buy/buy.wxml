@@ -1,0 +1,6 @@
+<!--components/service/service.wxml-->
+<!-- 购物车 -->
+
+  
+<!-- <button class="cartIcon" bindtap="click"><text class='icon i-goumai'></text>购买</button> -->
+<button class="cartIcon" bindtap="click"><text class='icon i-goumai'></text></button>

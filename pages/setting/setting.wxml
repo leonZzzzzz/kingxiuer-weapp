@@ -1,0 +1,9 @@
+<!--pages/setting/setting.wxml-->
+<w-top></w-top>
+<view class="switch-wrap">
+  <text class="label"><text class='icon i-xingbie'></text>排卵提醒</text>
+  <switch color="#cca955"  checked="{{userInfo.remind == 1}}" bindchange="onChange" />
+</view>
+<view style="margin-top:20px;display:block;text-align:center;font-size:26rpx;color:#666;">
+  <view>当该功能开启时，会接收排卵短信提醒。</view>
+</view>

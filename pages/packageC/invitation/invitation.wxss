@@ -1,0 +1,76 @@
+page{
+  background:#F9F0F0;
+}
+.foryou{
+  color:#732B2A;
+  font-size:30rpx;
+  text-align: center;
+  margin:150rpx 0 50rpx 0;
+}
+.number{
+  font-size: 60rpx;
+font-weight: bold;
+color: #fff;
+text-align: center;
+position: fixed;
+width: 100%;
+top: 690rpx;
+}
+.invita{
+  margin-top: 150rpx;
+  width: 560rpx;
+  margin-left: 105rpx;
+}
+.message{
+  color:#712726;
+  font-weight:bold;
+}
+.content{
+  color: #A17E7F;
+  line-height: 47rpx;
+  font-size: 30rpx;
+  margin-top: 30rpx;  
+}
+image{
+  width: 650rpx;
+  margin-left: 50rpx;
+  height: 75%;
+  position: fixed;
+  top:100rpx;
+  z-index:-1
+}
+.btn{
+  width:650rpx;
+  margin-left:50rpx;
+  background:#FAA4A3;
+  border-radius: 50rpx;
+  color:#fff;
+  position:fixed;
+  bottom:50rpx;
+  padding:25rpx 0;
+  text-align: center;
+}
+button {
+  display: inline-block;
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
+  box-sizing: border-box;
+  font-size: 18px;
+  text-align: center;
+  text-decoration: none;
+  line-height: 1;
+  border-radius: 5px;
+  -webkit-tap-highlight-color: transparent;
+  overflow: hidden;
+  color: #fff;
+  background-color: #FAA4A3;
+}
+  
+button::after {
+  border: none;
+  background-color:#FAA4A3;
+  line-height: 0;
+  margin-left:none;
+}

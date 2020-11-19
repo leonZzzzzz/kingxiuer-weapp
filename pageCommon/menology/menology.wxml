@@ -1,0 +1,9 @@
+<view>ad哈肯定会高科技的复合弓健身房好贵是否会改善了砥节奉公</view>
+<view class="container1" wx:for="{{list}}" wx:if="{{item.page == page}}" bindtouchstart="touchStart" bindtouchmove="touchMove" bindtouchend="touchEnd" animation="{{ani1}}">
+  <text>{{item.name}}</text>
+</view>
+  
+<view class="container2" wx:if="{{page == 2}}"  bindtouchstart="touchStart" bindtouchmove="touchMove" bindtouchend="touchEnd" animation="{{ani2}}">
+container2
+</view>
+  

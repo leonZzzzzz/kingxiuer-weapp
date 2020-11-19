@@ -1,0 +1,43 @@
+<view id="header">
+  <view class="title">验孕结果</view>
+  <view class="explain">喜讯早知道！</view>
+</view>
+<scroll-photo wx:if="{{pageShow}}" url="pregnancy/getPage.do" type="2"></scroll-photo>
+<view class="common-footer-btn" style="height:280rpx;background: #efe9de;">
+  <view class="btn-wrap">
+    <navigator class="iconfont iconfont--big" url="../camera/camera?source=2" hover-class="navigator-hover">
+      <text class="icon i-paizhao"></text>
+    </navigator>
+    <view class="text">拍照</view>
+  </view>
+  <view class="btn-wrap">
+    <view class="iconfont iconfont--big" bindtap="oppenPoster">
+      <text class="icon i-huaiyun"></text>
+    </view>
+    <view class="text">报喜</view>
+  </view>
+</view>
+<!-- 海报 -->
+<view class="bgPoster" wx:if="{{showPoster}}">
+  <view class="posterBox" wx:if="{{showPoster}}">
+    <view class="iconfont icon i-cuo" bindtap="closePoster" style="position:absolute;top:0;right:0;z-index:1;font-size:50rpx;color:#cfab55;"></view>
+    <image class="p-Img" src="https://kingsuer-1255600302.file.myqcloud.com/attachments/assets/img/share.jpg" mode="widthFix" style='height:200rpx;'></image>
+    <view class="p-BtnWrap">
+      <button class="p-btn" open-type="share" hover-class="none">
+        <view class="iconfont icon i-fenxiang"></view>
+        分享
+      </button>
+      <button class="p-btn" open-type="contact" hover-class="none">
+        <view class="iconfont icon i-kefu"></view>
+        客服
+      </button>
+      <button class="p-btn" bindtap="download" hover-class="none">
+        <view class="iconfont icon i-baocun"></view>
+        下载
+      </button>
+    </view>
+  </view>
+</view>
+
+<w-authorize></w-authorize>
+<w-service></w-service>

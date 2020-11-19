@@ -1,0 +1,38 @@
+
+<!-- <camera wx:if='{{showcamera}}' device-position="back" flash="off" binderror="error" style="width:100%; height:300px;"></camera>
+<view class='showView'>
+  <image  mode="widthFix" src="{{src}}"></image>
+</view>
+<button type="primary" bindtap="takePhoto">拍照</button> -->
+
+<w-top></w-top>
+
+<view class='con'>
+  <view class='row'>
+    <text>栏目</text>
+    <picker mode='selector' bindchange="bindPickerChange"  range-key="{{'name'}}" range="{{navInfo}}">
+      <view class="picker">
+        <text style='font-size:30rpx' wx:if="{{proindex==''}}">{{proindex=='0'?navInfo[proindex].name:'请选择栏目'}}</text>
+        <text style='font-size:30rpx' wx:else>{{navInfo[proindex].name}}</text>
+        <text class='icon i-bottom'></text>
+      </view>
+    </picker>
+  </view>
+  <view class='column'>
+    <text>内容<text style='color:#999;font-size:26rpx'>（字数限制为1000字）</text></text>
+    <textarea placeholder="请输入要发布的内容" bindinput="getputcontent" maxlength="1000"></textarea>
+    <view wx:if='{{lenshow}}' style='color:red;font-size:26rpx;text-align: right;'>已达到字数上限</view>
+    <view class="language">
+      <view wx:for="{{attachments}}" class="language" style='margin-right:17rpx;margin-top:10rpx;position:relative;width:160rpx;height:160rpx;'>
+        <image src="{{imageurl}}{{item}}"></image>
+        <text style='position:absolute;right:0;top:0' bindtap='deleteImg' data-index='{{index}}' class='icon i-guanbi1'></text>
+      </view>
+      <image wx:if="{{attachments.length<9}}" bindtap='uploadpic'  class="userinfo-avatar" src="https://athena-1255600302.cosgz.myqcloud.com/attachments/null/1a6db801199f422ba1d6f55c9e3db240.png" background-size="cover"></image> 
+    </view>
+  </view>
+</view>
+<view class='btn' bindtap='publish' wx:if='{{btnsuccess}}'>发布</view>
+<view class='btn' wx:else>发布</view>
+
+
+

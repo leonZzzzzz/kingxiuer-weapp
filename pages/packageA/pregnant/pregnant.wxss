@@ -1,0 +1,152 @@
+page{
+  background:#FACACA;
+}
+.title{
+  font-size:60rpx;
+  font-weight:1000;
+  text-align: center;
+  margin-top:50rpx
+}
+.detitle{
+  color:#222222;
+  font-size:30rpx;
+  text-align: center;
+  margin:10rpx;
+}
+.detitle2{
+  text-align: center;
+  margin:20rpx 0;
+}
+.detitle2>text{
+  background:#fff;
+  border-radius: 10rpx;
+  border:2rpx solid #222;
+  padding:10rpx 30rpx;
+  font-size:30rpx;
+}
+.letter{
+  text-indent:56rpx;
+  background:#FFEDED;
+  width:670rpx;
+  margin-left:20rpx;
+  padding:20rpx;
+  border-radius: 15rpx;
+  border:2rpx solid #222;
+  font-size:28rpx;
+  line-height:46rpx;
+  margin-top:85rpx;
+}
+.testcontent{
+  /* padding:20rpx; */
+  margin:20rpx;
+  width:710rpx;
+  background:#fff;
+  border-radius: 15rpx;
+  border:2rpx solid #222;
+  text-align: center;
+}
+.testtitle{
+  font-weight:bold;
+  position:relative
+}
+.testtitle>image{
+  width:400rpx;
+  height:100rpx;
+}
+.testtitle>view{
+  position:absolute;
+  bottom:25rpx;
+  width:100%;
+  text-align:center
+}
+.dehealth{
+  font-size:26rpx;
+  margin-top:50rpx;
+}
+.dehealth>text{
+  background:#9EE9E8;
+  padding:10rpx 35rpx;
+  border:1rpx solid #000;
+}
+.dehealth>view{
+  margin-top:30rpx;
+}
+.detext{
+  text-indent:2em;
+  margin:20rpx;
+  text-align: left;
+  line-height: 36rpx;
+}
+.theory{
+  width:100%;
+  margin-top:30rpx;
+}
+.testrow{
+  width:270rpx;
+  display:flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin:0 auto;
+  font-size:26rpx;
+  line-height: 57rpx;
+}
+.testrow>view:nth-child(odd){
+  margin-right:20rpx;
+}
+.threerow{
+  display:flex;
+  justify-content: space-between;
+}
+.row_one{
+  width:175rpx;
+  margin:20rpx;
+}
+.row_one>image{
+  width:90rpx;height:90rpx;
+}
+.rowonetitle{
+  font-size:30rpx;
+  color:red;
+}
+.rowonecontent{
+  font-size:28rpx;
+}
+.minget{
+  font-size:28rpx;
+  margin:20rpx;
+}
+.result{
+  display: flex;
+  justify-content: space-between;
+  width: 600rpx;
+margin-left: 55rpx;
+margin-bottom:50rpx
+}
+.result>view{
+  font-size:50rpx;
+  color:red;
+}
+.result>text{
+  background:#9EE9E8;
+  border:1px solid #000;
+  padding:10rpx 20rpx;
+  font-size:26rpx
+}
+
+
+.btn{
+  position:fixed;
+  bottom:40rpx;
+  width:100%;
+  justify-content: center;
+display: flex;
+}
+.btn>view{
+  background: linear-gradient(to top,#FBEAB5,#F6D367);
+  width:350rpx;
+  height:100rpx;
+  line-height: 100rpx;
+  text-align: center;
+  border-radius: 50rpx;
+  font-weight:bold;
+}

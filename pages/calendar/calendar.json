@@ -1,0 +1,11 @@
+{
+  "navigationBarTitleText": "经期",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "w-split": "../../components/split/split",
+    "w-top": "../../components/top/top",
+    "w-authorize": "../../components/authorize/index",
+    "w-service":"../../components/service/service",
+    "calendarMonth":"../../pageCommon/menology/menology"
+  }
+}

@@ -1,0 +1,462 @@
+/* pages/wishingTree/wishingTree.wxss */
+page{
+  height: 100%;
+  width: 100%;
+  position: relative;
+}
+.bg{
+  width: 100%;
+  height: 100%;
+}
+.bg > image {
+  width: 100% ;
+  height: 100% ;
+}
+.newbtn{
+  position: fixed;
+bottom: 50rpx;
+display: flex;
+width: 100%;
+}
+.newbtn>button{
+  padding: 0;
+  background-color: #fcdbda;
+  color: #712726;
+  width: 300rpx;
+  height: 100rpx;
+  line-height: 100rpx;
+  border-radius: 90rpx;
+  font-weight: bold;
+  box-shadow: 5px 5px 10px #dc8686;
+  /* position: fixed; */
+  /* bottom: 100rpx; */
+  /* left: 50%; */
+  /* transform: translate(-50%); */
+
+}
+.wishingContent {
+  width: 50rpx;
+  height: 130rpx;
+  left: 150rpx;
+  top: 500rpx;
+  z-index: 1;
+  position:absolute;
+}
+.wishingContent .haoyunImg{
+  width: 50rpx;
+  height: 130rpx;
+  left: 150rpx;
+  top: 500rpx;
+  z-index: 1;
+  position: fixed;
+}
+.move .haoyunImg{
+  width: 50rpx;
+  height: 130rpx;
+  left: 150rpx;
+  top: 500rpx;
+  z-index: 1;
+  position: absolute;
+  transition:3s all ;
+
+}
+.btnList{
+
+  position:fixed;
+  right: 0rpx;
+  top: 100rpx;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.btnList view{
+  line-height: 28rpx;
+  height: 28rpx;
+  /* he */
+}
+
+.btnList .huanyuan,
+.btnList .zhenduan{
+  padding: 0;
+  line-height: 80rpx;
+  /* padding:20rpx; */
+  width: 80rpx;
+  height: 80rpx;
+  border-radius: 50%;
+  color: #fff;
+  margin: 20rpx;
+  font-size: 22rpx;
+  /* font-weight: bold; */
+  background-color: #ff9e9e;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+}
+
+/* .contentModal{
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 2;
+ 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+/* .contentModal .modalcontent{
+  width: 80%;
+  height: 60%;
+  background-color: #ffdad9;
+  border-radius: 20rpx;
+  display: flex;
+  align-items: center;
+ 
+  flex-direction: column;
+  box-shadow: 5px 5px 10px #dc8686
+} */
+/* .contentModal .modalcontent .modalTitle{
+text-align: center;
+font-size: 30rpx;
+font-weight: bold;
+margin-bottom: 20rpx;
+} */
+.contentModal .modalcontent .userInfo{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.contentModal .modalcontent .userInfo .userImg{
+ width: 100rpx;
+ height: 100rpx;
+ border-radius: 50%;
+ overflow: hidden;
+}
+.contentModal .modalcontent .userInfo .userImg image{
+width: 100%;
+height: 100%;
+
+}
+/* .contentModal .modalcontent .userInfo .importantContent .textContent{
+margin: 20rpx;
+border:1px solid #f9f9f9;
+border-radius: 20rpx;
+background-color: #f6f6f6;
+width: 500rpx;
+height: 360rpx;
+} */
+.myWishingModal,
+.xuyuanModal,
+.contentModal,
+.successHuanyuan,
+.huanyuanModal,
+.kefuCode{
+  z-index: 3;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0 , 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+.myWishingModal .myWishingModalInfo,
+.xuyuanModal .xuyuanModalInfo,
+.contentModal .modalcontent,
+.successHuanyuan .successHuanyuanInfo,
+.huanyuanModal .huanyuanModalInfo,
+.kefuCode .kefuCodeInfo{
+  width: 73.7%;
+  /* height: 55%; */
+  height:820rpx;
+  background-color: #fff;
+  border-radius: 12rpx;
+}
+
+.myWishingModal .myWishingModalInfo{
+  /* height: 60%; */
+  height:870rpx;
+}
+
+
+.myWishingModal .myWishingModalInfo .myWishingModalTitle,
+.xuyuanModal .xuyuanModalInfo .xuyuanModalTitle,
+.contentModal .modalcontent .modalTitle,
+.successHuanyuan .successHuanyuanInfo .successHuanyuanTitle,
+.huanyuanModal .huanyuanModalInfo .huanyuanModalTitle,
+.kefuCode .kefuCodeInfo .kefuCodeTitle{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 15pt;
+  font-weight: bold;
+  color: #712726;
+}
+.onePic,
+.twoPic{
+  width: 7.8pt;
+  height: 7.8pt;
+  transform: rotate(45deg);
+  background-color: #faa4a3;
+  margin: 4.5pt;
+}
+
+.myWishingModal .myWishingModalInfo .myWishingModalTitle text,
+.xuyuanModal .xuyuanModalInfo .xuyuanModalTitle text,
+.contentModal .modalcontent .modalTitle text,
+.huanyuanModal .huanyuanModalInfo .huanyuanModalTitle text{
+  font-size: 13pt;
+  color: #712726;
+}
+
+.successHuanyuan .successHuanyuanInfo .successHuanyuanContent .successHuanyuanContentInfo,
+.myWishingModal .myWishingModalInfo .myWishingModalContent,
+.xuyuanModal .xuyuanModalInfo .xuyuanModalContent,
+.contentModal .modalcontent .importantContent,
+.huanyuanModal .huanyuanModalInfo .huanyuanModalContent{
+  background-color: #fff9f9;
+  /* width: 87%; */
+  height: 63%;
+  margin: 0 5%;
+  padding: 10rpx; 
+}
+.contentModal .modalcontent.importantContent,
+.huanyuanModal .huanyuanModalInfo .huanyuanModalTextarea{
+  color: #9A7475;
+}
+
+.successHuanyuan .successHuanyuanInfo .successHuanyuanContent .successHuanyuanContentInfo textarea,
+.myWishingModal .myWishingModalInfo .myWishingModalContent textarea,
+.xuyuanModal .xuyuanModalInfo .xuyuanModalContent textarea,
+.contentModal .modalcontent .importantContent textarea,
+.huanyuanModal .huanyuanModalInfo textarea{
+  width: 100%;
+  height: 100%;
+
+}
+.successHuanyuanInfo{
+  position:absolute;
+}
+
+.xuyuanModal .xuyuanModalInfo .xuyuanModalBtn,
+.huanyuanModal .huanyuanModalInfo .huanyuanModalBtn{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-top: 13.5pt;
+}
+
+.xuyuanModal .xuyuanModalInfo .xuyuanModalBtn .xuyuanModalBtnConfirm,
+.xuyuanModal .xuyuanModalInfo .xuyuanModalBtn .xuyuanModalBtnCancel,
+.huanyuanModal .huanyuanModalInfo .huanyuanModalBtn .huanyuanModalBtnCancel,
+.huanyuanModal .huanyuanModalInfo .huanyuanModalBtn .huanyuanModalBtnConfirm{
+  width: 76pt;
+  height: 35pt;
+  border: 1px solid #FAA4A3;
+  border-radius: 40pt;
+}
+
+
+.xuyuanModal .xuyuanModalInfo .xuyuanModalBtn .xuyuanModalBtnCancel,
+.successHuanyuan .successHuanyuanInfo .successHuanyuanBtn .successHuanyuanCancel,
+.huanyuanModal .huanyuanModalInfo .huanyuanModalBtn .huanyuanModalBtnCancel{
+  background-color: #fff;
+  color: #faa4a3;
+  /* border: 1px solid #faa4a3; */
+}
+.xuyuanModal .xuyuanModalInfo .xuyuanModalBtn .xuyuanModalBtnConfirm,
+.kefuCode .kefuCodeInfo .kefuCodeBtn .kefuCodeConfirm,
+.successHuanyuan .successHuanyuanInfo .successHuanyuanBtn .successHuanyuanConfirm,
+.huanyuanModal .huanyuanModalInfo .huanyuanModalBtn .huanyuanModalBtnConfirm{
+  background-color: #faa4a3;
+  color: #fff;
+}
+
+
+/* 还愿成功css */
+.successHuanyuan .successHuanyuanInfo{
+  height: 50%;
+}
+
+.successHuanyuan .successHuanyuanInfo .successHuanyuanContent{
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 200rpx;
+  color: #9A7475;
+  flex-direction: column;
+}
+.successHuanyuanContent{
+  height:355rpx !important;
+}
+
+.successHuanyuan .successHuanyuanInfo .successHuanyuanContent .successHuanyuanContentTips{
+  font-size: 27rpx;
+  /* margin-bottom: 20rpx; */
+  /* height: 54rpx; */
+  line-height: 30rpx;
+  width:80%;
+  text-align: center;
+}
+
+
+.kefuCode .kefuCodeInfo .kefuCodeBtn,
+.successHuanyuan .successHuanyuanInfo .successHuanyuanBtn{
+  margin-top: 50rpx;
+  width: 70%;
+  height: 15%;
+  margin: 0 auto;
+}
+.kefuCode .kefuCodeInfo .kefuCodeBtn button,
+.successHuanyuan .successHuanyuanInfo .successHuanyuanBtn button{
+  margin: 20rpx 0;
+  padding: 0;
+  border-radius: 70rpx;
+  border: 1px solid #faa4a3;
+  /* line-height: 0; */
+}
+.closeSuccessHuanyuan{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  position: absolute;
+  left: 50%;
+  transform: translate(-50%);
+  bottom: 45px;
+}
+.closeSuccessHuanyuan .closeline{
+  /* width: 1px; */
+  height: 50rpx;
+  border: 1px solid #fff;
+}
+.closeSuccessHuanyuan .closeSuccessHuanyuanBtn{
+  border-radius: 50%;
+  width: 30pt;
+  height: 30pt;
+  line-height: 26pt;
+  background-color: transparent;
+  color: #fff;
+  border: 2px solid #fff;
+
+}
+
+.modifyWishing {
+  width: 80%;
+  /* height: 15%; */
+  padding: 0;
+  border-radius: 50rpx;
+  background-color: #faa4a3;
+  color: #fff;
+  margin-top: 20rpx;
+}
+
+
+/* 客服二维码 */
+.kefuCode .kefuCodeInfo .kefuCodeContent{
+  /* background-color: pink; */
+  height: 62%;
+  width: 140pt;
+  margin:0 auto
+}
+.kefuCode .kefuCodeInfo .kefuCodeContent image{
+  
+  height: 100%;
+  width: 100%;
+  
+}
+
+.scrollNew{
+  
+  height: 50rpx;
+  width: 90%;
+  position: fixed;
+  top: 20rpx;
+  left: 50%;
+  transform: translate(-50%);
+  border-radius: 50rpx;
+  /* margin: 0 auto; */
+}
+.scrollNew .Scroll_view{
+  width: 100%;
+  height: 100%;
+  }
+/* 滚动条 */
+.scrollNew .Scroll_view .scrolltxt{
+  padding:0 20rpx; 
+  width: 100%;
+  height: 100%;
+}
+.marquee_box {
+  color:#333;
+  height:50rpx;
+  display:block;
+  overflow:hidden;
+
+  background:rgba(0,0,0,0.3);
+  border-radius: 20rpx;
+} 
+.marquee_text {
+  /* background:rgba(0, 0, 0, 0.3);
+  border-radius: 50rpx; */
+  padding: 0 20rpx;
+  white-space: nowrap;
+  position:absolute;
+  top:0;
+  font-size:28rpx;
+  height:50rpx;
+  line-height:50rpx;
+  color: #fff;
+  display: flex;
+}
+.scrollItem{
+  background:rgba(0, 0, 0, 0.3);
+  border-radius: 50rpx;
+  padding: 0 10rpx;
+  box-sizing: border-box;
+  
+}
+
+/* @keyframes play{
+  0%{
+    left: 150rpx;
+    bottom: 0;
+    opacity: 0;
+  
+  }
+
+  50%{
+    opacity: 1;
+  }
+  
+  100% {
+    left: 150rpx;
+    top: 500rpx;
+    
+ 
+  }
+} */
+
+
+.i-guanbi{
+  position: absolute;
+right: 1rpx;
+font-size: 50rpx;
+top: 1rpx;
+}
+.wishtip{
+  /* margin-top: 96rpx; */
+text-align: center;
+font-size: 26rpx;
+
+}

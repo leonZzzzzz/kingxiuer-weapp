@@ -1,0 +1,18 @@
+<w-top></w-top>
+<view wx:if='{{iftrain==false}}'>
+  <navigator class='qc-list' url='../../pageCommon/infotry/infotry?surveyId={{surveyId}}' open-type='navigate'>
+    <view class='content'>
+      <image src="http://kingsuer-1255600302.file.myqcloud.com/attachments/null/ac10100d737593af017375a25ac70009.png"></image>
+    </view>
+  </navigator>
+  <navigator class='qc-list' url='../../pageCommon/clockout/clockout' open-type='navigate'>
+    <view class='content'>
+      <image src="https://athena-1255600302.cosgz.myqcloud.com/attachments/null/d9e654b6309b40a59de8029a17187bad.png"></image>
+    </view>
+  </navigator>
+  <navigator class='qc-list' url='../../pageCommon/clockplan/clockplan' open-type='navigate'>
+    <view class='content'>
+      <image src="https://athena-1255600302.cosgz.myqcloud.com/attachments/null/d79f7730702e4d30b4f6f5878b7600d0.png"></image>
+    </view>
+  </navigator>
+</view>

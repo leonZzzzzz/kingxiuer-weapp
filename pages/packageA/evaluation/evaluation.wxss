@@ -1,0 +1,150 @@
+page{
+  background:rgb(249,240,240);
+}
+.navback{
+  width: 170rpx;
+background: rgb(250,164,163);
+color: #fff;
+padding: 15rpx 20rpx 15rpx 10rpx;
+border-top-right-radius: 40rpx;
+border-bottom-right-radius: 40rpx;
+margin-top: 20rpx;
+font-size: 28rpx;
+text-align: center;
+}
+.dialog{
+  display:flex;
+  margin:30rpx 40rpx;
+  margin-top:50rpx;
+}
+.flexend{
+  /* justify-content: flex-end; */
+  background: #fff;
+  border-radius: 15rpx;
+  padding: 20rpx;
+}
+.flexend>input{
+  width:630rpx;
+}
+.owner{
+  width:110rpx;
+  height:110rpx;
+  border-radius: 50%;
+  background:#feeaea;
+}
+.owner>image{
+  width: 80rpx;
+height: 60rpx;
+text-align: center;
+margin-left: 17rpx;
+margin-top: 25rpx;
+}
+.question{
+  /* border:2px solid #000; */
+  /* padding:20rpx; */
+  /* border-radius: 10rpx; */
+  /* font-size:28rpx; */
+  /* margin-left:30rpx; */
+  /* background:#fff; */
+  /* max-width:500rpx; */
+  /* line-height: 65rpx; */
+}
+.questionright{
+  display:flex;
+  border:2px solid #000;
+  padding:20rpx;
+  border-radius: 10rpx;
+  font-size:28rpx;
+  margin-right:30rpx;
+  background:#9EE9E8;
+  line-height: 65rpx;
+  max-width:500rpx;
+}
+
+checkbox .wx-checkbox-input {
+	width: 34rpx;
+	height: 34rpx;
+	border-radius: 50%;
+}
+/*checkbox选中后样式  */
+checkbox .wx-checkbox-input.wx-checkbox-input-checked {
+  background: #FAA4A3;
+  border-color:#FAA4A3;
+}
+/*checkbox选中后图标样式  */
+checkbox .wx-checkbox-input.wx-checkbox-input-checked::before {
+  width: 20rpx;
+  height: 20rpx;  
+  line-height: 20rpx;
+  text-align: center;
+  font-size: 22rpx;
+  color: #fff;
+  background: transparent;
+  transform: translate(-50%, -50%) scale(1);
+  -webkit-transform: translate(-50%, -50%) scale(1);
+}
+
+/* 选中前radio样式 */
+radio .wx-radio-input{
+  height: 34rpx;
+  width: 34rpx;
+  /* border: 1px solid #007AFF; */
+}
+/* 选中后按钮样式 */
+radio .wx-radio-input.wx-radio-input-checked{
+  background: #FAA4A3; 
+  border: 1px solid #FFF; 
+}
+/* 选中之后按钮中对勾样式 */
+radio .wx-radio-input.wx-radio-input-checked::before{
+  width: 30rpx; /* 选中后对勾大小 省略 /
+  height: 20rpx; / 选中后对勾大小 省略 */
+  line-height: 20rpx; 
+  text-align: center; 
+  background: #FAA4A3;
+  border-radius: 50%;
+}
+.answer{
+  margin:40rpx;
+/* border: 2px solid #000; */
+/* border-radius: 10rpx; */
+/* padding: 20rpx; */
+/* background:#fff; */
+}
+.mulchoice{
+  display: flex;
+  flex-direction: column;
+}
+.mulbox{
+  margin-bottom:25rpx;
+  font-size:30rpx
+}
+.picker{
+  background: #fff;
+padding: 30rpx 40rpx;
+border-radius: 15rpx;
+width: 590rpx;
+margin-left: 40rpx;
+}
+.tip{
+  background: rgb(229,210,210);
+font-size: 26rpx;
+padding: 3rpx 10rpx;
+text-align: center;
+margin-left: 10rpx;
+color:rgb(145,91,92);
+}
+.btn{
+  background:rgb(250,164,163) ;
+  color:#fff;
+  width:670rpx;
+  margin-left:40rpx;
+  text-align: center;
+  padding: 25rpx 0;
+border-radius: 50rpx;
+margin-top:100rpx;
+/* border:1px solid #facaca; */
+}
+.center{
+  text-align: center;
+}

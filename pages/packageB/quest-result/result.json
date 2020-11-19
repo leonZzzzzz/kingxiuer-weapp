@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "问卷结果",
+  "usingComponents": {
+    "w-top": "../../../components/top/top"
+  }
+}

@@ -1,0 +1,17 @@
+<w-top></w-top>
+<view class="controls">
+  <button class="p-btn" open-type="share" hover-class="none">
+    <view class="icon i-fenxiang" style='color: #cca955;margin-bottom:5px'></view>
+    分享
+  </button>
+  <button class="p-btn" bindtap='save' hover-class="none">
+    <view class="icon i-xiazai1" style='color: #cca955;margin-bottom:5px'></view>
+    保存
+  </button>
+  <button class="p-btn"  open-type="contact" hover-class="none">
+    <view class="icon i-kefu" style='color: #cca955;margin-bottom:5px'></view>
+    客服
+  </button>
+</view>
+<view class='tip'><text style='color:red'>* </text>如果发现图片有残缺，请退出重试。</view>
+<canvas canvas-id='canvas' style='width:{{domWidth}}px;height:{{domHeight}}px;'></canvas>

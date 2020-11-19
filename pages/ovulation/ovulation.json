@@ -1,0 +1,12 @@
+{
+  "navigationBarTitleText": "排卵",
+  "usingComponents": {
+    "w-split": "../../components/split/split",
+    "scroll-photo": "../../components/scroll-photo/scroll-photo",
+    "w-authorize": "../../components/authorize/index",
+    "w-service":"../../components/service/service",
+    "w-cart":"../../components/buy/buy",
+    "w-top": "../../components/top/top",
+    "ec-canvas":"../../components/ec-canvas/ec-canvas"
+  }
+}

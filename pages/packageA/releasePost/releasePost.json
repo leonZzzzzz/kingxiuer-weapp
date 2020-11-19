@@ -1,0 +1,6 @@
+{
+  "usingComponents": {
+    "w-top": "../../../components/top/top"
+  },
+  "navigationBarTitleText": "我的发布"
+}

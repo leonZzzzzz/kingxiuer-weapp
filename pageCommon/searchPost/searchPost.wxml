@@ -1,0 +1,94 @@
+<w-top></w-top>
+<view class='search'>
+  <input placeholder="请输入文章内容进行搜索" value='{{content}}' auto-focus='true' placeholder-style='font-size:26rpx' bindinput="getinput" bindconfirm='searchcontent' confirm-type="search"/>
+  <!-- <view bindtap='searchcontent'>搜索</view> -->
+  <view bindtap='deletesearch'>取消</view>
+</view>
+<view style='width:710rpx;padding:30rpx 20rpx;background:#fff;' wx:if='{{showlanmu==true}}'>
+  <scroll-view scroll-x style='white-space: nowrap;' >
+    <view class='nav'>
+      <view wx:for='{{sessList}}' wx:key='*this'  bindtap='changeprograma' data-id='{{item.id}}' class="nav_img">
+        <image src="{{imagefixed}}{{item.iconUrl}}" /> 
+        <view class='nav_text' selectable="false" space="false" decode="false">{{ item.name }}</view>
+        <text wx:if="{{id==item.id}}" class='icon i-xiaosanjiao pointto'></text>
+      </view>
+    </view>
+  </scroll-view>
+</view>
+<block wx:if="{{showcontent==true}}">
+  
+  <view wx:if="{{navInfo.length>0}}" class='searlist'>
+    <view class='usercontent' wx:for="{{navInfo}}">
+      <!-- <view class='user'>
+        <image src='{{item.imgUrl}}'></image>
+        <view class='name'>
+          <view>{{item.nickName}}</view>
+          <text>{{item.createTime}}</text>
+        </view>
+      </view> -->
+      <view class='user' wx:if="{{item.type=='user'}}">
+        <image src='{{item.imgUrl}}'></image>
+        <view class='name'>
+          <view>{{item.nickName}}</view>
+          <text>{{item.createTime}}</text>
+        </view>
+      </view>
+      <view class='user' wx:else>
+        <!-- <image src='{{item.imgUrl}}'></image> -->
+        <text class='icon i-touxiang' style='font-size:45px;color:#999'></text>
+        <view class='name'>
+          <view>平台文章</view>
+          <text>{{item.createTime}}</text>
+        </view>
+      </view>
+      <navigator url='../../pages/packageA/information/mation?id={{item.id}}' open-type='navigate'>
+        <view class='forum'>#{{item.columnName}}#</view>
+      </navigator>
+      <navigator url='../../pages/packageA/information/mation?id={{item.id}}' open-type='navigate'>
+        <view class='word' style="white-space:pre-line;">
+          <image wx:if="{{item.isTop}}" class='hotimg' src="{{imagefixed}}/attachments/20200904/null/ac10100d74585c050174586082be0003.png"></image>
+          {{item.content}}</view>
+      </navigator>
+        <view class='imagemod' wx:if="{{item.attachments!=''}}">
+          <block  wx:for="{{item.imagelist}}"  wx:for-item="value">
+            <!-- <image src='{{imagefixed}}{{value}}'></image> -->
+            <image bindtap='previewImage' src='{{imagefixed}}{{value}}' data-img='{{item.imagelist}}' data-src='{{imagefixed}}{{value}}'></image>
+          </block>
+        </view>
+      
+      
+      <View class='info'>
+        <View class='num'>
+          <text class='icon i-yiyue oneicon'></text>
+          <text>{{item.readQuantity}}</text>
+        </View>
+        <View class='num' bindtap='godetail' data-id="{{item.id}}">
+          <text class='icon i-pinglun oneicon'></text>
+          <text>{{item.commentQuantity}}</text>
+        </View>
+        <View wx:if='{{item.isPraise||item.newisPraise}}' class='num' bindtap='disdianzan' data-id='{{item.id}}' data-status='{{item.status}}'>
+          <text class="icon i-dianzan officon"></text>
+          <text>{{item.praiseQuantity}}</text>
+        </View>
+        <View wx:else class='num' bindtap='dianzan' data-id='{{item.id}}' data-status='{{item.status}}'>
+          <text class="icon i-dianzan oneicon"></text>
+          <text>{{item.praiseQuantity}}</text>
+        </View>
+        <!-- <button class='num' open-type="share" style='margin-top:5rpx'> -->
+        <view class='num' bindtap='godetail' data-id='{{item.id}}'>
+          <text class='icon i-fenxiang oneicon'></text>
+          <text>{{item.shareQuantity}}</text>
+        </view>
+        <!-- </button> -->
+      </View>
+    </view>
+  </view>
+  <view wx:else style='text-align: center;margin-top:100rpx' class='nocontent'>
+    <image src='{{imagefixed}}/attachments/null/ac10100d72e4dc4b0172e57823e20087.png'></image>
+    <text>暂无数据</text>
+  </view>
+</block>
+<view class='backtop' wx:if='{{showscroll==true}}' bindtap='backscrolltop'>
+  <text class='icon i-huidaodingbu'></text>
+  <view>顶部</view>
+</view>

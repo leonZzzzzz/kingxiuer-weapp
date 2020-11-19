@@ -1,0 +1,132 @@
+page{
+  background:rgb(246,246,246);
+}
+/* 弹窗start */
+.punchmodel{
+  width:100%;height:100%;
+  /* position:fixed; */
+  /* top:0; */
+}
+.punchsurn{
+  width:100%;height:100%;
+  background:#000;
+  opacity: 0.6;
+}
+.modelcontent{
+  /* position:absolute; */
+  /* z-index:2; */
+  /* width:570rpx; */
+  /* height:575rpx; */
+  background:#fff;
+  /* border-radius: 10rpx; */
+  /* left:70rpx;
+  top:300rpx; */
+  padding:20rpx;
+}
+.modeltitle{
+  text-align: center;
+}
+.import{
+  flex-direction: column;
+  margin-top:30rpx;
+  font-size:30rpx;
+}
+.importrow{
+  position: relative;
+  display:flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom:1rpx solid #eee;
+  padding:20rpx;
+}
+.none{
+  border-bottom:none !important;
+  display:block;
+}
+.importrow>input{
+  text-align: right;
+  width:370rpx;
+}
+.slecshow{
+  /* width:140rpx; */
+  text-align: right;
+}
+.select_box{
+  position: absolute;
+text-align: center;
+width: 140rpx;
+border: 1px solid #eee;
+}
+.select_one{
+  border-bottom:1rpx  solid #eee;
+  padding:5rpx 0;
+}
+.language{
+  margin-top:15rpx;
+  display:flex;
+  flex-wrap:wrap;
+}
+.userinfo-avatar{
+  width:160rpx;
+  height:160rpx;
+  /* margin-left:10rpx; */
+}
+.pics{
+  width:160rpx;
+  height:160rpx;
+  margin-right:15rpx;
+  position:relative;
+}
+.pics>image{
+  width:160rpx;
+  height:160rpx;
+}
+.modelbtn{
+  text-align: center;
+  /* margin-top:30rpx;
+  margin-bottom:30rpx; */
+  width:100%;
+  position:fixed;
+  bottom:50rpx;
+}
+.modelbtn>text{
+  border: 1px solid #FAA4A3;
+  padding: 20rpx 120rpx;
+  border-radius: 50rpx;
+  font-size: 30rpx;
+  color:#FAA4A3;
+}
+.modelbtn>text:nth-child(2){
+  background:#FAA4A3;
+  margin-left:20rpx;
+  color:#fff !important;
+}
+/* 弹窗end */
+
+.foods{
+  background:rgb(252, 249, 249);
+  margin:10rpx;
+}
+.foods1{
+  /* background:rgb(252, 249, 249); */
+  margin:10rpx;
+  display:flex;
+  justify-content: space-between;
+}
+.add{
+  text-align: center;
+  border:1px dotted #FAA4A3;
+  color:#FAA4A3;
+  padding:15rpx 0;
+  margin-top:10rpx;
+}
+.foodview{
+  background:rgb(252, 249, 249);
+  width:640rpx;
+
+}
+.delfood{
+  color: red;
+font-size: 36rpx;
+margin-top: 110rpx;
+}

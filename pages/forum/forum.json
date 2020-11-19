@@ -1,0 +1,12 @@
+{
+  "navigationBarBackgroundColor": "#FF9A9A",
+  "navigationBarTextStyle": "white",
+  "backgroundColor": "#fff",
+  "backgroundTextStyle": "dark",
+  "enablePullDownRefresh": true,
+  "navigationBarTitleText": "论坛",
+  "usingComponents": {
+    "w-authorize": "../../components/authorize/index",
+    "w-top": "../../components/top/top"
+  }
+}

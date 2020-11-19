@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "资讯详情",
+  "usingComponents": {
+    "w-top": "../../../components/top/top"
+  }
+}

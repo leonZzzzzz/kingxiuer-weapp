@@ -1,0 +1,192 @@
+
+<w-top></w-top>
+<view style='width:710rpx;padding:30rpx 20rpx;background:#fff;position:fixed;top:0;z-index:999'>
+  <scroll-view scroll-x style='white-space: nowrap;' >
+    <view class='nav'>
+      <view wx:for='{{navInfo}}' wx:key='*this'  bindtap='changeprograma' data-type='{{item.type}}' class="nav_img">
+        <view class="nav_text" selectable="false" space="false" decode="false">{{ item.name }}</view>
+        <view class="nav_bot {{clockCategory==item.type?'bottombor':''}}"></view>
+        <!-- <text wx:if="{{clockCategory==item.type}}" class='icon i-xiaosanjiao pointto'></text> -->
+      </view>
+    </view>
+  </scroll-view>
+</view>
+<view style='margin-top:130rpx' wx:if='{{showcontent}}'>
+  <block  wx:if='{{clockCategory!="train"}}'>
+    <view class='content' wx:if="{{datalist.length>0}}">
+      <!-- <view>
+        <view class='left' wx:for='{{datalist}}'>
+          <text class='icon i-yuanxing'></text>
+          <block wx:if='{{item.imageurl.length<=3}}'>
+            <view wx:if='{{item.value.waterIntake}}' style='height:465rpx'></view>
+            <view wx:if='{{item.value.project}}' style='height:465rpx'></view>
+            <view wx:if='{{item.value.bodyWeight}}' style='height:465rpx'></view>
+            <view wx:if='{{item.value.sleepTime&&item.value.remark}}' style='height:545rpx'></view>
+            <view wx:if='{{item.value.sleepTime&&!item.value.remark}}' style='height:507rpx'></view>
+            <view wx:if='{{item.value.length==1}}' style='height:465rpx'></view>
+            <view wx:if='{{item.value.length>1}}' style='height:{{465+25*item.value.length}}rpx'></view>
+          </block>
+          <block wx:if='{{item.imageurl.length>3&&item.imageurl.length<=6}}'>
+            <view wx:if='{{item.value.waterIntake}}' style='height:700rpx'></view>
+            <view wx:if='{{item.value.project}}' style='height:700rpx'></view>
+            <view wx:if='{{item.value.bodyWeight}}' style='height:700rpx'></view>
+            <view wx:if='{{item.value.sleepTime&&item.value.remark}}' style='height:780rpx'></view>
+            <view wx:if='{{item.value.sleepTime&&!item.value.remark}}' style='height:742rpx'></view>
+            <view wx:if='{{item.value.length==1}}' style='height:700rpx'></view>
+            <view wx:if='{{item.value.length>1}}' style='height:{{700+25*item.value.length}}rpx'></view>
+          </block>
+          <block wx:if='{{item.imageurl.length>6&&item.imageurl.length<=9}}'>
+            <view wx:if='{{item.value.waterIntake}}' style='height:900rpx'></view>
+            <view wx:if='{{item.value.project}}' style='height:900rpx'></view>
+            <view wx:if='{{item.value.bodyWeight}}' style='height:900rpx'></view>
+            <view wx:if='{{item.value.sleepTime&&item.value.remark}}' style='height:980rpx'></view>
+            <view wx:if='{{item.value.sleepTime&&!item.value.remark}}' style='height:942rpx'></view>
+            <view wx:if='{{item.value.length==1}}' style='height:900rpx'></view>
+            <view wx:if='{{item.value.length>1}}' style='height:{{900+25*item.value.length}}rpx'></view>
+          </block>
+        </view>
+      </view> -->
+      <view id='right'>
+        <view class='rightcontent' wx:for='{{datalist}}'>
+          <text class='icon i-yuanxing quanquan'></text>
+          <view class='title'>{{item.clockTime}}</view>
+          <!-- <text class='title'>{{item.name}}</text> -->
+          <view class='sportbox' id='sportId'>
+            <view class='time'>
+              <block wx:if='{{clockCategory=="diet"}}' wx:for='{{item.value}}' wx:for-item='val'>
+                <view >{{val.foodType}}：<text>{{val.food}} </text> <text>  数量：{{val.consumption}}碗</text></view>
+              </block>
+              <view wx:if='{{clockCategory=="movement"}}'>{{item.value.project}}：<text>{{item.value.exerciseTime}}分钟 </text> <text>  运动心率：{{item.value.exerciseCentrality}}次/分钟</text></view>
+              <view wx:if='{{clockCategory=="drink"}}'><text>饮水量：{{item.value.waterIntake}}ml</text></view>
+              <view wx:if='{{clockCategory=="weight"}}'><text>体重：{{item.value.bodyWeight}}kg</text></view>
+              <view wx:if='{{clockCategory=="temperature"}}'>
+                <view>睡觉时间：{{item.value.sleepTime}}</view>
+                <view>起床时间：{{item.value.wakeUpTime}}</view>
+                <view wx:if='{{item.value.remark}}'>备注：{{item.value.remark}}</view>
+              </view>
+            </view>
+            <view class='imgbox' wx:if='{{item.attachments}}'>
+              <block wx:for='{{item.imageurl}}' wx:for-item='img' >
+                <image src='{{imageurl+img}}' bindtap='preview' data-url='{{imageurl+img}}' data-imgs='{{item.imageurl}}'></image>
+              </block>
+            </view>
+            <view class='remark'>
+              <block wx:if='{{item.reviews.length>0}}'>
+                <view>系统点评(加入训练营/体验营，将可获得专业点评和指导)：</view>
+                <view wx:for='{{item.reviews}}' wx:for-item='val'>{{index+1}}.{{val.reviews}}</view>
+              </block>
+              <block  wx:else>
+                <view>系统点评(加入训练营/体验营，将可获得专业点评和指导)：-</view>
+              </block>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view wx:else class='nocontent'>
+      <image src='{{imageurl}}/attachments/null/ac10100d72e4dc4b0172e57823e20087.png'></image>
+      <text>暂无数据</text>
+    </view>
+  </block>
+  <block wx:else>
+    <view class='backcontent' wx:if="{{trainCamp.length>0}}">
+      <view class='rightcontent backright' wx:for='{{trainCamp}}' >
+        <!-- <view style='display:flex;justify-content:space-between;'> -->
+          <view style='display:flex;'>
+            <text class='mulu'></text>
+            <view class='title'>{{item.title}}
+              <text class="{{item.type=='training'?'contentType1':'contentType2'}}">{{item.type=='training'?'训练营':'体验营'}}</text>
+            </view>
+          </view>
+          <!-- <view class='checkpunch'>查看结果和点评<text class='icon i-right2'></text></view>
+        </view> -->
+        <view class='contentTime'>{{item.startTime}}-{{item.endTime}}</view>
+        <view style='position:relative'>
+          <view class='sportbox1' id='sportId'>
+            <view class='sportSuggest'>打卡建议</view>
+            <view class='time'>
+              <block wx:for="{{item.suggests}}" wx:for-item='val'>
+                <view wx:if="{{val.content}}">{{val.name}}建议：{{val.content}}</view>
+                <view wx:else>{{val.name}}建议：-</view>
+              </block>
+            </view>
+          </view>
+          <view class='connect'>
+            <image src='{{imageurl}}/attachments/null/ac10100d737ee80f017380152ca200ae.png'></image>
+            <image src='{{imageurl}}/attachments/null/ac10100d737ee80f017380152ca200ae.png'></image>
+          </view>
+          <view class='sportbox1 marmore'>
+            <view class='sportSuggest suggestlook'>
+              <text style='line-height: 60rpx;'>问卷结果及点评</text>
+              <text class='golook' bindtap='questResult' data-id='{{item.surveyId}}'>去看看</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view wx:if="{{trainCamp.length==0}}" class='nocontent'>
+      <image src='{{imageurl}}/attachments/null/ac10100d72e4dc4b0172e57823e20087.png'></image>
+      <text>暂无数据</text>
+    </view>
+  </block>
+  
+  <view style='height:100rpx'></view>
+  <!-- 打卡弹窗 -->
+  <!-- <view class='punchmodel' wx-if="{{showModel}}">
+    <view class='punchsurn'></view>
+    <view class='modelcontent'>
+      <view class='modeltitle'>打卡记录</view>
+      <view class='import'>
+        <view class="importrow">
+          <text>打卡类型</text>
+          <picker class='slecshow' bindchange='chooseType'  mode='selector' range='{{clockType}}' range-key='name'>
+            {{catename?catename:'请选择'}}
+          </picker>
+        </view>
+        <view wx:if="{{category=='diet'}}" class='foods'>
+          <view class="importrow">
+            <text>食物类型</text>
+            <picker mode='selector'range="{{foodList}}" bindchange='chooseFood'>
+              {{foodType?foodType:'请选择'}}
+            </picker>
+          </view>
+          <view class="importrow">
+            <text>吃了什么</text>
+            <input placeholder="请输入"/>
+            <text> </text>
+          </view>
+          <view class="importrow">
+            <text>吃了多少</text>
+            <input placeholder="请输入" style='margin-left:26rpx;'/>
+            <text>碗</text>
+          </view>
+        </view>
+        <view class="importrow">
+          <text>打卡时间</text>
+          <picker class='slecshow' bindchange='choosetime'  mode='time' >
+            {{clockTime?clockTime:'请选择'}}
+          </picker>
+        </view>
+        <view class="importrow">
+          <text>运动时长</text>
+          <input placeholder="请输入"/>
+          <text> </text>
+        </view>
+        <view class="importrow none">
+          <text>上传照片</text>
+          <view class="language">
+            <image  class="userinfo-avatar" src="https://athena-1255600302.cosgz.myqcloud.com/attachments/null/1a6db801199f422ba1d6f55c9e3db240.png" background-size="cover"></image> 
+          </view>
+        </view>
+      </view>
+      <view class='modelbtn'>
+        <text bindtap="hidemodel">取消</text>
+        <text>确认</text>
+      </view>
+    </view>
+  </view> -->
+</view>
+<view class='btn' wx:if='{{clockCategory!="train"}}'>
+  <text bindtap="promPunch">立即打卡</text>
+</view>
+

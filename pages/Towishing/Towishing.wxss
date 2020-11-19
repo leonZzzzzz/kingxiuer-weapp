@@ -1,0 +1,34 @@
+/* pages/Towishing/Towishing.wxss */
+page{
+  height: 100%;
+  width: 100%;
+}
+.wishing{
+  width: 100%;
+  height: 100%;
+}
+.wishing .wishingInput{
+  width: 92%;
+  height: 21.4%;
+  background-color: #f6f6f6;
+  margin: 4%;
+  border-radius: 15rpx;
+  padding: 20rpx;
+}
+.wishingInput-placeholder{
+  padding: 20rpx !important;
+  color: #B3B3B3;
+  font-size: 26rpx;
+}
+
+.wishingBtn{
+  padding: 0;
+  margin: 4%;
+  width: 92%;
+  height: 6.75%;
+  color: #fff;
+  background-color: #ff9e9e;
+  font-weight: bold;
+  font-size: 36rpx;
+  border-radius: 45rpx;
+}

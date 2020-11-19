@@ -1,0 +1,8 @@
+
+.img-wrap{
+   width:100%;
+
+}  
+.img-wrap image{
+   width:100%;
+}

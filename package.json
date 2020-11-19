@@ -1,0 +1,18 @@
+{
+  "name": "kingsure-weapp",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@gitlab.wego168.com:qcwebs/kingsure-weapp.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "yc-fam-js": "^1.0.20"
+  }
+}

@@ -1,0 +1,10 @@
+
+<picker mode="region" bindchange="bindRegionChange" value="{{region}}" >
+  <view class="choose-item">
+   <text class="label-txt">省市区</text>
+   <text wx:if='{{region[0]}}' class="picker-text">{{region[0]}}-{{region[1]}}-{{region[2]}}</text>
+   <text wx:else class="picker-text">请选择</text>
+  </view>
+  
+</picker>
+<view bindtap='confirm' class='btn'>确定</view>

@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "孕力测试",
+  "usingComponents": {
+    "w-top": "../../../components/top/top"
+  }
+}

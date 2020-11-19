@@ -1,0 +1,115 @@
+
+<w-top></w-top>
+<view class='modelcontent'>
+  <!-- <view class='modeltitle'>打卡记录</view> -->
+  <view class='import'>
+    <view class="importrow">
+      <text>打卡类型</text>
+      <picker class='slecshow' bindchange='chooseType'  mode='selector' range='{{clockType}}' range-key='name'>
+        {{catename?catename:'请选择'}}
+      </picker>
+    </view>
+    <block wx:if="{{category=='diet'}}">
+        <view class='foods1' wx:for="{{foodValue}}">
+          <view class='foodview'>
+            <view class="importrow">
+              <text>食物类型</text>
+              <picker mode='selector'range="{{foodList}}" bindchange='chooseFood' data-index='{{index}}'>
+                {{item.foodType?item.foodType:'请选择'}}
+              </picker>
+            </view>
+            <view class="importrow">
+              <text>食物名称</text>
+              <input placeholder="请输入" bindinput='getEat' data-index='{{index}}'/>
+            </view>
+            <view class="importrow">
+              <text>食物数量</text>
+              <input placeholder="请输入" bindinput='getEatmuch' data-index='{{index}}'/>
+              <text>碗</text>
+            </view>
+          </view>
+          <text class='icon i-guanbi1 delfood' bindtap='deteleFood' data-index='{{index}}'></text>
+        </view>
+        
+      <view class='add' bindtap='addValue'>+ 添加</view>
+    </block>
+    <block wx:if="{{category=='movement'}}">
+      <view class='foods' wx:for="{{sportValue}}">
+        <view class="importrow">
+          <text>运动项目</text>
+          <input placeholder="请输入" bindinput='getsportproject'/>
+        </view>
+        <view class="importrow">
+          <text>运动时长</text>
+          <input placeholder="请输入" type='digit' bindinput='getsporytime'/>
+          <text>分</text>
+        </view>
+        <view class="importrow">
+          <text>运动中心率</text>
+          <input placeholder="请输入"  type='digit' bindinput='getsportkey'/>
+          <text>次/分</text>
+        </view>
+      </view>
+      <!-- <view class='add' bindtap='addValue'>+ 添加</view> -->
+    </block>
+    <block wx:if="{{category=='temperature'}}">
+      <view class='foods'>
+        <view class="importrow">
+          <text>昨日睡觉时间</text>
+          <picker class='slecshow' mode="multiSelector" bindchange="binbsleeptime" value="{{multiIndex}}" range="{{multiArray}}">
+            <input value='{{sleepTime}}' placeholder='选择睡觉时间' disabled='disabled'/>
+          </picker>
+        </view>
+        <view class="importrow">
+          <text>起床时间</text>
+          <picker class='slecshow' mode="multiSelector" bindchange="bindwaekuptime" value="{{multiIndex}}" range="{{multiArray}}">
+            <input value='{{wakeUpTime}}' placeholder='选择起床时间' disabled='disabled'/>
+          </picker>
+        </view>
+        <view class="importrow">
+          <text>备注</text>
+          <input placeholder="请输入备注" bindinput='getremark'/>
+        </view>
+      </view>
+    </block>
+    <block wx:if="{{category=='drink'}}">
+      <view class='foods'>
+        <view class="importrow">
+          <text>饮水量</text>
+          <input placeholder="请输入"  type='digit' bindinput='getwater'/>
+          <text>ml</text>
+        </view>
+      </view>
+    </block>
+    <block wx:if="{{category=='weight'}}">
+      <view class='foods'>
+        <view class="importrow">
+          <text>体重</text>
+          <input placeholder="请输入" type='digit' bindinput='getweight'/>
+          <text>kg</text>
+        </view>
+      </view>
+    </block>
+    <view class="importrow">
+      <text>打卡时间</text>
+      <picker class='slecshow' mode="multiSelector" bindchange="bindMultiPickerChange" bindcolumnchange="bindMultiPickerColumnChange" value="{{multiIndex}}" range="{{multiArray}}">
+        <input value='{{time}}' placeholder='选择时间' disabled='disabled'/>
+      </picker>
+    </view>
+    <view class="importrow none">
+      <text>上传照片</text>
+      <view class="language">
+        <view wx:for="{{attachments}}" class='pics'>
+          <image src="{{imageurl}}{{item}}"></image>
+          <text style='position:absolute;right:0;top:0' bindtap='deleteImg' data-index='{{index}}' class='icon i-guanbi1'></text>
+        </view>
+        <image wx:if="{{attachments.length<9}}" bindtap='uploadpic'  class="userinfo-avatar" src="https://athena-1255600302.cosgz.myqcloud.com/attachments/null/1a6db801199f422ba1d6f55c9e3db240.png" background-size="cover"></image> 
+      </view>
+    </view>
+  </view>
+</view>
+<view style='height:150rpx'></view>
+<view class='modelbtn'>
+  <!-- <text bindtap="hidemodel">取消</text> -->
+  <text bindtap='confirm'>确认</text>
+</view>

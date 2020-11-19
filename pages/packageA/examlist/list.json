@@ -1,0 +1,6 @@
+{
+  "navigationBarTitleText": "测试列表",
+  "usingComponents": {
+    "w-top": "../../../components/top/top"
+  }
+}
